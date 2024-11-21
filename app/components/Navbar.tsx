@@ -6,7 +6,9 @@ import SignoutButton from "../components/SignOutButton"
 
 
 export default async function Navbar(){
+    
 const session=await auth()
+
     return(
         <>
         <nav className="flex justify-between m-2 p-2 bg-black">
