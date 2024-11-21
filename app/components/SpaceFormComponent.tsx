@@ -3,20 +3,24 @@ import { FaExclamationCircle } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdDeleteForever } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+
+import ExtraInformation from "./ExtraInformation";
 
 
 export default function SpaceForm(){
-    const [selectedOption, setSelectedOption] = useState('option1');
+    const [showInformationForm, setShowInformationForm] = useState(false);
+
 
     const[questions,setQuestions]=useState([
         {label:"Who are you / what are you working on?",id:0},
         {label:"How has [our product / service] helped you?",id:1},
         {label: "What is the best thing about [our product / service]?",id:2}
         ])
-
+console.log(showInformationForm)
 
     return(
-        <div>
+        <div >
         <p className="text-[#25282C] p-2 text-3xl font-bold mt-6 w-full text-center">Create a new Space</p>
         <p className="text-[#55595F] text-center w-full">After the Space is created, it will generate a dedicated page for collecting testimonials.</p>
         <div className="flex flex-col justify-start items-start mt-10 w-full">
@@ -48,9 +52,17 @@ export default function SpaceForm(){
 
            )}
            <p className="flex justify-center items-center gap-2 text-[#25282C]"><IoIosAddCircleOutline/>Add one (up to 5)</p>
-           <p className="flex justify-center items-center gap-2 mt-4">Collect extra information <FaExclamationCircle/></p>
+           <p className="flex justify-center items-center gap-2 my-4 ">Collect extra information <FaExclamationCircle/></p>
+           <p className={`flex justify-center items-center gap-6 p-2 border-2 border-gray-500 mt-2 px-4 cursor-pointer
+           ${showInformationForm ?'border-blue-600':''}`}
+           onClick={(e)=>{setShowInformationForm((prev)=>!prev)
+            e.stopPropagation()
+           }}>Name,email,social link etc.. <IoIosArrowDown/></p>
+           {showInformationForm ? (
           
-
+          <ExtraInformation/>
+        ):null}
+        <p className="mt-40">erfer</p>
         </div>
         </div>
     )
