@@ -19,8 +19,8 @@ export default function LivePreview(){
         <p className="text-[#747D86] p-2">Your custom message goes here...</p>
         <div className="flex flex-col justify-start items-start w-full p-2">
         <p className="text-black font-bold text-left">QUESTIONS</p>
-        {questions.map((question)=>(
-            <li className="text-[#707D86] font-[500] mt-1">{question}</li>
+        {questions.map((question,index)=>(
+            <li className="text-[#707D86] font-[500] mt-1" key={index}>{question}</li>
         ))}
         <div className="w-full mt-10 flex flex-col gap-2">
             <button className="bg-[#5D5DFF] flex text-white p-2 rounded-lg justify-center items-center gap-4 w-full" >
