@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { RxCrossCircled } from "react-icons/rx";
 import { TiTickOutline  } from "react-icons/ti";
-import { SpaceCreationDetails } from "./SpaceCreationProvider";
+import { SpaceCreationDetails } from "../SpaceCreationProvider";
+
 
 
 export default function BasicPageDropdown(){

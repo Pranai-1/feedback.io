@@ -4,7 +4,7 @@ import { BiSolidLike  } from "react-icons/bi";
 import { CiVideoOn } from "react-icons/ci";
 
 import { MdModeEditOutline } from "react-icons/md";
-import { SpaceCreationDetails } from "./SpaceCreationProvider";
+import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 
 

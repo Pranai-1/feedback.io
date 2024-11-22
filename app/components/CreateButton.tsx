@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import LivePreview from "./LivePreview";
+import LivePreview from "./BasicPage/LivePreview";
 import CreateSpace from "./CreateSpace";
 import SpaceCreationProvider from "./SpaceCreationProvider";
 

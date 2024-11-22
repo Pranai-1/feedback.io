@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SpaceCreationDetails } from "./SpaceCreationProvider";
+import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 export default function BasicPageInput(){
     const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
