@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RxCrossCircled } from "react-icons/rx";
 import { TiTickOutline  } from "react-icons/ti";
+import { SpaceCreationDetails } from "./SpaceCreationProvider";
 
 
 export default function BasicPageDropdown(){
-    const [selectedValue, setSelectedValue] = useState("both");
-    const[collectStarRatings,setCollectStarRatings]=useState(true)
-    const[darkTheme,setDarkTheme]=useState(false)
+  const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
 
     return(
         <div className="flex justify-center items-center gap-12 mt-4">
@@ -17,9 +16,9 @@ export default function BasicPageDropdown(){
 
             <select
                 id="options"
-                value={selectedValue}
+                value={spaceInputs.collectionType}
                 onChange={(event) => {
-                    setSelectedValue(event.target.value);
+                    handleSpaceInputs("collectionType",event.target.value);
                 }}
                 className="border-[2px] border-gray-300 rounded p-2"
             >
@@ -31,9 +30,9 @@ export default function BasicPageDropdown(){
            </div>
            <div className="w-max flex flex-col gap-2 justify-center items-center">
             <p>Collect star ratings :</p>
-            <div className={`${!collectStarRatings ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
-             onClick={(e)=>setCollectStarRatings((prev)=>!prev)} >
-                {collectStarRatings ? (
+            <div className={`${!spaceInputs.collectStarRatings ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
+             onClick={(e)=>handleSpaceInputs("collectStarRatings", !spaceInputs.collectStarRatings)} >
+                {spaceInputs.collectStarRatings ? (
                     <TiTickOutline  className=" text-xl text-white border-2 border-white rounded-full" /> 
                     ):(
                         <RxCrossCircled className="text-gray-600 text-xl" /> 
@@ -42,9 +41,9 @@ export default function BasicPageDropdown(){
            </div>
            <div className="w-max flex flex-col gap-2 justify-center items-center">
             <p>Dark Theme :</p>
-            <div className={`${!darkTheme ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
-             onClick={(e)=>setDarkTheme((prev)=>!prev)} >
-                {darkTheme ? (
+            <div className={`${!spaceInputs.darkTheme ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
+             onClick={(e)=>handleSpaceInputs("darkTheme", !spaceInputs.darkTheme)} >
+                {spaceInputs.darkTheme ? (
                     <TiTickOutline  className=" text-xl text-white border-2 border-white rounded-full" /> 
                     ):(
                         <RxCrossCircled className="text-gray-600 text-xl" /> 

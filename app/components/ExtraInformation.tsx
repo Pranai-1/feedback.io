@@ -1,19 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RxCrossCircled } from "react-icons/rx";
 import { TiTickOutline  } from "react-icons/ti";
-import { fields } from "../static/simpleData";
+
+import { SpaceCreationDetails } from "./SpaceCreationProvider";
 
 
 
 export default function ExtraInformation() {
-  const [extraFields, setExtraFields] = useState(fields);
+  const {extraFields,setExtraFields}=useContext(SpaceCreationDetails)
 
 
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     event.stopPropagation()
     const { name } = event.target;
-
+   
     const updatedFields = extraFields.map((field) => {
         console.log(field)
       if (field.label === name) {
@@ -38,9 +39,11 @@ export default function ExtraInformation() {
       if(name=="Name")
         return
       const updatedFields = extraFields.map((field) => {
-       
+     
       if (field.label === name) {
-          return { ...field, allowed:!field.allowed};
+        if(field.allowed==true && field.required==true)
+          return { ...field, allowed:!field.allowed,required:false};
+        return { ...field, allowed:!field.allowed};
       }
      
       return field;

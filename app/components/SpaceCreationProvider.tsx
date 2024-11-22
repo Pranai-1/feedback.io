@@ -14,10 +14,11 @@ type SpaceInputs = {
 
 type SpaceCreationDetailsType = {
   spaceInputs: SpaceInputs;
-  handleSpaceInputs: (name: string, value: string) => void;
+  handleSpaceInputs: (name: string, value: string | boolean) => void;
   questions: typeof questionData;
   extraFields: typeof fields;
-  setQuestions:(newQuestions: typeof questionData)=>void
+  setQuestions:React.Dispatch<React.SetStateAction<typeof questionData>>;
+  setExtraFields:React.Dispatch<React.SetStateAction<typeof fields>>;
 
 };
 
@@ -35,6 +36,7 @@ export const SpaceCreationDetails = createContext<SpaceCreationDetailsType>({
   questions: questionData,
   setQuestions:()=>{},
   extraFields: fields,
+  setExtraFields:()=>{},
  
 });
 
@@ -54,15 +56,16 @@ export default function SpaceCreationProvider({ children }: SpaceCreationProvide
 
   });
 
-  const [questions, setQuestions] = useState(questionData);
+  const [questions, setQuestions] = useState<typeof questionData>(questionData);
  
-  const [extraFields, setExtraFields] = useState(fields);
+  const [extraFields, setExtraFields] = useState<typeof fields>(fields);
 
-  const handleSpaceInputs = (name: string, value: string) => {
+  const handleSpaceInputs = (name: string, value: string | boolean) => {
     setSpaceInputs((prev) => ({
       ...prev,
       [name]: value,
     }));
+   
   };
 
   return (
@@ -73,6 +76,7 @@ export default function SpaceCreationProvider({ children }: SpaceCreationProvide
         questions,
         setQuestions,
         extraFields,
+        setExtraFields
       
       }}
     >
