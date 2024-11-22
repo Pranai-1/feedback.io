@@ -1,4 +1,3 @@
-
 import { useContext } from "react";
 import { BiSolidLike  } from "react-icons/bi";
 import { CiVideoOn } from "react-icons/ci";
@@ -7,13 +6,10 @@ import { MdModeEditOutline } from "react-icons/md";
 import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 
-
-export default function LivePreview(){
+export default function BasicPagePreview(){
     const {spaceInputs,questions,extraFields}=useContext(SpaceCreationDetails)
-
     return(
-        <div className={`md:w-[400px]  px-6 border-[1px] border-gray-500 rounded-lg flex flex-col justify-center items-center flex-wrap py-4  ${spaceInputs.darkTheme ? 'bg-[#25282C]':''}`}>
-        <p className="bg-[#A7F3D0] rounded-full w-max text-[#059669] font-medium py-1 px-4 absolute top-[82px] left-8">Live preview - Testimonial page</p>
+        <>
         <div className=" bg-blue-600 text-white p-2 rounded-full w-max text-3xl my-8"><BiSolidLike  /></div>
         <p className={`text-3xl font-bold  text-center mb-4 ${spaceInputs.darkTheme ? ' text-[#D9E3EA]':'text-[#55595F]'}`}>{spaceInputs.headerTitle.length==0 ? 'Header goes here...':spaceInputs.headerTitle}</p>
         <p className={` p-2 ${spaceInputs.darkTheme ? ' text-[#D9E3EA]':'text-[#747D86]'}`}>{spaceInputs.customMessage.length==0 ? 'Your custom message goes here...':spaceInputs.customMessage}</p>
@@ -31,7 +27,6 @@ export default function LivePreview(){
         </div>
        
         </div>
-       
-        </div>
+        </>
     )
 }

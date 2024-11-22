@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import LivePreview from "./BasicPage/LivePreview";
+import LivePreview from "./LivePreview";
 import CreateSpace from "./CreateSpace";
 import SpaceCreationProvider from "./SpaceCreationProvider";
 
 export default function CreateButton() {
   const [spaceToggle, setSpaceToggle] = useState(false);
-
+  const[displayPage,setDisplayPage]=useState(0)
   return (
     <div>
       {!spaceToggle ? (
@@ -28,10 +28,10 @@ export default function CreateButton() {
             &#10005;
           </button>
         
-          <div className="flex flex-wrap justify-center items-center md:gap-4 my-10">
+          <div className="flex flex-wrap justify-start items-start md:gap-4 my-10">
             <SpaceCreationProvider>
-            <LivePreview />
-            <CreateSpace />
+            <LivePreview displayPage={displayPage} />
+            <CreateSpace displayPage={displayPage} setDisplayPage={setDisplayPage}/>
             </SpaceCreationProvider>
           </div>
         </div>

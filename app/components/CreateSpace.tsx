@@ -1,16 +1,26 @@
 
+import { useState } from "react";
 import FormNavigator from "./FormNavigator";
-import SpaceForm from "./SpaceFormComponent";
+import SpaceForm from "./BasicPage/SpaceFormComponent";
+import ThankyouPageHome from "./ThankyouPage/ThankyouPageHome";
 
-
-
-export default function CreateSpace(){
-   
-    
+export default function CreateSpace({displayPage,setDisplayPage}:{displayPage:number,setDisplayPage:React.Dispatch<React.SetStateAction<number>>}){
+  
     return(
-        <div className="bg-[#FFFFFF] md:w-[620px] px-4   p-4  w-max max-h-[90vh] overflow-auto">
-       <FormNavigator/>
-       <SpaceForm/>
+        <div className="bg-[#FFFFFF] md:w-[620px] px-4   p-4  w-max max-h-[80vh] overflow-auto">
+       <FormNavigator setDisplayPage={setDisplayPage} displayPage={displayPage}/>
+       {displayPage==0 ? (
+        <SpaceForm/>
+        ):(
+        <>
+        {displayPage==1 ? (
+            <ThankyouPageHome/>
+            ):(
+            <> extra settings page</>
+            )}
+        </>
+        )}
+       
         </div>
     )
 }

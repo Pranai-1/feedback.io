@@ -1,8 +1,8 @@
 
 
-import BasicPageQuestions from "./BasicPage/BasicPageQuestions";
-import BasicPageInput from "./BasicPage/BasicPageInput";
-import BasicPageExtraInputFields from "./BasicPage/BasicPageExtraInputFields";
+import BasicPageQuestions from "./BasicPageQuestions";
+import BasicPageInput from "./BasicPageInput";
+import BasicPageExtraInputFields from "./BasicPageExtraInputFields";
 
 
 export default function SpaceForm(){

@@ -11,15 +11,15 @@ const tabs = [
     { label: "Extra settings", icon: <GiSettingsKnobs />, id: 2 },
   ];
 
-export default function FormNavigator(){
-    const[clicked,setClicked]=useState(0)
+export default function FormNavigator({setDisplayPage,displayPage}:{setDisplayPage:React.Dispatch<React.SetStateAction<number>>,displayPage:number}){
+   
     return(
         <div className="border-[1px] border-gray-500 w-full rounded-lg flex justify-between items-center">
   {tabs.map((tab, index) => (
     <button
       key={tab.id}
       className={`${
-        clicked === tab.id
+        displayPage === tab.id
           ? "bg-[#5D5DFF] font-bold text-black"
           : "font-normal text-[#46393A]"
       } 
@@ -29,7 +29,7 @@ export default function FormNavigator(){
       ${index !== tabs.length - 1 ? "border-r" : ""}
       border-gray-500`}
 
-    onClick={()=>setClicked(index)}  
+    onClick={()=>{setDisplayPage(index)}}  
     >
       {tab.icon}
       {tab.label}
