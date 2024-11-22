@@ -3,6 +3,7 @@
 import { useState } from "react";
 import LivePreview from "./LivePreview";
 import CreateSpace from "./CreateSpace";
+import SpaceCreationProvider from "./SpaceCreationProvider";
 
 export default function CreateButton() {
   const [spaceToggle, setSpaceToggle] = useState(false);
@@ -28,8 +29,10 @@ export default function CreateButton() {
           </button>
         
           <div className="flex flex-wrap justify-center items-center md:gap-4 my-10">
+            <SpaceCreationProvider>
             <LivePreview />
             <CreateSpace />
+            </SpaceCreationProvider>
           </div>
         </div>
       </div>
