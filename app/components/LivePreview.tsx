@@ -12,17 +12,17 @@ const questions=["Who are you / what are you working on?",
 export default function LivePreview(){
     
     return(
-        <div className="md:w-[400px] px-6 border-[1px] border-gray-500 rounded-lg flex flex-col justify-center items-center flex-wrap py-4">
-        <p className="bg-[#A7F3D0] p-2 rounded-lg w-max text-[#059669] font-medium py-1 absolute top-10 left-6">Live preview - Testimonial page</p>
-        <div className=" bg-blue-600 text-white p-2 rounded-full w-max text-3xl mt-8"><BiSolidLike  /></div>
-        <p className="text-3xl font-bold text-[#55595F] text-center">Header goes here...</p>
+        <div className="md:w-[400px]  px-6 border-[1px] border-gray-500 rounded-lg flex flex-col justify-center items-center flex-wrap py-4">
+        <p className="bg-[#A7F3D0] rounded-full w-max text-[#059669] font-medium py-1 px-4 absolute top-[75px] left-6">Live preview - Testimonial page</p>
+        <div className=" bg-blue-600 text-white p-2 rounded-full w-max text-3xl my-8"><BiSolidLike  /></div>
+        <p className="text-3xl font-bold text-[#55595F] text-center mb-4">Header goes here...</p>
         <p className="text-[#747D86] p-2">Your custom message goes here...</p>
         <div className="flex flex-col justify-start items-start w-full p-2">
         <p className="text-black font-bold text-left">QUESTIONS</p>
         {questions.map((question,index)=>(
             <li className="text-[#707D86] font-[500] mt-1" key={index}>{question}</li>
         ))}
-        <div className="w-full mt-10 flex flex-col gap-2">
+        <div className="w-full mt-16 flex flex-col gap-2">
             <button className="bg-[#5D5DFF] flex text-white p-2 rounded-lg justify-center items-center gap-4 w-full" >
                 <CiVideoOn className="text-2xl"/>Record a video</button>
                 <button className="bg-[#33363A] flex text-white p-2 rounded-lg justify-center items-center gap-4 w-full" >

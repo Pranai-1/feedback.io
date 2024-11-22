@@ -18,10 +18,10 @@ export default function CreateButton() {
         </button>
       ) : (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10  ">
-        <div className="bg-white w-max max-h-[90vh] overflow-auto rounded-md shadow-lg p-4 relative">
+        <div className="bg-white rounded-md shadow-lg p-4 relative">
          
           <button
-            className="absolute top-2 right-2 text-gray-500 hover:text-black text-lg"
+            className="absolute top-6 right-10 text-gray-500 hover:text-black text-lg"
             onClick={() => setSpaceToggle(false)}
           >
             &#10005;
