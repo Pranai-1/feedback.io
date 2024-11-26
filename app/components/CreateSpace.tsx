@@ -3,6 +3,7 @@ import { useState } from "react";
 import FormNavigator from "./FormNavigator";
 import SpaceForm from "./BasicPage/SpaceFormComponent";
 import ThankyouPageHome from "./ThankyouPage/ThankyouPageHome";
+import ExtraSettingsHome from "./ExtraSettings/ExtraSettingsHome";
 
 export default function CreateSpace({displayPage,setDisplayPage}:{displayPage:number,setDisplayPage:React.Dispatch<React.SetStateAction<number>>}){
   
@@ -16,7 +17,7 @@ export default function CreateSpace({displayPage,setDisplayPage}:{displayPage:nu
         {displayPage==1 ? (
             <ThankyouPageHome/>
             ):(
-            <> extra settings page</>
+            <ExtraSettingsHome/>
             )}
         </>
         )}
