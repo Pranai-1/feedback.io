@@ -1,4 +1,4 @@
-import { SetStateAction, useContext, useState } from "react";
+import {  useContext, useState } from "react";
 import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 import InputComponent from "../InputComponent";
