@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { IoSettingsOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { GiSettingsKnobs } from "react-icons/gi";

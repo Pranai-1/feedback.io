@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { SpaceCreationDetails } from "./SpaceCreationProvider"
 import BasicPagePreview from "./BasicPage/BasicPagePreview"
 import ThankyouPagePreview from "./ThankyouPage/ThankyouPagePreview"
-import { FaArrowLeftLong } from "react-icons/fa6";
+
 
 
 
