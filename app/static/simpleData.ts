@@ -11,3 +11,7 @@ export const questionData=[
         { label: "Social link", allowed: false, required: false, editable: true, id: 3 },
         { label: "Address", allowed: false, required: false, editable: true, id: 4 },
       ];
+      export const customDetails={
+        headerTitle:"Your custom message goes here...",
+        customMessage:'Your custom message goes here...'
+      }

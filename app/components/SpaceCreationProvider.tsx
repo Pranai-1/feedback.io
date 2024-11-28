@@ -1,26 +1,8 @@
 import { createContext, useState, ReactNode } from "react";
 import { fields, questionData } from "../static/simpleData";
+import { SpaceCreationDetailsType, SpaceInputs } from "../api/types";
 
 
-type SpaceInputs = {
-  spaceName: string;
-  spaceLogo: string;
-  headerTitle: string;
-  customMessage: string;
-  collectStarRatings: boolean;
-  darkTheme: boolean;
-  collectionType: string;
-};
-
-type SpaceCreationDetailsType = {
-  spaceInputs: SpaceInputs;
-  handleSpaceInputs: (name: string, value: string | boolean) => void;
-  questions: typeof questionData;
-  extraFields: typeof fields;
-  setQuestions:React.Dispatch<React.SetStateAction<typeof questionData>>;
-  setExtraFields:React.Dispatch<React.SetStateAction<typeof fields>>;
-
-};
 
 export const SpaceCreationDetails = createContext<SpaceCreationDetailsType>({
   spaceInputs: {
@@ -31,6 +13,9 @@ export const SpaceCreationDetails = createContext<SpaceCreationDetailsType>({
     collectionType:"both",
     collectStarRatings:true,
     darkTheme:false,
+    videoButtonText:"",
+    textButtonText:"",
+    maxChar:""
   },
   handleSpaceInputs: () => {},
   questions: questionData,
@@ -53,7 +38,9 @@ export default function SpaceCreationProvider({ children }: SpaceCreationProvide
     collectionType:"both",
     collectStarRatings:true,
     darkTheme:false,
-
+    videoButtonText:"",
+    textButtonText:"",
+    maxChar:""
   });
 
   const [questions, setQuestions] = useState<typeof questionData>(questionData);

@@ -3,7 +3,7 @@ import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 export default function BasicPageInput(){
     const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
-    console.log(spaceInputs)
+
     return(
         <>
     <label htmlFor="spaceName" className="flex justify-center items-center gap-2 text-[#1a1b1c]">Space name
@@ -23,9 +23,9 @@ export default function BasicPageInput(){
             placeholder="Would you like to give a shoutout for xyz?"
             value={spaceInputs.headerTitle} onChange={(e)=>{handleSpaceInputs("headerTitle",e.target.value)}}/>
 
-    <label htmlFor="customMsg" className="flex justify-center items-center gap-2 text-[#1a1b1c] mt-2">Your custom message
+    <label htmlFor="customMessage" className="flex justify-center items-center gap-2 text-[#1a1b1c] mt-2">Your custom message
                 <p className="text-red-600">*</p></label>
-            <textarea className="w-full border-2 border-gray-500 p-2 h-24 rounded-lg mt-1"  name="customMsg" id="customMsg"
+            <textarea className="w-full border-2 border-gray-500 p-2 h-24 rounded-lg mt-1"  name="customMessage" id="customMessage"
             placeholder="Write a warm message for your customers"
             value={spaceInputs.customMessage} onChange={(e)=>{handleSpaceInputs("customMessage",e.target.value)}}></textarea>
     </>

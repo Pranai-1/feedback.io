@@ -16,7 +16,7 @@ export default function ExtraInformation() {
     const { name } = event.target;
    
     const updatedFields = extraFields.map((field) => {
-        console.log(field)
+  
       if (field.label === name) {
    
         if (!field.allowed) {
@@ -25,7 +25,7 @@ export default function ExtraInformation() {
           return { ...field, required: !field.required };
         }
       }
-      console.log(name,field)
+      
       return field;
     });
 
@@ -33,7 +33,7 @@ export default function ExtraInformation() {
   }
 
   function handleAllow(event:any){
-    console.log(event)
+
     event.stopPropagation()
       const { name } = event.currentTarget.dataset;
       if(name=="Name")
@@ -52,7 +52,6 @@ export default function ExtraInformation() {
   }
 
 
-  console.log(extraFields)
 
   return (
     <div className="flex flex-col justify-center items-center gap-2 bg-[#FFFFFF] w-max mt-4 text-gray-600 shadow-lg rounded-lg absolute top-12 left-0 z-10"

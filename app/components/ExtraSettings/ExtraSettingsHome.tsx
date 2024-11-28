@@ -43,10 +43,10 @@ export default function ExtraSettingsHome(){
                 style={{
                     outline: 'none', 
                   }}/>
-                    <InputComponent title="Max characters for the text testimonial" placeholder="0" id={2} clicked={clicked} setClicked={setClicked} type="number"/>
+                    <InputComponent title="Max characters for the text testimonial" placeholder="0" id={2} clicked={clicked} setClicked={setClicked} type="number" stateValue="maxChar"/>
                 <p className="text-xs text-gray-400">Setting it to 0 will remove the max char limit</p>
-                <InputComponent title="Video button text" placeholder="Record a video" id={3} clicked={clicked} setClicked={setClicked} type="text"/>
-                <InputComponent title="Text button text"  placeholder="Send in text"   id={4} clicked={clicked} setClicked={setClicked} type="text"/>
+                <InputComponent title="Video button text" placeholder="Record a video" id={3} clicked={clicked} setClicked={setClicked} type="text" stateValue="videoButtonText"/>
+                <InputComponent title="Text button text"  placeholder="Send in text"   id={4} clicked={clicked} setClicked={setClicked} type="text" stateValue="textButtonText"/>
             <div className="mt-2 w-max">
                     <label htmlFor="consent" className="flex gap-2 justify-center items-center w-max">
                         Consent display

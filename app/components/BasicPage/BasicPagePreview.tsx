@@ -21,9 +21,9 @@ export default function BasicPagePreview(){
         <div className="w-full mt-16 flex flex-col gap-2">
             
             <button className="bg-[#5D5DFF] flex text-white p-2 rounded-lg justify-center items-center gap-4 w-full" >
-                <CiVideoOn className="text-2xl"/>Record a video</button>
+                <CiVideoOn className="text-2xl"/>{spaceInputs.videoButtonText.length==0 ? 'Record a video':spaceInputs.videoButtonText}</button>
                 <button className="bg-[#33363A] flex text-white p-2 rounded-lg justify-center items-center gap-4 w-full" >
-                <MdModeEditOutline className="text-2xl"/>Send in text</button>
+                <MdModeEditOutline className="text-2xl"/>{spaceInputs.textButtonText.length==0 ? 'Send in text':spaceInputs.textButtonText}</button>
         </div>
        
         </div>
