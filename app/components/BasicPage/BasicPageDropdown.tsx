@@ -11,7 +11,7 @@ export default function BasicPageDropdown(){
   const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
 
     return(
-        <div className="flex justify-center items-center gap-12 mt-4">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-12 mt-4">
         <div className="flex flex-col justify-center items-center gap-2 mt-4">
         <label htmlFor="collectionType" >
         Collection type:

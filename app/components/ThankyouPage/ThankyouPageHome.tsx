@@ -16,8 +16,8 @@ console.log(selected)
             setSelected(-1)
            
             }}>
-        <p className="mt-10 font-bold text-center text-black text-3xl">Customize thank you page</p>
-        <p className="text-[#707D86]  text-md text-center mt-4 "> Add your personalized message to show your appreciate</p>
+        <p className="mt-10 font-bold text-center text-black text-xl sm:text-3xl">Customize thank you page</p>
+        <p className="text-[#707D86]  text-md text-center mt-4 text-sm sm:text-base"> Add your personalized message to show your appreciate</p>
         <div className="flex justify-center items-center gap-2 w-max mt-4">
             <div className="flex justify-start items-center gap-2">
                     <label htmlFor="cheersImage" className="text-[#1a1b1c]  flex items-center gap-1">

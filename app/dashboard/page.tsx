@@ -3,6 +3,8 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import CreateButton from "../components/CreateButton";
 
+
+
 export default async function Dashboard(){
 
   
@@ -10,8 +12,9 @@ export default async function Dashboard(){
     if(!session)
       return redirect("/")
     return(
-      <div >
-      <p>you are in dashboard</p>
+      <div className="relative h-screen w-[100%]">
+      <p className="w-max">you are in dashboard</p>
+   
      <CreateButton/>
       </div>
         

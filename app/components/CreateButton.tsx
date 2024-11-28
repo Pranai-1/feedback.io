@@ -18,17 +18,17 @@ export default function CreateButton() {
           + Create a new space
         </button>
       ) : (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10  ">
-        <div className="bg-white rounded-md shadow-lg p-4 relative">
+        <div className=" absolute top-4 sm:top-0 left-0 w-full z-50 flex justify-center items-center">
+        <div className="bg-white rounded-md shadow-lg md:p-4 relative">
          
           <button
-            className="absolute top-6 right-10 text-gray-500 hover:text-black text-lg"
+            className="absolute top-2 sm:top-6 right-10 text-gray-500 hover:text-black text-lg"
             onClick={() => setSpaceToggle(false)}
           >
             &#10005;
           </button>
         
-          <div className="flex flex-wrap justify-start items-start md:gap-4 my-10">
+          <div className="w-[100%] flex flex-wrap justify-center items-center  lg:justify-start lg:items-start gap-4 my-10 pt-4">
             <SpaceCreationProvider>
             <LivePreview displayPage={displayPage} />
             <CreateSpace displayPage={displayPage} setDisplayPage={setDisplayPage}/>

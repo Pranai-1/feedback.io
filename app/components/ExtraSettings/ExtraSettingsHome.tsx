@@ -15,7 +15,7 @@ export default function ExtraSettingsHome(){
             setClicked(-1)
            
             }}  className="relative">
-            <p className="text-black mt-10 font-bold text-3xl p-2 text-center">Some extra settings</p>
+            <p className="text-black mt-10 font-bold  text-xl sm:text-3xl p-2 text-center">Some extra settings</p>
             <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-2 mt-4">
                     <label htmlFor="videoDuration">Max video duration</label>

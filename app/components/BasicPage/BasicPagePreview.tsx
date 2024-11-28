@@ -12,7 +12,7 @@ export default function BasicPagePreview(){
         <>
         <div className=" bg-blue-600 text-white p-2 rounded-full w-max text-3xl my-8"><BiSolidLike  /></div>
         <p className={`text-3xl font-bold  text-center mb-4 ${spaceInputs.darkTheme ? ' text-[#D9E3EA]':'text-[#55595F]'}`}>{spaceInputs.headerTitle.length==0 ? 'Header goes here...':spaceInputs.headerTitle}</p>
-        <p className={` p-2 ${spaceInputs.darkTheme ? ' text-[#D9E3EA]':'text-[#747D86]'}`}>{spaceInputs.customMessage.length==0 ? 'Your custom message goes here...':spaceInputs.customMessage}</p>
+        <p className={` sm:p-2 ${spaceInputs.darkTheme ? ' text-[#D9E3EA]':'text-[#747D86]'}`}>{spaceInputs.customMessage.length==0 ? 'Your custom message goes here...':spaceInputs.customMessage}</p>
         <div className="flex flex-col justify-start items-start w-full p-2">
         <p className={` font-bold text-left ${spaceInputs.darkTheme ? ' text-[#D9E3EA]':'text-black'}`}>QUESTIONS</p>
         {questions.map((question,index)=>(

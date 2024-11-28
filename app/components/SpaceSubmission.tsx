@@ -40,10 +40,12 @@ export default function SpaceSubmission() {
         pauseOnHover
         theme="light"
         style={{
+           
           border: "2px solid #ffa500",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         }}
+        className="text-sm sm:text-base sm:w-max "
       />
       <button
         className="w-full hover:bg-[#4B4ACF] bg-blue-500 p-2 rounded mt-10 text-white"
