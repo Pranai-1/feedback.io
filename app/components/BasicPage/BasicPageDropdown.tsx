@@ -32,7 +32,7 @@ export default function BasicPageDropdown(){
            <div className="w-max flex flex-col gap-2 justify-center items-center">
             <p>Collect star ratings :</p>
             <div className={`${!spaceInputs.collectStarRatings ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
-             onClick={(e)=>handleSpaceInputs("collectStarRatings", !spaceInputs.collectStarRatings)} >
+             onClick={()=>handleSpaceInputs("collectStarRatings", !spaceInputs.collectStarRatings)} >
                 {spaceInputs.collectStarRatings ? (
                     <TiTickOutline  className=" text-xl text-white border-2 border-white rounded-full" /> 
                     ):(

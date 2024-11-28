@@ -1,9 +1,9 @@
 
-import { useState } from "react"
+
 import cheersImage from "../../../public/cheers.webp"
 
 export default function ThankyouPageHome(){
-const[imageSource,setImageSource]=useState(cheersImage.src)
+
 
     return(
         <div>
@@ -25,7 +25,7 @@ const[imageSource,setImageSource]=useState(cheersImage.src)
                 <p className="text-sm text-gray-700">Hide the image?</p>
         </div>
         <div className="mt-4">
-        <img src={imageSource} className="w-[80px]"/>
+        <img src={cheersImage.src} className="w-[80px]"/>
         </div>
 
  <div className="flex flex-col justify-start items-start mt-4 gap-2">

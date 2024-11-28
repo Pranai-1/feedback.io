@@ -21,7 +21,7 @@ export default function BasicPageQuestions() {
       return
     }
     setQuestions((prev: typeof questionData) => {
-      let arr = [...prev];
+      const arr = [...prev];
     
         return [
           ...arr,
@@ -33,8 +33,8 @@ export default function BasicPageQuestions() {
 
   function handleEditQuestion(id:number,value:string){
         setQuestions((prev:typeof questionData)=>{
-          let arr=[...prev]
-          let updatedQuestions=arr.map((ele)=>{
+          const arr=[...prev]
+          const updatedQuestions=arr.map((ele)=>{
             if(ele.id==id){
              return {...ele,label:value}
             }

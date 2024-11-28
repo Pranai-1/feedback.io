@@ -5,7 +5,7 @@ import { auth } from "@/auth";
 
 
 export default async function Home() {
-  const session=await auth()
+  // const session=await auth()
   // if(session)
   //   return redirect("/dashboard")
   const userDetails = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/userDetails`, {

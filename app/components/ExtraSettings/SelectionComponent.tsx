@@ -13,7 +13,7 @@ options:Options}){
         setClicked(id)
         e.stopPropagation()
         }}>
-       {Object.values(options).map((value,index)=>(
+       {Object.values(options).map((value)=>(
         <option key={value}>{value}</option>
        ))}
       </select>

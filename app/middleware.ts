@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { NextApiRequest } from "next";
+
 import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
 
