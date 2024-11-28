@@ -13,37 +13,31 @@ export default function BasicPageQuestions() {
 
 
   const handleAddQuestion = () => {
-    if(questions.length==5){
+    if (questions.length === 5) {
       setMsg("Questions limit reached");
       setTimeout(() => {
         setMsg("");
       }, 2000);
-      return
+      return;
     }
-    setQuestions((prev: typeof questionData) => {
-      const arr = [...prev];
-    
-        return [
-          ...arr,
-          { label: "", id: arr.length === 0 ? 0 : arr[arr.length - 1]?.id + 1 },
-        ];
-      
-    });
+  
+    setQuestions((prevQuestions) => [
+      ...prevQuestions,
+      {
+        label: "",
+        id: prevQuestions.length > 0 ? prevQuestions[prevQuestions.length - 1].id + 1 : 0,
+      },
+    ]);
   };
-
-  function handleEditQuestion(id:number,value:string){
-        setQuestions((prev:typeof questionData)=>{
-          const arr=[...prev]
-          const updatedQuestions=arr.map((ele)=>{
-            if(ele.id==id){
-             return {...ele,label:value}
-            }
-            return ele
-          })
-          return updatedQuestions
-        })
+  
+  function handleEditQuestion(id: number, value: string) {
+    setQuestions((prevQuestions) =>
+      prevQuestions.map((question) =>
+        question.id === id ? { ...question, label: value } : question
+      )
+    );
   }
-
+  
   return (
     <>
       <p className="flex justify-center items-center gap-2 mt-4 mb-2">

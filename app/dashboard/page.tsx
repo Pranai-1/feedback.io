@@ -1,3 +1,4 @@
+"use server"
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import CreateButton from "../components/CreateButton";

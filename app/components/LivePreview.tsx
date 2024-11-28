@@ -7,6 +7,7 @@ import ThankyouPagePreview from "./ThankyouPage/ThankyouPagePreview"
 
 
 export default function LivePreview({displayPage}:{displayPage:number}){
+   
     const {spaceInputs}=useContext(SpaceCreationDetails)
 console.log(spaceInputs)
     return(
@@ -15,7 +16,7 @@ console.log(spaceInputs)
        
             {displayPage==1 ? (
                 <>
-                <ThankyouPagePreview/>
+                <ThankyouPagePreview />
                
              </>
                 ):(

@@ -15,7 +15,12 @@ export const SpaceCreationDetails = createContext<SpaceCreationDetailsType>({
     darkTheme:false,
     videoButtonText:"",
     textButtonText:"",
-    maxChar:""
+    maxChar:"",
+    disableCheersImage:false,
+    videoDuration:"120 seconds",
+    consent:'Required',
+     thankyouTitle:"",
+    thankyouDescription:""
   },
   handleSpaceInputs: () => {},
   questions: questionData,
@@ -40,7 +45,12 @@ export default function SpaceCreationProvider({ children }: SpaceCreationProvide
     darkTheme:false,
     videoButtonText:"",
     textButtonText:"",
-    maxChar:""
+    maxChar:"",
+    disableCheersImage:false,
+     videoDuration:"120 seconds",
+    consent:'Required',
+    thankyouTitle:"",
+    thankyouDescription:""
   });
 
   const [questions, setQuestions] = useState<typeof questionData>(questionData);

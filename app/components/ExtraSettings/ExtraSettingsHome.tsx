@@ -1,14 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 
 import { HiOutlineExclamationCircle } from "react-icons/hi2";
 import { Tooltip as ReactTooltip } from 'react-tooltip';
-import SelectionComponent from "./SelectionComponent";
-import InputComponent from "./InputComponent";
+import SelectionComponent from "../SelectionComponent";
+import InputComponent from "../InputComponent";
+import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 
 export default function ExtraSettingsHome(){
     const[clicked,setClicked]=useState(-1)
-   
+   const{spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
     return(
         <div onClick={()=>{
             setClicked(-1)
@@ -17,36 +18,64 @@ export default function ExtraSettingsHome(){
             <p className="text-black mt-10 font-bold text-3xl p-2 text-center">Some extra settings</p>
             <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-2 mt-4">
-                    <label htmlFor="maxSeconds">Max video duration</label>
+                    <label htmlFor="videoDuration">Max video duration</label>
                     <SelectionComponent 
                         clicked={clicked} 
                         setClicked={setClicked} 
                         id={1}
-                        name="maxSeconds"
-                        options={{
-                            option1:"120 seconds",
-                            option2:"90 seconds",
-                            option3:"60 seconds",
-                    }} />
+                        name="videoDuration"
+                        options={
+                         [  { label:"120 seconds",value:"120 seconds"},
+                            { label:"90 seconds",value:"90 seconds"},
+                            { label:"60 seconds",value:"60 seconds"}]
+                    } 
+                    value={spaceInputs.videoDuration}
+                    handleSpaceInputs={handleSpaceInputs}
+                    />
             
                 </div>
 
             <div className="flex flex-col gap-2 mt-4">
-                <label htmlFor="maxCharacters">Max characters for the text testimonial</label>
-                <input name="maxCharacters" id="maxCharacters"  placeholder="0" type="number" 
-                className={` w-max p-2 border border-gray-500 ${clicked==2? 'border-2 border-blue-500':'border border-gray-600'} `
-                }
-                onClick={(e)=>{
-                    setClicked(2)
-                    e.stopPropagation()
-                }}
-                style={{
-                    outline: 'none', 
-                  }}/>
-                    <InputComponent title="Max characters for the text testimonial" placeholder="0" id={2} clicked={clicked} setClicked={setClicked} type="number" stateValue="maxChar"/>
+               
+                <InputComponent title="Max characters for the text testimonial" 
+                placeholder="0" 
+                id={2} 
+                clicked={clicked} 
+                setClicked={setClicked} 
+                type="number"
+                name="maxChar"
+                 required={false}
+                 value={spaceInputs.maxChar}
+                 handleSpaceInputs={handleSpaceInputs}
+                 />
+
                 <p className="text-xs text-gray-400">Setting it to 0 will remove the max char limit</p>
-                <InputComponent title="Video button text" placeholder="Record a video" id={3} clicked={clicked} setClicked={setClicked} type="text" stateValue="videoButtonText"/>
-                <InputComponent title="Text button text"  placeholder="Send in text"   id={4} clicked={clicked} setClicked={setClicked} type="text" stateValue="textButtonText"/>
+
+                <InputComponent title="Video button text"
+                 placeholder="Record a video" 
+                 id={3} 
+                 clicked={clicked} 
+                 setClicked={setClicked} 
+                 type="text" 
+                 name="videoButtonText"
+                 required={false}
+                 value={spaceInputs.videoButtonText}
+                 handleSpaceInputs={handleSpaceInputs}
+                 />
+
+                <InputComponent 
+                title="Text button text"  
+                placeholder="Send in text"   
+                id={4} 
+                clicked={clicked} 
+                setClicked={setClicked} 
+                type="text" 
+                name="textButtonText"
+                required={false}
+                value={spaceInputs.textButtonText}
+                handleSpaceInputs={handleSpaceInputs}
+                />
+
             <div className="mt-2 w-max">
                     <label htmlFor="consent" className="flex gap-2 justify-center items-center w-max">
                         Consent display
@@ -68,11 +97,14 @@ export default function ExtraSettingsHome(){
                     setClicked={setClicked} 
                     id={5}
                     name="consent"
-                    options={{
-                        option1:"Required",
-                        option2:"Optional",
-                        option3:"Hidden",
-                    }} />
+                    options={[
+                        {label:"Required",value:"Required"},
+                        { label:"Optional",value:"Optional"},
+                        {label:"Hidden",value:"Hidden"},
+                    ]} 
+                    value={spaceInputs.videoDuration}
+                    handleSpaceInputs={handleSpaceInputs}
+                    />
                     
              </div>
              </div>

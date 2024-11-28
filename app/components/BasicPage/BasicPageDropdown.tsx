@@ -1,33 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { RxCrossCircled } from "react-icons/rx";
 import { TiTickOutline  } from "react-icons/ti";
 import { SpaceCreationDetails } from "../SpaceCreationProvider";
+import SelectionComponent from "../SelectionComponent";
 
 
 
 export default function BasicPageDropdown(){
+    const[clicked,setClicked]=useState(1)
   const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
 
     return(
         <div className="flex justify-center items-center gap-12 mt-4">
         <div className="flex flex-col justify-center items-center gap-2 mt-4">
-        <label htmlFor="options" >
+        <label htmlFor="collectionType" >
         Collection type:
         </label>
-
-            <select
-                id="options"
-                value={spaceInputs.collectionType}
-                onChange={(event) => {
-                    handleSpaceInputs("collectionType",event.target.value);
-                }}
-                className="border-[2px] border-gray-300 rounded p-2"
-            >
-           <option value="both">Text and video</option>
-            <option value="text">Text Only</option>
-            <option value="video">video Only</option>
-            
-           </select>
+        <SelectionComponent 
+                    clicked={clicked} 
+                    setClicked={setClicked} 
+                    id={5}
+                    name="collectionType"
+                    value={spaceInputs.collectionType}  
+                    handleSpaceInputs={handleSpaceInputs} 
+                    options={[
+                        { label:"Text and video",value:"both"},
+                        { label:"Text Only",value:"text"},
+                        { label:"Video Only",value:"video"}
+                    ]
+                     
+                    } 
+                    />
+        
            </div>
            <div className="w-max flex flex-col gap-2 justify-center items-center">
             <p>Collect star ratings :</p>

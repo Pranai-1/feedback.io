@@ -1,9 +1,13 @@
-import { ReactNode } from "react";
+import { ReactNode, SetStateAction } from "react";
 import { fields, questionData } from "../static/simpleData";
 
-export  type Options = {
-    [key: string]: string;
-  };
+export type Option = {
+  label: string;
+  value: string;
+};
+
+
+export type Options = Option[];
 
   export type SpaceInputs = {
     spaceName: string;
@@ -15,7 +19,12 @@ export  type Options = {
     collectionType: string;
     videoButtonText:string,
     textButtonText:string,
-    maxChar:string
+    maxChar:string,
+    disableCheersImage:boolean,
+    videoDuration:string,
+    consent:string,
+     thankyouTitle:string,
+    thankyouDescription:string
   };
   
   export type SpaceCreationDetailsType = {
@@ -32,4 +41,19 @@ export  type Options = {
     children: ReactNode;
   };
 
+
+
+
+  export interface InputComponentProps {
+    title: string;
+    placeholder: string;
+    id: number;
+    clicked: number;
+    setClicked: React.Dispatch<SetStateAction<number>>;
+    type: string;
+    name: string;
+    required:boolean;
+    value:string;
+    handleSpaceInputs: (name: string, value: string | boolean) => void;
+  }
  
