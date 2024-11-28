@@ -10,12 +10,15 @@ export default function ImageComponent(
             const file = e.target.files?.[0];
             if (file) {
               const reader = new FileReader();
+              reader.readAsDataURL(file);
               reader.onload = () => {
                 if (reader.result) {
+                    console.log(reader.result,"inside rsult")
                   handleSpaceInputs("spaceLogo", reader.result.toString()); 
                 }
               };
-              reader.readAsDataURL(file);
+              console.log("outside result")
+             
             }
           };
 

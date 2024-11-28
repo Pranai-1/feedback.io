@@ -1,12 +1,12 @@
-import { SetStateAction, useContext } from "react";
+import { SetStateAction, useContext, useState } from "react";
 import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 import InputComponent from "../InputComponent";
 import ImageComponent from "./ImageComponent";
 
-export default function BasicPageInput({clicked,setClicked,}:{clicked:number,setClicked:React.Dispatch<SetStateAction<number>>}){
+export default function BasicPageInput(){
     const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
-  
+    const [clicked, setClicked] = useState(-1);
     return(
         <div onClick={(e)=>{
             setClicked(-1)
