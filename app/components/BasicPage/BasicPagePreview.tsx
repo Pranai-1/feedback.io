@@ -7,7 +7,7 @@ import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 
 export default function BasicPagePreview(){
-    const {spaceInputs,questions,extraFields}=useContext(SpaceCreationDetails)
+    const {spaceInputs,questions}=useContext(SpaceCreationDetails)
     return(
         <>
         <div className=" bg-blue-600 text-white p-2 rounded-full w-max text-3xl my-8"><BiSolidLike  /></div>

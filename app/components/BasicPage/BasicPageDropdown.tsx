@@ -43,7 +43,7 @@ export default function BasicPageDropdown(){
            <div className="w-max flex flex-col gap-2 justify-center items-center">
             <p>Dark Theme :</p>
             <div className={`${!spaceInputs.darkTheme ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
-             onClick={(e)=>handleSpaceInputs("darkTheme", !spaceInputs.darkTheme)} >
+             onClick={()=>handleSpaceInputs("darkTheme", !spaceInputs.darkTheme)} >
                 {spaceInputs.darkTheme ? (
                     <TiTickOutline  className=" text-xl text-white border-2 border-white rounded-full" /> 
                     ):(
