@@ -1,6 +1,6 @@
 import { SetStateAction, useState } from "react";
 import LivePreview from "../LivePreview";
-import CreateSpace from "../SpaceCreationHome";
+import CreateSpace from "../CreateSpace";
 import SpaceCreationProvider from "../SpaceCreationProvider";
 
 export default function SpaceCreationHome({setCreateSpaceToggle}:{setCreateSpaceToggle:React.Dispatch<SetStateAction<boolean>>}){

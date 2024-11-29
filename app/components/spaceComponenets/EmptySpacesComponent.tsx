@@ -3,8 +3,8 @@
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { useState } from "react";
 import { FiFolderPlus } from "react-icons/fi";
-
 import SpaceCreationHome from "./SpaceCreationHome";
+
 
 
 export default function EmptySpaces(){
@@ -14,7 +14,7 @@ export default function EmptySpaces(){
         {!createStateToggle ?
         (
            
-            <div className="flex flex-col gap-2 justify-center items-center w-[95%] sm:w-[80%] mt-14 bg-[#FFFFFF] border-2 border-gray-100 p-4 py-10
+            <div className="flex flex-col gap-2 justify-center items-center w-[95%] sm:w-[80%]  bg-[#FFFFFF] border-2 border-gray-100 p-4 py-10
             rounded-lg">
             <FiFolderPlus className="text-4xl"/>
             <p className="text-black font-medium  sm:text-xl ">No spaces yet</p>
