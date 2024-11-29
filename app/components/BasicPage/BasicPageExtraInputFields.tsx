@@ -11,7 +11,7 @@ export default function BasicPageExtraInputFields(){
     const [showInformationForm, setShowInformationForm] = useState(false);
     return(
         <>
-         <p className="flex justify-center items-center gap-2 mt-4 ">Collect extra information <FaExclamationCircle/></p>
+         <p className="flex justify-center items-center gap-2 mt-4   text-sm sm:text-base font-medium">Collect extra information <FaExclamationCircle/></p>
            <div className="relative w-[100%]">
            <p className={`flex justify-center items-center gap-6 p-2 border-2 border-gray-500  px-4 cursor-pointer w-[90%] my-4
            text-sm sm:text-base

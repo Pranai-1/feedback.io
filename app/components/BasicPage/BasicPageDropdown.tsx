@@ -13,7 +13,7 @@ export default function BasicPageDropdown(){
     return(
         <div className="flex flex-col md:flex-row justify-center items-center gap-12 mt-4">
         <div className="flex flex-col justify-center items-center gap-2 mt-4">
-        <label htmlFor="collectionType" >
+        <label htmlFor="collectionType" className="text-sm sm:text-base font-medium">
         Collection type:
         </label>
         <SelectionComponent 
@@ -34,7 +34,7 @@ export default function BasicPageDropdown(){
         
            </div>
            <div className="w-max flex flex-col gap-2 justify-center items-center">
-            <p>Collect star ratings :</p>
+            <p className="text-sm sm:text-base font-medium">Collect star ratings :</p>
             <div className={`${!spaceInputs.collectStarRatings ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
              onClick={()=>handleSpaceInputs("collectStarRatings", !spaceInputs.collectStarRatings)} >
                 {spaceInputs.collectStarRatings ? (
@@ -45,7 +45,7 @@ export default function BasicPageDropdown(){
                </div>
            </div>
            <div className="w-max flex flex-col gap-2 justify-center items-center">
-            <p>Dark Theme :</p>
+            <p className="text-sm sm:text-base font-medium">Dark Theme :</p>
             <div className={`${!spaceInputs.darkTheme ? "pr-6  bg-gray-300  " : "pl-6 bg-blue-500"} rounded-full cursor-pointer w-max`}
              onClick={()=>handleSpaceInputs("darkTheme", !spaceInputs.darkTheme)} >
                 {spaceInputs.darkTheme ? (

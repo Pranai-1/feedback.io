@@ -46,7 +46,7 @@ export default function ExtraInformation() {
       {extraFields.map((field) => (
         <div
           key={field.id}
-          className={`flex justify-between items-center gap-12 w-full rounded sm:px-4 py-2 border-b border-gray-500 ${
+          className={`flex justify-between items-center gap-4 sm:gap-12 w-full rounded sm:px-4 py-2 border-b border-gray-500 ${
             field.label === "Name" ? "bg-gray-200" : ""
           }`}
         >
@@ -64,7 +64,7 @@ export default function ExtraInformation() {
             )}
           </div>
           <p className="flex-1">{field.label}</p>
-          <div className="flex justify-center items-center gap-2">
+          <div className="flex justify-center items-center gap-[2px] sm:gap-2">
             <p>Required?</p>
             <input
               type="checkbox"

@@ -18,7 +18,8 @@ export default function InputComponent({
 
   return (
     <div className="flex flex-col gap-2 mt-2">
-      <label htmlFor={title.replace(/\s+/g, "")} className="flex justify-start items-center gap-2 text-[#1a1b1c]
+      <label htmlFor={title.replace(/\s+/g, "")} className="flex justify-start items-center gap-2 text-[#1a1b1c] 
+      text-sm sm:text-base font-medium
      ">{title}
      {required ? (
    <p className="text-red-600">*</p>

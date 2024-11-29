@@ -14,13 +14,13 @@ export default function SelectionComponent({clicked,setClicked,name,id,options,v
                     handleSpaceInputs(name,event.target.value);
                     event.stopPropagation()
                 }}
-      className={`p-2 border border-gray-500 mt-2 w-max ${clicked==id ? 'border-2 border-blue-500':'border border-gray-600'} `}
+      className={`p-2 border border-gray-500 mt-2 w-max text-sm  sm:text-base  ${clicked==id ? 'border-2 border-blue-500':'border border-gray-600'} `}
       onClick={(e)=>{
         setClicked(id)
         e.stopPropagation()
         }}>
        {options.map((option,index)=>(
-        <option key={index} value={option.value}>{option.label}</option>
+        <option key={index} value={option.value} className="text-xs sm:text-base">{option.label}</option>
        ))}
       </select>
         </>

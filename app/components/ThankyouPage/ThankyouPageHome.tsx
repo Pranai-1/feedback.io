@@ -16,8 +16,8 @@ console.log(selected)
             setSelected(-1)
            
             }}>
-        <p className="mt-10 font-bold text-center text-black text-xl sm:text-3xl">Customize thank you page</p>
-        <p className="text-[#707D86]  text-md text-center mt-4 text-sm sm:text-base"> Add your personalized message to show your appreciate</p>
+        <p className="text-[#25282C] p-2 text-xl sm:text-3xl font-bold my-4 sm:my-6 w-full text-center">Customize thank you page</p>
+        <p className="text-[#55595F] text-center w-full text-xs sm:text-base"> Add your personalized message to show your appreciate</p>
         <div className="flex justify-center items-center gap-2 w-max mt-4">
             <div className="flex justify-start items-center gap-2">
                     <label htmlFor="cheersImage" className="text-[#1a1b1c]  flex items-center gap-1">
@@ -58,7 +58,7 @@ console.log(selected)
                  handleSpaceInputs={handleSpaceInputs}
                  /> 
 
-    <label htmlFor="thankyouMessage" className="flex justify-center items-center gap-2 text-[#1a1b1c] mt-2"
+    <label htmlFor="thankyouMessage" className="flex justify-center items-center gap-2 text-[#1a1b1c] mt-2  text-sm sm:text-base font-medium"
 
     >Thank you message
             <p className="text-red-600">*</p></label>
@@ -70,7 +70,7 @@ console.log(selected)
                 }}
 
              className=
-             {`p-1 h-24 rounded-lg mt-1 w-full  ${
+             {`p-1 h-24 rounded-lg mt-1 w-full text-xs sm:text-base  ${
                 selected === 2 ? "border-2 border-blue-500 outline-none" : "border-2 border-gray-300"
               }`}
             name="thankyouMessage" id="thankyouMessage"

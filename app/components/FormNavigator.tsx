@@ -19,7 +19,7 @@ export default function FormNavigator({setDisplayPage,displayPage}:{setDisplayPa
       key={tab.id}
       className={`${
         displayPage === tab.id
-          ? "bg-[#5D5DFF] sm:font-bold text-black text-xs sm:text-base"
+          ? "bg-[#5D5DFF] font-bold text-black text-xs sm:text-base"
           : "font-normal text-[#46393A] text-xs sm:text-base"
       } 
       flex-grow py-2 w-max flex justify-center items-center gap-2 

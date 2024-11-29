@@ -40,7 +40,7 @@ export default function BasicPageQuestions() {
   
   return (
     <>
-      <p className="flex justify-center items-center gap-2 mt-4 mb-2 ">
+      <p className="flex justify-center items-center gap-2 mt-4 mb-2   text-sm sm:text-base font-medium">
         Questions
         <FaExclamationCircle />
       </p>
