@@ -42,11 +42,11 @@ export default function ExtraInformation() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 bg-white w-max mt-4 text-gray-600 shadow-lg rounded-lg absolute top-12 left-0 z-10">
+    <div className="flex flex-col justify-center text-xs sm:text-base items-center gap-[4px] sm:gap-2 bg-white w-[90%] sm:w-max mt-4 text-gray-600 shadow-lg rounded-lg absolute top-12 left-0 z-10">
       {extraFields.map((field) => (
         <div
           key={field.id}
-          className={`flex justify-between items-center gap-12 w-full rounded px-4 py-2 border-b border-gray-500 ${
+          className={`flex justify-between items-center gap-12 w-full rounded sm:px-4 py-2 border-b border-gray-500 ${
             field.label === "Name" ? "bg-gray-200" : ""
           }`}
         >

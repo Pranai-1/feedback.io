@@ -8,7 +8,7 @@ export default function SignoutButton() {
 
     return (
         <form action={handleSignOut}>
-            <button className="bg-[#4B4ACF] p-2 rounded-lg font-medium px-4" type="submit">
+            <button className="bg-[#741C1C] p-2 rounded-lg font-medium px-2 sm:px-4 text-xs sm:text-sm" type="submit">
                 Signout
             </button>
         </form>

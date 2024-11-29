@@ -12,8 +12,9 @@ export default function BasicPageExtraInputFields(){
     return(
         <>
          <p className="flex justify-center items-center gap-2 mt-4 ">Collect extra information <FaExclamationCircle/></p>
-           <div className="relative">
-           <p className={`flex justify-center items-center gap-6 p-2 border-2 border-gray-500  px-4 cursor-pointer w-max my-4
+           <div className="relative w-[100%]">
+           <p className={`flex justify-center items-center gap-6 p-2 border-2 border-gray-500  px-4 cursor-pointer w-[90%] my-4
+           text-sm sm:text-base
            ${showInformationForm ?'border-blue-600':''}`}
            onClick={(e)=>{setShowInformationForm((prev)=>!prev)
             e.stopPropagation()

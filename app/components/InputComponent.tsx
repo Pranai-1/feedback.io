@@ -18,7 +18,8 @@ export default function InputComponent({
 
   return (
     <div className="flex flex-col gap-2 mt-2">
-      <label htmlFor={title.replace(/\s+/g, "")} className="flex justify-start items-center gap-2 text-[#1a1b1c]">{title}
+      <label htmlFor={title.replace(/\s+/g, "")} className="flex justify-start items-center gap-2 text-[#1a1b1c]
+     ">{title}
      {required ? (
    <p className="text-red-600">*</p>
     ):null} </label>
@@ -29,7 +30,7 @@ export default function InputComponent({
         type={type}
         value={value}
         onChange={(e) => handleSpaceInputs(name,e.target.value)}
-        className={`p-2 w-full rounded-lg ${
+        className={`p-2 w-full rounded-lg  text-xs sm:text-base ${
           clicked === id ? "border-2 border-blue-500" : "border-2 border-gray-300"
         }`}
         onClick={(e) => {

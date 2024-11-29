@@ -40,7 +40,7 @@ export default function BasicPageQuestions() {
   
   return (
     <>
-      <p className="flex justify-center items-center gap-2 mt-4 mb-2">
+      <p className="flex justify-center items-center gap-2 mt-4 mb-2 ">
         Questions
         <FaExclamationCircle />
       </p>
@@ -51,7 +51,7 @@ export default function BasicPageQuestions() {
         >
           <BsThreeDotsVertical />
           <input
-            className="p-2 border-[1px] border-gray-500 w-full rounded-lg"
+            className="p-2 border-[1px] border-gray-500 w-full rounded-lg  text-xs sm:text-base"
             placeholder={question.label} onChange={(e)=>handleEditQuestion(question.id,e.target.value)}
           />
           <MdDeleteForever

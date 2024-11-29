@@ -45,7 +45,7 @@ export default function BasicPageInput(){
 
     <label htmlFor="customMessage" className="flex justify-start items-center gap-2 text-[#1a1b1c] mt-4">Your custom message
                 <p className="text-red-600">*</p></label>
-            <textarea className="w-full border-2 border-gray-500 p-2 h-24 rounded-lg mt-1"  name="customMessage" id="customMessage"
+            <textarea className="w-full border-2 border-gray-500 p-2 h-24 rounded-lg mt-1  text-sm sm:text-base"  name="customMessage" id="customMessage"
             placeholder="Write a warm message for your customers"
             value={spaceInputs.customMessage} onChange={(e)=>{handleSpaceInputs("customMessage",e.target.value)}}></textarea>
     </div>
