@@ -10,7 +10,7 @@ import SpaceCreationHome from "./SpaceCreationHome";
 export default function EmptySpaces(){
     const[createStateToggle,setCreateSpaceToggle]=useState(false)
     return(
-        <div className="relative flex justify-center items-center h-[80vh] overflow-auto overflow-x-hidden">
+        <div className="flex justify-center items-center h-[80vh] overflow-auto overflow-x-hidden w-[80%]">
         {!createStateToggle ?
         (
            
