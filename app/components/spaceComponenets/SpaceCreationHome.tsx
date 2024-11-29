@@ -2,7 +2,8 @@ import { SetStateAction, useState } from "react";
 import LivePreview from "../LivePreview";
 
 import SpaceCreationProvider from "../SpaceCreationProvider";
-import CreateSpace from "../SpaceCreationHome";
+
+import SpaceDetailsForm from "../SpaceDetailsForm";
 
 export default function SpaceCreationHome({setCreateSpaceToggle}:{setCreateSpaceToggle:React.Dispatch<SetStateAction<boolean>>}){
     const[displayPage,setDisplayPage]=useState(0)
@@ -21,7 +22,7 @@ export default function SpaceCreationHome({setCreateSpaceToggle}:{setCreateSpace
           <div className="w-[100%] flex flex-wrap justify-center items-center  md:items-start gap-8  md:gap-20 mb-10  py-10">
             <SpaceCreationProvider>
             <LivePreview displayPage={displayPage} />
-            <CreateSpace displayPage={displayPage} setDisplayPage={setDisplayPage}/>
+            <SpaceDetailsForm displayPage={displayPage} setDisplayPage={setDisplayPage}/>
             </SpaceCreationProvider>
           </div>
         </div>
