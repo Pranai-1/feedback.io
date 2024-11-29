@@ -10,7 +10,7 @@ import SpaceCreationHome from "./SpaceCreationHome";
 export default function EmptySpaces(){
     const[createStateToggle,setCreateSpaceToggle]=useState(false)
     return(
-        <div className="flex justify-center items-center h-[80vh] overflow-auto overflow-x-hidden w-[80%]">
+        <div className="flex justify-center items-center h-[80vh] overflow-auto overflow-x-hidden w-[90%] sm:w-[80%]">
         {!createStateToggle ?
         (
            
@@ -19,7 +19,7 @@ export default function EmptySpaces(){
             <FiFolderPlus className="text-4xl"/>
             <p className="text-black font-medium  sm:text-xl ">No spaces yet</p>
             <p className="text-gray-500 w-full text-center text-wrap text-xs sm:text-sm">Create your first space to start collecting testimonials</p>
-            <RainbowButton className="mt-6"  onClick={()=>setCreateSpaceToggle(true)}>+ Create a new space </RainbowButton>
+            <RainbowButton className="mt-6 text-sm sm:text-base"  onClick={()=>setCreateSpaceToggle(true)}>+ Create a new space </RainbowButton>
             </div>
            
         ):(

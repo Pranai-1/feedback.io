@@ -25,7 +25,7 @@ const session=await auth()
            {!session ?(<SignupButton/>):(
             <>
           
-           <DashboardButton/>
+           <DashboardButton />
              <SignoutButton/>
             </>
            
