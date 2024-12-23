@@ -6,21 +6,31 @@ export default function ImageComponent(
     {spaceInputs,handleSpaceInputs}:{spaceInputs:SpaceInputs,handleSpaceInputs: (name: string, value: string | boolean)=>void})
     {
 
-        const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const file = e.target.files?.[0];
-            if (file) {
-              const reader = new FileReader();
-              reader.readAsDataURL(file);
-              reader.onload = () => {
-                if (reader.result) {
-                    console.log(reader.result,"inside rsult")
-                  handleSpaceInputs("spaceLogo", reader.result.toString()); 
-                }
-              };
-              console.log("outside result")
-             
+      const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']; // Allowed formats
+        const maxSizeInMB = 2; // Max file size in MB
+      
+        if (file) {
+          if (!validImageTypes.includes(file.type)) {
+            alert('Invalid file type. Please upload an image.');
+            return;
+          }
+          if (file.size > maxSizeInMB * 1024 * 1024) {
+            alert(`File is too large. Please upload a file smaller than ${maxSizeInMB}MB.`);
+            return;
+          }
+      
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            if (reader.result) {
+              handleSpaceInputs("spaceLogo", reader.result.toString());
             }
           };
+        }
+      };
+      
 
 
     return(

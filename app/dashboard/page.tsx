@@ -19,9 +19,7 @@ const spaces=0
       <div className="relative h-[90.3vh] md:h-[86.8vh] lg:h-[87.2vh] xl:h-[87.5vh] w-[100%] bg-[#09090B] flex overflow-auto py-4 items-center md:justify-start justify-center">
     <SideBarLarge/>
     {spaces==0 ? (
-      <>
       <EmptySpaces/>
-      </>
     ):(
     <>
     </>
