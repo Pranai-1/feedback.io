@@ -3,10 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 import z from "zod"
 
 const spaceSchema = z.object({
+  userId:z.string().min(1, "userId is required."),
   spaceName: z.string().min(1, "Space name is required."),
-  headerTitle: z.string().min(1, "Header title is required."),
+  description:z.string().min(1, "Space description is required."),
+  title: z.string().min(1, "Header title is required."),
   customMessage: z.string().min(1, "Custom message is required."),
-  spaceLogo: z.string().url("Invalid URL format for space logo."),
+  image: z.string().url("Invalid URL format for space logo."),
 });
 
 
