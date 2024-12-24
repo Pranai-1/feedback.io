@@ -83,12 +83,20 @@ model Space{
   description   String
   customMessage  String
   questions     String[]
-  reviews        Review[]
   createdAt     DateTime   @default(now())
+  collectionType String
+  darkTheme      Boolean
+  videoButtonText  String
+  textButtonText String
+  disableCheersImage Boolean
+  thankyouTitle  String
+  thankyouDescription  String
+  reviews        Review[]
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 
+   
 model Review{
  id            String @id @default(cuid())
  name          String

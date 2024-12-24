@@ -1,47 +1,45 @@
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import z from "zod"
-import { SpaceInputs } from "../types";
+import { spaceSchema } from "@/app/zodSchema";
 
-const spaceSchema = z.object({
-  userId:z.string().min(1, "Please login and try again."),
-  spaceName: z.string().min(1, "Space name is required."),
-  description:z.string().min(1, "Space description is required."),
-  title: z.string().min(1, "Header title is required."),
-  customMessage: z.string().min(1, "Custom message is required."),
-  image: z.string().url("Invalid URL format for space logo."),
-  questions:z.string().array().min(3, { message: "At least three questions are required." }) 
-});
-
-
-export async function POST(req:NextRequest){
-    const body=await req.json()
-
-    try{
-        spaceSchema.safeParse(body)
-    }catch(error){
-         if (error instanceof z.ZodError) {
-            return NextResponse.json({message:"failed",error:error.errors[0].message})   
-        }
-        return NextResponse.json({message:"failed",error:"Error occured while creating space"})
-    }
-    
-    const { userId, spaceName, image, title, description, questions,customMessage } = body;
-    try{
-        const newSpace=await prisma.space.create({
-            data: {
-                spaceName,
-                userId,
-                image,
-                title,
-                description,
-                customMessage,
-                questions,
-              },
-        })
-    }catch(error){
-     console.log(error)
-    }
+export async function POST(req: NextRequest) {
+  try {
    
-    return NextResponse.json({message:"success"})
+    const body = await req.json();
+  
+
+    const validationResult = spaceSchema.safeParse(body);
+    if (!validationResult.success) {
+      console.error("Validation Errors:", validationResult.error.errors);
+      return NextResponse.json(
+        { message: "Validation failed", error: validationResult.error.errors[0].message },
+        { status: 400 }
+      );
+    }
+  
+    try {
+      const newSpace = await prisma.space.create({
+        data: validationResult.data,
+      });
+
+      console.log("New Space Created:", newSpace);
+
+      return NextResponse.json(
+        { message: "success", space: newSpace },
+        { status: 200 }
+      );
+    } catch (dbError) {
+      console.error("Database Error:", dbError);
+      return NextResponse.json(
+        { message: "failed", error: "Error occurred while creating the space. Contact admin!" },
+        { status: 500 }
+      );
+    }
+  } catch (unexpectedError) {
+    console.error("Unexpected Error:", unexpectedError);
+    return NextResponse.json(
+      { message: "failed", error: "Unexpected error occurred. Please try again." },
+      { status: 500 }
+    );
+  }
 }

@@ -23,10 +23,31 @@ export type Options = Option[];
     disableCheersImage:boolean,
     videoDuration:string,
     consent:string,
-     thankyouTitle:string,
+    thankyouTitle:string,
     thankyouDescription:string
   };
   
+  export type SpaceBody = {
+    userId:string;
+    spaceName: string;
+    description:string;
+    questions:string[];
+    image: string;
+    title: string;
+    customMessage: string;
+    collectStarRatings: boolean;
+    darkTheme: boolean;
+    collectionType: string;
+    videoButtonText:string,
+    textButtonText:string,
+    maxChar:string,
+    disableCheersImage:boolean,
+    videoDuration:string,
+    consent:string,
+    thankyouTitle:string,
+    thankyouDescription:string
+  };
+
   export type SpaceCreationDetailsType = {
     spaceInputs: SpaceInputs;
     handleSpaceInputs: (name: string, value: string | boolean) => void;
@@ -39,12 +60,7 @@ export type Options = Option[];
 
   export type SpaceCreationProviderProps = {
     children: ReactNode;
-  };
-
-  export type spaceBody={
-    
   }
-
 
 
 

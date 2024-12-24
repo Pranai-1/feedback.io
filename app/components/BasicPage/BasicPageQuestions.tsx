@@ -10,7 +10,7 @@ export default function BasicPageQuestions() {
   const [msg, setMsg] = useState("");
   const { questions, setQuestions } = useContext(SpaceCreationDetails);
   
-
+console.log(questions)
 
   const handleAddQuestion = () => {
     if (questions.length === 5) {
@@ -37,6 +37,23 @@ export default function BasicPageQuestions() {
       )
     );
   }
+
+
+  function handleDeleteQuestion(id:number){
+   
+     
+      if(questions.length==1){
+        setMsg("Atleast one question is required");
+        setTimeout(() => {
+          setMsg("");
+        }, 2000);
+        return 
+      }
+       
+      setQuestions((prevQuestions)=>{
+      return prevQuestions.filter((question)=>question.id!==id)
+    })
+  }
   
   return (
     <>
@@ -57,9 +74,7 @@ export default function BasicPageQuestions() {
           <MdDeleteForever
             className="text-2xl cursor-pointer"
             onClick={() => {
-              setQuestions((prev: typeof questionData) => {
-                return prev.filter((ele: { label: string; id: number }) => ele.id !== question.id);
-              });
+             handleDeleteQuestion(question.id)
             }}
           />
         </div>
