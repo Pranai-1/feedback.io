@@ -80,3 +80,18 @@ export type Options = Option[];
     handleSpaceInputs: (name: string, value: string | boolean) => void;
   }
  
+
+  export type SpacePropType = {
+    title: string;
+    image: string;
+    userId: string;
+    spaceName: string;
+    description: string;
+    customMessage: string;
+    questions: string[];
+    collectionType: string;
+    darkTheme: boolean;
+    videoButtonText: string;
+    createdAt: Date;
+  };
+  

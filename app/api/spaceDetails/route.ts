@@ -6,8 +6,6 @@ export async function POST(req: NextRequest) {
   try {
    
     const body = await req.json();
-  
-
     const validationResult = spaceSchema.safeParse(body);
     if (!validationResult.success) {
       console.error("Validation Errors:", validationResult.error.errors);
@@ -22,7 +20,7 @@ export async function POST(req: NextRequest) {
         data: validationResult.data,
       });
 
-      console.log("New Space Created:", newSpace);
+     
 
       return NextResponse.json(
         { message: "success", space: newSpace },
@@ -43,3 +41,5 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+
