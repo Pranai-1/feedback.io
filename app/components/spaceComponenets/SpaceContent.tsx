@@ -1,4 +1,4 @@
-import { SpaceBody, SpacePropType } from "@/app/api/types";
+import {  SpacePropType } from "@/app/api/types";
 import EmptySpaces from "./EmptySpacesComponent";
 
 
