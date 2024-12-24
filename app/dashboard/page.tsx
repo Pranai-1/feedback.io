@@ -3,7 +3,8 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import SideBarLarge from "../components/SideBar/SideBarLargeScreen";
 import { fetchUserData } from "@/lib/dataFetch";
-import SpacesContent from "../components/SpaceComponenets/SpaceContent";
+import SpacesContent from "../components/SpaceContent";
+
 
 
 export default async function Dashboard() {

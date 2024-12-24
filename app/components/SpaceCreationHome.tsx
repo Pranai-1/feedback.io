@@ -1,9 +1,9 @@
 import { SetStateAction, useState } from "react";
-import LivePreview from "../LivePreview";
+import LivePreview from "./LivePreview";
 
-import SpaceCreationProvider from "../SpaceCreationProvider";
+import SpaceCreationProvider from "./SpaceCreationProvider";
 
-import SpaceDetailsForm from "../SpaceDetailsForm";
+import SpaceDetailsForm from "./SpaceDetailsForm";
 
 export default function SpaceCreationHome({setCreateSpaceToggle}:{setCreateSpaceToggle:React.Dispatch<SetStateAction<boolean>>}){
     const[displayPage,setDisplayPage]=useState(0)
