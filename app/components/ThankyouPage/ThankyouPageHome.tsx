@@ -4,6 +4,7 @@ import { useContext, useState } from "react"
 import cheersImage from "../../../public/cheers.webp"
 import { SpaceCreationDetails } from "../SpaceCreationProvider"
 import InputComponent from "../InputComponent"
+import Image from "next/image"
 
 export default function ThankyouPageHome(){
     const{spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
@@ -38,7 +39,13 @@ console.log(selected)
                 <p className="text-sm text-gray-700">Hide the image?</p>
         </div>
         <div className="mt-4">
-        <img src={cheersImage.src} className="w-[80px]"/>
+        <Image
+  src={cheersImage.src}
+  className="w-[80px]"
+  alt="cheers image"
+  width={80}  
+  height={80}  
+/>
         </div>
 
        

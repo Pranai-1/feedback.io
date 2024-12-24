@@ -1,4 +1,5 @@
 import { SpaceInputs } from "@/app/api/types";
+import Image from "next/image";
 import { RxCrossCircled } from "react-icons/rx";
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 
@@ -37,7 +38,7 @@ export default function ImageComponent(
         <div className="mt-4 flex items-center gap-2">
         <span className="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
           {spaceInputs.spaceLogo.length !== 0 ? (
-            <img
+            <Image
               src={spaceInputs.spaceLogo}
               alt="Uploaded"
               className="h-12 w-12 rounded-full overflow-hidden"

@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaExclamationCircle } from "react-icons/fa";
 import { SpaceCreationDetails } from "../SpaceCreationProvider";
-import { questionData } from "../../static/simpleData";
+
 
 export default function BasicPageQuestions() {
   const [msg, setMsg] = useState("");

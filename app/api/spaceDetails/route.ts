@@ -52,12 +52,13 @@ export async function DELETE(req: NextRequest) {
   if(!id)
     return NextResponse.json({ message: `Resource not found` },{status:404});
 try{
-   const deletedSpace=await prisma.space.delete({
+   await prisma.space.delete({
     where:{
       id
     }
    })
 }catch(error){
+  console.log(error)
   return NextResponse.json({ message: `Error occured while deleting` },{status:404});
 }
 
