@@ -43,3 +43,24 @@ export async function POST(req: NextRequest) {
 }
 
 
+export async function DELETE(req: NextRequest) {
+ //This is Deleting with query params,if you want to delete with route params then we need to create a dynmaic route for id 
+ // itself{i didn't try)}
+  const { searchParams } = req.nextUrl;
+  const id = searchParams.get("id");
+
+  if(!id)
+    return NextResponse.json({ message: `Resource not found` },{status:404});
+try{
+   const deletedSpace=await prisma.space.delete({
+    where:{
+      id
+    }
+   })
+}catch(error){
+  return NextResponse.json({ message: `Error occured while deleting` },{status:404});
+}
+
+  return NextResponse.json({ message: `Space deleted successfully` },{status:200});
+}
+
