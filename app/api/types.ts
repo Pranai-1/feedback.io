@@ -96,18 +96,26 @@ export type Options = Option[];
     value:string;
     handleSpaceInputs: (name: string, value: string | boolean) => void;
   }
- 
+  
 
+  
   export type SpacePropType = {
-    headerTitle: string;
-    spaceLogo: string;
-    userId: string;
+    id: string;
     spaceName: string;
+    userId: string;
+    spaceLogo: string;
+    headerTitle: string;
     customMessage: string;
-    questions: string[];
+    questions: any; // Json type can be represented as `any`
+    createdAt: Date;
     collectionType: string;
     darkTheme: boolean;
     videoButtonText: string;
-    createdAt: Date;
+    textButtonText: string;
+    disableCheersImage: boolean;
+    thankyouTitle: string;
+    thankyouDescription: string;
+  
   };
+  
   

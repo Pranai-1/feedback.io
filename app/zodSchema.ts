@@ -6,7 +6,14 @@ export const spaceSchema = z.object({
   headerTitle: z.string().min(1, "Header title is required."),
   customMessage: z.string().min(1, "Custom message is required."),
   spaceLogo: z.string().url("Invalid URL format for space logo."),
-  questions: z.any(),
+  questions: z
+    .array(
+      z.object({
+        label: z.string(),
+        id: z.union([z.string(), z.number()]),
+      })
+    )
+    .min(1, { message: "Questions cannot be empty" }),
   collectionType: z.string().min(1, { message: errorMessage }),
   darkTheme: z.boolean({ required_error: errorMessage }),
   videoButtonText: z.string().min(1, { message: errorMessage }),
@@ -23,7 +30,14 @@ export const spaceSchemaBackend = z.object({
   headerTitle: z.string().min(1, "Header title is required."),
   customMessage: z.string().min(1, "Custom message is required."),
   spaceLogo: z.string().url("Invalid URL format for space logo."),
-  questions: z.any(),
+  questions: z
+    .array(
+      z.object({
+        label: z.string(),
+        id: z.union([z.string(), z.number()]),
+      })
+    )
+    .min(1, { message: "Questions cannot be empty" }),
   collectionType: z.string().min(1, { message: errorMessage }),
   darkTheme: z.boolean({ required_error: errorMessage }),
   videoButtonText: z.string().min(1, { message: errorMessage }),
