@@ -42,6 +42,8 @@ export default function ImageComponent(
               src={spaceInputs.spaceLogo}
               alt="Uploaded"
               className="h-12 w-12 rounded-full overflow-hidden"
+              height={12}
+              width={12}
             />
           ) : null}
         </span>

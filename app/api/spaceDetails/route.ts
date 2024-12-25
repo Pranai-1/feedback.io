@@ -1,12 +1,21 @@
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import { spaceSchema } from "@/app/zodSchema";
+import { fetchUserData } from "@/lib/dataFetch";
 
 export async function POST(req: NextRequest) {
   try {
    
     const body = await req.json();
-    const validationResult = spaceSchema.safeParse(body);
+    const {user}=await fetchUserData(body.email || "")
+    if(!user)
+      return NextResponse.json(
+        { message: "Validation failed", error: "User doesn't exist" },
+        { status: 400 }
+      );
+
+      let helperObj={...body,userId:user.id}
+    const validationResult = spaceSchema.safeParse(helperObj);
     if (!validationResult.success) {
       console.error("Validation Errors:", validationResult.error.errors);
       return NextResponse.json(

@@ -4,6 +4,8 @@ import { toast, ToastContainer } from "react-toastify";
 import { z } from "zod";
 import { SpaceCreationDetails } from "./SpaceCreationProvider";
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios"
+import { auth } from "@/auth";
 
 // Create Zod schema for validation
 const spaceSchema = z.object({
@@ -13,13 +15,17 @@ const spaceSchema = z.object({
   spaceLogo: z.string().url("Invalid URL format for space logo."),
 });
 
-export default function SpaceSubmission() {
-  const { spaceInputs } = useContext(SpaceCreationDetails);
-
+export default async function SpaceSubmission() {
+  const { spaceInputs,questions } = useContext(SpaceCreationDetails);
+   const session=await auth()
   
-  function handleSubmit() {
+  async function handleSubmit() {
     try {
-      spaceSchema.parse(spaceInputs); 
+      spaceSchema.parse(spaceInputs);
+      let body={...spaceInputs,questions}
+      console.log(body)
+      //const response=await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spaceDetails`,body)
+      //console.log(response)
       toast.success("Space created successfully!");
     } catch (error) {
       if (error instanceof z.ZodError) {

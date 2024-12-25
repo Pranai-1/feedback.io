@@ -58,6 +58,24 @@ export type Options = Option[];
   
   };
 
+
+ export type UserContextType = {
+   userId: string | null;
+   updateUserIdStatus: (userId: string | null) => void;
+ };
+ 
+ 
+
+ export type UserState = {
+   userId: string | null;
+ };
+ 
+
+ export type UserAction = {
+   type: "UPDATE_USER_ID";
+   payload: string | null;
+ };
+
   export type SpaceCreationProviderProps = {
     children: ReactNode;
   }
