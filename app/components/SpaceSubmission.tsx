@@ -5,32 +5,32 @@ import { z } from "zod";
 import { SpaceCreationDetails } from "./SpaceCreationProvider";
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
-import { auth } from "@/auth";
+import { spaceSchema } from "../zodSchema";
+import { fetchUserData } from "@/lib/dataFetch";
 
-// Create Zod schema for validation
-const spaceSchema = z.object({
-  spaceName: z.string().min(1, "Space name is required."),
-  headerTitle: z.string().min(1, "Header title is required."),
-  customMessage: z.string().min(1, "Custom message is required."),
-  spaceLogo: z.string().url("Invalid URL format for space logo."),
-});
 
-export default async function SpaceSubmission() {
+
+export default  function SpaceSubmission() {
   const { spaceInputs,questions } = useContext(SpaceCreationDetails);
-   const session=await auth()
-  
+  //const {userId}=useContext(userContext)
+  //reducers wont work because dashboard is a server component and we cannot update the user details because useContext is a client hook
+
   async function handleSubmit() {
     try {
-      spaceSchema.parse(spaceInputs);
+     
+     const validatedResult= spaceSchema.safeParse(spaceInputs);
+     console.log(validatedResult)
+     if(!validatedResult.success){
+      toast.error(`😕 ${validatedResult.error.errors[0].message}`);
+      return
+     }
       let body={...spaceInputs,questions}
       console.log(body)
-      //const response=await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spaceDetails`,body)
-      //console.log(response)
+      const response=await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spaceDetails`,body)
+      console.log(response.data)
       toast.success("Space created successfully!");
     } catch (error) {
-      if (error instanceof z.ZodError) {
-          toast.error(`😕 ${error.errors[0].message}`);
-      }
+      toast.error(`😕Error occured`);
     }
   }
 

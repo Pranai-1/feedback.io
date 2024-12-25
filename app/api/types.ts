@@ -30,10 +30,9 @@ export type Options = Option[];
   export type SpaceBody = {
     userId:string;
     spaceName: string;
-    description:string;
     questions:string[];
-    image: string;
-    title: string;
+    spaceLogo: string;
+    headerTitle: string;
     customMessage: string;
     collectStarRatings: boolean;
     darkTheme: boolean;
@@ -100,11 +99,10 @@ export type Options = Option[];
  
 
   export type SpacePropType = {
-    title: string;
-    image: string;
+    headerTitle: string;
+    spaceLogo: string;
     userId: string;
     spaceName: string;
-    description: string;
     customMessage: string;
     questions: string[];
     collectionType: string;

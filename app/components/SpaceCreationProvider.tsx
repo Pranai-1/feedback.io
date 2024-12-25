@@ -13,14 +13,14 @@ export const SpaceCreationDetails = createContext<SpaceCreationDetailsType>({
     collectionType:"both",
     collectStarRatings:true,
     darkTheme:false,
-    videoButtonText:"",
-    textButtonText:"",
+    videoButtonText:"Record a video",
+    textButtonText:"Send in text",
     maxChar:"",
     disableCheersImage:false,
     videoDuration:"120 seconds",
     consent:'Required',
-     thankyouTitle:"",
-    thankyouDescription:""
+     thankyouTitle:"Thank you!",
+    thankyouDescription:"Thank you so much for your shoutout! It means a ton for us! 🙏"
   },
   handleSpaceInputs: () => {},
   questions: questionData,
@@ -43,14 +43,14 @@ export default function SpaceCreationProvider({ children }: SpaceCreationProvide
     collectionType:"both",
     collectStarRatings:true,
     darkTheme:false,
-    videoButtonText:"",
-    textButtonText:"",
+    videoButtonText:"Record a video",
+    textButtonText:"Send in text",
     maxChar:"",
     disableCheersImage:false,
      videoDuration:"120 seconds",
     consent:'Required',
-    thankyouTitle:"",
-    thankyouDescription:""
+  thankyouTitle:"Thank you!",
+    thankyouDescription:"Thank you so much for your shoutout! It means a ton for us! 🙏"
   });
 
   const [questions, setQuestions] = useState<typeof questionData>(questionData);

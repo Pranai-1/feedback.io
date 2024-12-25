@@ -1,13 +1,21 @@
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { spaceSchema } from "@/app/zodSchema";
+import {  spaceSchemaBackend } from "@/app/zodSchema";
 import { fetchUserData } from "@/lib/dataFetch";
+import { auth } from "@/auth";
 
 export async function POST(req: NextRequest) {
   try {
    
     const body = await req.json();
-    const {user}=await fetchUserData(body.email || "")
+    const session=await auth()
+    if(!session)
+      return NextResponse.json(
+        { message: "Validation failed", error: "User doesn't exist" },
+        { status: 400 }
+      );
+
+    const {user}=await fetchUserData(session?.user?.email || "")
     if(!user)
       return NextResponse.json(
         { message: "Validation failed", error: "User doesn't exist" },
@@ -15,7 +23,8 @@ export async function POST(req: NextRequest) {
       );
 
       let helperObj={...body,userId:user.id}
-    const validationResult = spaceSchema.safeParse(helperObj);
+      console.log(body)
+    const validationResult = spaceSchemaBackend.safeParse(helperObj);
     if (!validationResult.success) {
       console.error("Validation Errors:", validationResult.error.errors);
       return NextResponse.json(
@@ -26,7 +35,7 @@ export async function POST(req: NextRequest) {
   
     try {
       const newSpace = await prisma.space.create({
-        data: validationResult.data,
+        data:validationResult.data
       });
 
      

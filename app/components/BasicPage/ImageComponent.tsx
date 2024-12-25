@@ -10,7 +10,7 @@ export default function ImageComponent(
       const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']; // Allowed formats
-        const maxSizeInMB = 2; // Max file size in MB
+        const maxSizeInMB = 3; // Max file size in MB
       
         if (file) {
           if (!validImageTypes.includes(file.type)) {

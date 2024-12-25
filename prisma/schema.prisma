@@ -78,11 +78,10 @@ model Space{
   id            String @id @default(cuid())
   spaceName     String @unique
   userId        String
-  image         String
-  title         String
-  description   String
+  spaceLogo         String
+  headerTitle         String
   customMessage  String
-  questions     String[]
+  questions     Json
   createdAt     DateTime   @default(now())
   collectionType String
   darkTheme      Boolean
