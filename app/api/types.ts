@@ -106,7 +106,7 @@ export type Options = Option[];
     spaceLogo: string;
     headerTitle: string;
     customMessage: string;
-    questions: any; // Json type can be represented as `any`
+    questions: any; 
     createdAt: Date;
     collectionType: string;
     darkTheme: boolean;

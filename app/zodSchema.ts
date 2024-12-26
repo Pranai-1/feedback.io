@@ -16,11 +16,11 @@ export const spaceSchema = z.object({
     .min(1, { message: "Questions cannot be empty" }),
   collectionType: z.string().min(1, { message: errorMessage }),
   darkTheme: z.boolean({ required_error: errorMessage }),
-  videoButtonText: z.string().min(1, { message: errorMessage }),
-  textButtonText: z.string().min(1, { message: errorMessage }),
+  videoButtonText: z.string().min(1, "Video button text is required."),
+  textButtonText: z.string().min(1, "Button text is required."),
   disableCheersImage: z.boolean({ required_error:errorMessage}),
-  thankyouTitle: z.string().min(1, { message:errorMessage }),
-  thankyouDescription: z.string().min(1, { message:errorMessage}),
+  thankyouTitle: z.string().min(1, "Thankyou title is required."),
+  thankyouDescription: z.string().min(1, "Thankyou description is required."),
 });
 
 

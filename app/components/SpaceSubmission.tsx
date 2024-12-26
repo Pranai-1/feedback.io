@@ -1,38 +1,66 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { z } from "zod";
 import { SpaceCreationDetails } from "./SpaceCreationProvider";
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
 import { spaceSchema } from "../zodSchema";
-import { fetchUserData } from "@/lib/dataFetch";
-
+import PulsatingButton from "../../components/ui/pulsating-button"
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 
 export default  function SpaceSubmission() {
   const { spaceInputs,questions } = useContext(SpaceCreationDetails);
+  const [loading,setLoading]=useState(false)
   //const {userId}=useContext(userContext)
   //reducers wont work because dashboard is a server component and we cannot update the user details because useContext is a client hook
 
   async function handleSubmit() {
+    setLoading(true); 
+  
     try {
+      const { success, error, data } = spaceSchema.safeParse({
+        ...spaceInputs,
+        questions,
+      });
+  
+      if (!success) {
+        const errorMessages = error?.errors.map((err) =>
+          err.path.includes("questions")
+            ? "Questions cannot be empty"
+            : err.message
+        );
+  
+        toast.error(`😕 ${errorMessages?.[0] || "An error occurred"}`);
+        return;
+      }
+  
+      const body = { ...data, questions };
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/spaceDetails`,
+        body
+      );
+  
+      console.log(response.data);
      
-     const validatedResult= spaceSchema.safeParse(spaceInputs);
-     console.log(validatedResult)
-     if(!validatedResult.success){
-      toast.error(`😕 ${validatedResult.error.errors[0].message}`);
-      return
-     }
-      let body={...spaceInputs,questions}
-      console.log(body)
-      const response=await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spaceDetails`,body)
-      console.log(response.data)
+       
       toast.success("Space created successfully!");
-    } catch (error) {
-      toast.error(`😕Error occured`);
+   try {
+          redirect("/dashboard");
+        } catch (revalidationError) {
+          console.error("Revalidation error:", revalidationError);
+        }
+    
+    } catch (submissionError) {
+      console.error("Submission error:", submissionError);
+      toast.error("😕 An error occurred. Please try again.");
+    } finally {
+      setLoading(false); 
     }
   }
+  
 
   return (
     <>
@@ -53,12 +81,20 @@ export default  function SpaceSubmission() {
         }}
         className="text-sm sm:text-base sm:w-max "
       />
-      <button
-        className="w-full hover:bg-[#4B4ACF] bg-blue-500 p-2 rounded mt-10 text-white"
-        onClick={handleSubmit}
-      >
-        Create new Space
-      </button>
+      {loading ? (
+        <PulsatingButton className="w-full mt-4 text-green-400 font-medium text-xl">
+           Creating...
+        </PulsatingButton>
+      
+      ):(
+  <button
+  className="w-full hover:bg-[#4B4ACF] bg-blue-500 p-2 rounded mt-10 text-white"
+  onClick={handleSubmit}
+>
+  Create new Space
+</button>
+      )}
+    
     </>
   );
 }
