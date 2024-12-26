@@ -4,6 +4,7 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 import { useState } from "react";
 import { FiFolderPlus } from "react-icons/fi";
 import SpaceCreationHome from "./SpaceCreationHome";
+import CreateSpaceButton from "./CreateSpaceButton";
 
 
 
@@ -19,7 +20,8 @@ export default function EmptySpaces(){
             <FiFolderPlus className="text-4xl"/>
             <p className="text-black font-medium  sm:text-xl ">No spaces yet</p>
             <p className="text-gray-500 w-full text-center text-wrap text-xs sm:text-sm">Create your first space to start collecting testimonials</p>
-            <RainbowButton className="mt-6 text-sm sm:text-base"  onClick={()=>setCreateSpaceToggle(true)}>+ Create a new space </RainbowButton>
+            <p  className="mt-8"></p>
+          <CreateSpaceButton setCreateSpaceToggle={setCreateSpaceToggle}/>
             </div>
            
         ):(

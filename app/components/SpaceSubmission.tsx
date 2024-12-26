@@ -1,10 +1,8 @@
 "use client";
 import { useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { z } from "zod";
 import { SpaceCreationDetails } from "./SpaceCreationProvider";
 import 'react-toastify/dist/ReactToastify.css';
-import axios from "axios"
 import { spaceSchema } from "../zodSchema";
 import PulsatingButton from "../../components/ui/pulsating-button"
 import { handleCreateSpace } from "../actions/createSpace";

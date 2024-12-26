@@ -1,16 +1,16 @@
+"use server";
+
 import {  SpacePropType } from "@/app/api/types";
 import EmptySpaces from "./EmptySpacesComponent";
+import SpacesDisplay from "./SpacesDisplay";
 
 
-export default function SpacesContent({ spaces }:{spaces:SpacePropType[] | []}) {
+export default async function SpacesContent({ spaces }:{spaces:SpacePropType[] | []}) {
    console.log(spaces)
 
   return spaces.length === 0 ? (
     <EmptySpaces />
   ) : (
-    <div className="text-center">
-      <p className="text-2xl text-white">There are some spaces</p>
-    
-    </div>
+   <SpacesDisplay spaces={spaces}/>
   );
 }
