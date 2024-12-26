@@ -32,6 +32,7 @@ export async function handleCreateSpace(spaceDetails: SpaceInputsIncludingQuesti
             if (!newSpace) {
                 throw new Error("Invalid data");
               }else{
+                revalidatePath("/dashboard")
                 return {success:true}
               }
       
