@@ -46,3 +46,6 @@ export const spaceSchemaBackend = z.object({
   thankyouTitle: z.string().min(1, { message:errorMessage }),
   thankyouDescription: z.string().min(1, { message:errorMessage}),
 });
+
+
+export type SpaceInputsIncludingQuestions = z.infer<typeof spaceSchema>;

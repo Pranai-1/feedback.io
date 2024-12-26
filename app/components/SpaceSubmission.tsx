@@ -7,8 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios"
 import { spaceSchema } from "../zodSchema";
 import PulsatingButton from "../../components/ui/pulsating-button"
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { handleCreateSpace } from "../actions/createSpace";
 
 
 export default  function SpaceSubmission() {
@@ -37,21 +36,19 @@ export default  function SpaceSubmission() {
         return;
       }
   
-      const body = { ...data, questions };
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/spaceDetails`,
-        body
-      );
-  
-      console.log(response.data);
-     
-       
+    try{
+    const res= await handleCreateSpace(data)
+    if(res.success)
       toast.success("Space created successfully!");
-   try {
-          redirect("/dashboard");
-        } catch (revalidationError) {
-          console.error("Revalidation error:", revalidationError);
-        }
+    else
+    toast.error("Space name must be unique")
+    } catch(error){
+      console.log(error)
+       if(error instanceof Error)
+        toast.error(`😕${error.message}`);
+        else
+        toast.error("😕 An error occurred. Please try again.");
+    }
     
     } catch (submissionError) {
       console.error("Submission error:", submissionError);

@@ -5,17 +5,18 @@ import { fetchUserData } from "@/lib/dataFetch";
 import { auth } from "@/auth";
 
 export async function POST(req: NextRequest) {
+  console.log('dcsdcxsxw')
   try {
    
     const body = await req.json();
-    console.log(body)
+
     const session=await auth()
     if(!session)
       return NextResponse.json(
         { message: "Validation failed", error: "User doesn't exist" },
         { status: 400 }
       );
-
+console.log("passed1")
     const {user}=await fetchUserData(session?.user?.email || "")
     if(!user)
       return NextResponse.json(
@@ -24,7 +25,7 @@ export async function POST(req: NextRequest) {
       );
 
       let helperObj={...body,userId:user.id}
-      console.log(body)
+      console.log("passed2")
     const validationResult = spaceSchemaBackend.safeParse(helperObj);
     if (!validationResult.success) {
       console.error("Validation Errors:", validationResult.error.errors);
@@ -33,18 +34,19 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-  
+    console.log("passed3")
     try {
       const newSpace = await prisma.space.create({
         data:validationResult.data
       });
 
-     
+      console.log("passed4")
 
       return NextResponse.json(
         { message: "success", space: newSpace },
         { status: 200 }
       );
+
     } catch (dbError) {
       console.error("Database Error:", dbError);
       return NextResponse.json(
