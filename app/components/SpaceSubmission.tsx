@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { SetStateAction, useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { SpaceCreationDetails } from "./SpaceCreationProvider";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +9,8 @@ import { handleCreateSpace } from "../actions/createSpace";
 import { handleUpdateSpace } from "../actions/updateSpace";
 
 
-export default  function SpaceSubmission({createSpaceToggle,spaceId}:{createSpaceToggle:number,spaceId:string}) {
+export default  function SpaceSubmission({createSpaceToggle,spaceId,setCreateSpaceToggle}
+  :{createSpaceToggle:number,spaceId:string,setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>}) {
   const { spaceInputs,questions } = useContext(SpaceCreationDetails);
   const [loading,setLoading]=useState(false)
   //const {userId}=useContext(userContext)
@@ -41,6 +42,10 @@ export default  function SpaceSubmission({createSpaceToggle,spaceId}:{createSpac
   
       if (res.success) {
         toast.success("Space processed successfully!");
+        setTimeout(()=>{
+          setCreateSpaceToggle(-1)
+        },10)
+     
       } else {
         toast.error("Space name must be unique.");
       }

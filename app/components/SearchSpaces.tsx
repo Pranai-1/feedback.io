@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 export default function SearchSpaces({clickedOnSearch,setClickedOnSearch,searchText,setSearchText}:
     {clickedOnSearch:boolean,setClickedOnSearch:React.Dispatch<SetStateAction<boolean>>,searchText:string,setSearchText:React.Dispatch<SetStateAction<string>>}){
     return(
-        <div className="w-1/2">
+        <div className="w-[90%] md:w-1/2">
          <label htmlFor="searchSpaces"  className={`w-full  bg-white flex justify-start items-center gap-2 p-2 rounded-md 
          ${clickedOnSearch ? " border-[3px] border-blue-500":"border border-orange-600" }`}
          onClick={()=>setClickedOnSearch(true)}> 

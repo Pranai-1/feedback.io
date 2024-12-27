@@ -6,10 +6,11 @@ import BasicPageExtraInputFields from "./BasicPageExtraInputFields";
 import SpaceSubmission from "../SpaceSubmission";
 import { storageSchema } from "@/app/zodSchema";
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, SetStateAction } from "react";
 import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
-export default function SpaceForm({createSpaceToggle}:{createSpaceToggle:number}) {
+export default function SpaceForm({createSpaceToggle,setCreateSpaceToggle}:
+  {createSpaceToggle:number,setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>}) {
  
   const{spaceInputs,setSpaceInputs,setQuestions}=useContext(SpaceCreationDetails)
 
@@ -58,6 +59,7 @@ export default function SpaceForm({createSpaceToggle}:{createSpaceToggle:number}
           <SpaceSubmission 
           createSpaceToggle={createSpaceToggle}
           spaceId={spaceId}
+          setCreateSpaceToggle={setCreateSpaceToggle}
           />
         </div>
       </div>

@@ -1,13 +1,18 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import LivePreview from "./LivePreview";
 
 import SpaceCreationProvider from "./SpaceCreationProvider";
 
 import SpaceDetailsForm from "./SpaceDetailsForm";
+import { toast } from "react-toastify";
 
 export default function SpaceCreationHome({setCreateSpaceToggle,createSpaceToggle}:
   {setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,createSpaceToggle:number}){
     const[displayPage,setDisplayPage]=useState(0)
+
+    useEffect(()=>{
+      toast.success("success")
+    },[])
     return(
         <>
           <div className=" absolute top-4  left-0 w-full  z-50 flex justify-center items-center ">
@@ -26,7 +31,9 @@ export default function SpaceCreationHome({setCreateSpaceToggle,createSpaceToggl
             <SpaceDetailsForm 
             displayPage={displayPage}
              setDisplayPage={setDisplayPage}
-              createSpaceToggle={createSpaceToggle}/>
+              createSpaceToggle={createSpaceToggle}
+              setCreateSpaceToggle={setCreateSpaceToggle}
+              />
             </SpaceCreationProvider>
           </div>
         </div>

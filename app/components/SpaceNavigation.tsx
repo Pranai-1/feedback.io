@@ -2,9 +2,8 @@ import { MdOutlineManageSearch } from "react-icons/md";
 import { FaLink } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { RiDeleteBack2Line } from "react-icons/ri";
-import { SetStateAction, useContext } from "react";
-import { SpaceCreationDetails } from "./SpaceCreationProvider";
-import { MergedObject, SpaceInputs, SpacePropType } from "../api/types";
+import { SetStateAction,  } from "react";
+import {SpacePropType } from "../api/types";
 
 
 
@@ -15,7 +14,6 @@ export default function SpaceNavigation({setDeleteSpace,headerTitle,setOpenDetai
         setOpenDetailsCard:React.Dispatch<SetStateAction<string>>,setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,
     space:SpacePropType}){
    
-   const{spaceInputs,setSpaceInputs,setQuestions}=useContext(SpaceCreationDetails)
    
    function handleEdit() {
     localStorage.removeItem("space")
@@ -48,7 +46,7 @@ export default function SpaceNavigation({setDeleteSpace,headerTitle,setOpenDetai
                  </p>
              <p className="flex justify-start items-center gap-4 text-black hover:bg-red-500 cursor-pointer p-2 rounded-md"
              onClick={()=>{
-                setDeleteSpace(headerTitle)
+                setDeleteSpace(space.spaceName)
                 setOpenDetailsCard("")
                 }}>
                  <RiDeleteBack2Line className="text-2xl" />

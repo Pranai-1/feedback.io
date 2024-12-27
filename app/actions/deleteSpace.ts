@@ -3,8 +3,9 @@
 import { auth } from "@/auth";
 import { fetchUserData } from "@/lib/dataFetch";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
-export default async function deleteSpace(spaceName:string){
+export default async function deleteSpaceAction(spaceName:string){
   const session=await auth()
     if(!session){
      throw new Error("Login and try again")
@@ -20,8 +21,11 @@ export default async function deleteSpace(spaceName:string){
             spaceName
         }
       })
-      if(deleteSpace)
-        return {success:true}
+      if(deleteSpace){
+          revalidatePath("/dashboard")
+          return {success:true}
+      }
+        
     else
     return {success:false}
     }catch(error){
