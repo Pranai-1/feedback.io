@@ -12,36 +12,7 @@ import { storageSchema } from "@/app/zodSchema";
 export default function BasicPageInput(){
     const {spaceInputs,handleSpaceInputs,setSpaceInputs,setQuestions}=useContext(SpaceCreationDetails)
     const [clicked, setClicked] = useState(-1);
-    const[spaceId,setSpaceId]=useState("")
-    console.log(spaceInputs)
-    useEffect(()=>{
-        async function getSpace() {
-            try {
-              const id = localStorage.getItem("space");
-             
-              if (!id) {
-                return;
-              }
-              setSpaceId(id)
-              const response = await axios.get("/api/spaceDetails", {
-                headers: { id}, 
-              });
-          console.log(response.data)
-              if (response?.data?.space) {
-                const validationResult=storageSchema.safeParse(response?.data?.space)
-                if(validationResult.success)
-                setSpaceInputs({...spaceInputs,...validationResult.data});
-                setQuestions(response?.data?.space.questions)
-              } 
-            } catch (error) {
-              console.error("Error fetching space details:", error);
-            }
-          }
-          
-       getSpace()
-    localStorage.removeItem("space")
-    
-    },[])
+   
     return(
         <div onClick={(e)=>{
             setClicked(-1)

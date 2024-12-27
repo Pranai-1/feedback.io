@@ -6,62 +6,51 @@ import 'react-toastify/dist/ReactToastify.css';
 import { spaceSchema } from "../zodSchema";
 import PulsatingButton from "../../components/ui/pulsating-button"
 import { handleCreateSpace } from "../actions/createSpace";
+import { handleUpdateSpace } from "../actions/updateSpace";
 
 
-export default  function SpaceSubmission({createSpaceToggle}:{createSpaceToggle:number}) {
+export default  function SpaceSubmission({createSpaceToggle,spaceId}:{createSpaceToggle:number,spaceId:string}) {
   const { spaceInputs,questions } = useContext(SpaceCreationDetails);
   const [loading,setLoading]=useState(false)
   //const {userId}=useContext(userContext)
   //reducers wont work because dashboard is a server component and we cannot update the user details because useContext is a client hook
 
   async function handleSubmit() {
-    setLoading(true); 
+    setLoading(true);
   
     try {
-      const { success, error, data } = spaceSchema.safeParse({
-        ...spaceInputs,
-        questions,
-      });
+      // Validate inputs
+      const validationResult = spaceSchema.safeParse({ ...spaceInputs, questions });
   
-      if (!success) {
-        const errorMessages = error?.errors.map((err) =>
+      if (!validationResult.success) {
+        const errorMessage = validationResult.error.errors.find((err) =>
           err.path.includes("questions")
-            ? "Questions cannot be empty"
-            : err.message
-        );
+        )?.message || "Invalid input data";
   
-        toast.error(`😕 ${errorMessages?.[0] || "An error occurred"}`);
+        toast.error(`😕 ${errorMessage}`);
         return;
       }
   
-    try{
-      if(createSpaceToggle==0){
-        const res= await handleCreateSpace(data)
-        if(res.success)
-          toast.success("Space created successfully!");
-        else
-        toast.error("Space name must be unique")
-      }else{
-        const res= await handleCreateSpace(data)
-        if(res.success)
-          toast.success("Space created successfully!");
-        else
-        toast.error("Space name must be unique")
+      const data = validationResult.data;
+  console.log(createSpaceToggle)
+      // Perform API action based on toggle state
+      const res =
+        createSpaceToggle === 0
+          ? await handleUpdateSpace(spaceId, data)
+          : await handleCreateSpace(data);
+  
+      if (res.success) {
+        toast.success("Space processed successfully!");
+      } else {
+        toast.error("Space name must be unique.");
       }
-    
-    } catch(error){
-      console.log(error)
-       if(error instanceof Error)
-        toast.error(`😕${error.message}`);
-        else
-        toast.error("😕 An error occurred. Please try again.");
-    }
-    
-    } catch (submissionError) {
-      console.error("Submission error:", submissionError);
-      toast.error("😕 An error occurred. Please try again.");
+    } catch (error) {
+      console.error("Error during submission:", error);
+      toast.error(
+        `😕 ${error instanceof Error ? error.message : "An unexpected error occurred."}`
+      );
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   }
   
