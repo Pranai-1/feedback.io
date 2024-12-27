@@ -44,18 +44,21 @@ export default function DeleteSpaceCard({deleteSpace,setDeleteSpace}:
 
 
     return(
-        <div className="absolute top-0 left-1/4 bg-white rounded-md flex flex-col gap-4 justify-center items-center px-4 w-[600px] py-6"
+        <div className="absolute top-0 lg:left-10 xl:left-1/4 bg-white rounded-md flex flex-col gap-4 justify-center items-center md:px-4  w-[95%] lg:w-[600px] p-2 md:py-6"
         onClick={()=>setClickedOnDeleteInput(false)}>
             <div className="relative w-full">
                <RxCross2 className="absolute top-2 right-2 text-xl cursor-pointer" onClick={()=>setDeleteSpace("")}/>
             </div>
-            <p className="text-3xl font-bold text-black my-5">Delete this space</p>
-            <div className="flex flex-col justify-center items-center">
-            <p className="text-gray-700">Once deleted, all feedbacks in this space will be gone forever.</p>
+            <p className="text-xl md:text-3xl font-bold text-black my-2 sm:my-5">Delete this space</p>
+            <div className="flex flex-col justify-center items-center text-gray-700 text-sm sm:text-base">
+            <p >Once deleted, all feedbacks in this space will be gone forever.</p>
             <p> Please be certain!</p>
             </div>
-            <label htmlFor="spaceDelete" className="flex justify-center items-center w-full">
-                Type your space name <span className="text-red-600 font-medium mx-2">{deleteSpace}</span> to confirm</label>
+            <label htmlFor="spaceDelete" className="sm:flex sm:justify-center sm:items-center gap-2 w-full">
+            Type your space name{" "}
+            <span className="text-red-600 font-bold">{deleteSpace}</span> to confirm
+          </label>
+
                 <input id="spaceDelete" placeholder={deleteSpace} value={deleteSpaceInput} onChange={(e)=>setDeleteSpaceInput(e.target.value)}
                 className={`p-2 py-4  w-full ${clickedOnDeleteInput ? "border-[2px] border-blue-500 outline-none" :"border border-gray-700"}`}
                 onClick={(e)=>{
