@@ -35,11 +35,20 @@ export default  function SpaceSubmission({createSpaceToggle}:{createSpaceToggle:
       }
   
     try{
-    const res= await handleCreateSpace(data)
-    if(res.success)
-      toast.success("Space created successfully!");
-    else
-    toast.error("Space name must be unique")
+      if(createSpaceToggle==0){
+        const res= await handleCreateSpace(data)
+        if(res.success)
+          toast.success("Space created successfully!");
+        else
+        toast.error("Space name must be unique")
+      }else{
+        const res= await handleCreateSpace(data)
+        if(res.success)
+          toast.success("Space created successfully!");
+        else
+        toast.error("Space name must be unique")
+      }
+    
     } catch(error){
       console.log(error)
        if(error instanceof Error)

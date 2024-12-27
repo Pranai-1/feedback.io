@@ -27,7 +27,7 @@ export const SpaceCreationDetails = createContext<SpaceCreationDetailsType>({
   setQuestions:()=>{},
   extraFields: fields,
   setExtraFields:()=>{},
- 
+  setSpaceInputs:()=>{},
 });
 
 type SpaceCreationProviderProps = {
@@ -70,6 +70,7 @@ export default function SpaceCreationProvider({ children }: SpaceCreationProvide
     <SpaceCreationDetails.Provider
       value={{
         spaceInputs,
+        setSpaceInputs,
         handleSpaceInputs,
         questions,
         setQuestions,

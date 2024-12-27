@@ -54,6 +54,7 @@ export type Options = Option[];
     extraFields: typeof fields;
     setQuestions:React.Dispatch<React.SetStateAction<typeof questionData>>;
     setExtraFields:React.Dispatch<React.SetStateAction<typeof fields>>;
+    setSpaceInputs:React.Dispatch<React.SetStateAction<SpaceInputs>>;
   
   };
 
@@ -118,4 +119,27 @@ export type Options = Option[];
   
   };
   
-  
+  export type MergedObject = {
+    spaceName: string;
+    spaceLogo: string;
+    headerTitle: string;
+    customMessage: string;
+    collectionType:string;
+    collectStarRatings: boolean;
+    darkTheme: boolean;
+    videoButtonText: string;
+    textButtonText: string;
+    maxChar: string
+    disableCheersImage: boolean;
+    videoDuration: string;
+    consent: string;
+    thankyouTitle: string;
+    thankyouDescription: string;
+    id?: string;
+    userId?: string; // Optional field if you plan to delete it dynamically
+    questions?: {
+        id: number;
+        label: string;
+    }[];
+    createdAt?: any; // ISO date string
+};

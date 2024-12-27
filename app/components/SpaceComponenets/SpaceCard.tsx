@@ -8,7 +8,7 @@ import { SetStateAction, useState } from "react";
 import { PiDotsThreeCircleLight } from "react-icons/pi";
 import SpaceNavigation from "../SpaceNavigation";
 import DeleteSpaceCard from "../DeleteSpaceCard";
-import EditSpace from "../EditSpace";
+
 
 
 
@@ -17,7 +17,6 @@ export default function SpaceCard({space,setCreateSpaceToggle}:
     
     const[openDetailsCard,setOpenDetailsCard]=useState<string>("")
     const[deleteSpace,setDeleteSpace]=useState("")
-    const[editSpace,setEditSpace]=useState("")
   
     return(
         <div className="flex flex-col justify-start items-start w-full md:max-w-96 rounded-md

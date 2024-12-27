@@ -48,4 +48,21 @@ export const spaceSchemaBackend = z.object({
 });
 
 
+
+export const storageSchema = z.object({
+  spaceName: z.string().min(1, "Space name is required."),
+  headerTitle: z.string().min(1, "Header title is required."),
+  customMessage: z.string().min(1, "Custom message is required."),
+  spaceLogo: z.string().url("Invalid URL format for space logo."),
+  collectionType: z.string().min(1, { message: errorMessage }),
+  darkTheme: z.boolean({ required_error: errorMessage }),
+  videoButtonText: z.string().min(1, "Video button text is required."),
+  textButtonText: z.string().min(1, "Button text is required."),
+  disableCheersImage: z.boolean({ required_error:errorMessage}),
+  thankyouTitle: z.string().min(1, "Thankyou title is required."),
+  thankyouDescription: z.string().min(1, "Thankyou description is required."),
+});
+
+
+
 export type SpaceInputsIncludingQuestions = z.infer<typeof spaceSchema>;

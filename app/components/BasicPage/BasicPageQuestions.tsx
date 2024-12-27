@@ -68,7 +68,7 @@ console.log(questions)
         >
           <BsThreeDotsVertical />
           <input
-            className="p-2 border-[1px] border-gray-500 w-full rounded-lg  text-xs sm:text-base"
+            className="p-2 border-[1px] border-gray-500 w-full rounded-lg  text-xs sm:text-base" value={question.label}
             placeholder={question.label} onChange={(e)=>handleEditQuestion(question.id,e.target.value)}
           />
           <MdDeleteForever

@@ -86,3 +86,55 @@ try{
   return NextResponse.json({ message: `Space deleted successfully` },{status:200});
 }
 
+
+export async function GET(req: NextRequest) {
+  try {
+    // Extract 'id' from headers
+    const id = req.headers.get("id");
+    if (!id) {
+      return NextResponse.json(
+        { message: "Validation failed", error: "id doesn't exist" },
+        { status: 400 }
+      );
+    }
+
+    // Authenticate session
+    const session = await auth();
+    if (!session) {
+      return NextResponse.json(
+        { message: "Validation failed", error: "User doesn't exist" },
+        { status: 401 }
+      );
+    }
+
+    // Fetch user data
+    const { user } = await fetchUserData(session.user?.email || "");
+    if (!user) {
+      return NextResponse.json(
+        { message: "Validation failed", error: "User doesn't exist" },
+        { status: 404 }
+      );
+    }
+
+    // Fetch the space by ID
+    const space = await prisma.space.findUnique({
+      where: { id },
+    });
+
+    // Handle the response based on the query result
+    if (space) {
+      return NextResponse.json({ message: "success", space }, { status: 200 });
+    } else {
+      return NextResponse.json(
+        { message: "Couldn't find the space" },
+        { status: 404 }
+      );
+    }
+  } catch (error) {
+    console.error("Error fetching space:", error);
+    return NextResponse.json(
+      { message: "An error occurred while fetching the space", error: "Error Occured" },
+      { status: 500 }
+    );
+  }
+}

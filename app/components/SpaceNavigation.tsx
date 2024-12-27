@@ -4,7 +4,7 @@ import { MdEdit } from "react-icons/md";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { SetStateAction, useContext } from "react";
 import { SpaceCreationDetails } from "./SpaceCreationProvider";
-import { SpaceInputs, SpacePropType } from "../api/types";
+import { MergedObject, SpaceInputs, SpacePropType } from "../api/types";
 
 
 
@@ -15,22 +15,16 @@ export default function SpaceNavigation({setDeleteSpace,headerTitle,setOpenDetai
         setOpenDetailsCard:React.Dispatch<SetStateAction<string>>,setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,
     space:SpacePropType}){
    
-   const{spaceInputs,handleSpaceInputs,setQuestions}=useContext(SpaceCreationDetails)
+   const{spaceInputs,setSpaceInputs,setQuestions}=useContext(SpaceCreationDetails)
    
    function handleEdit() {
+    localStorage.removeItem("space")
+     localStorage.setItem("space",space.id)
     setCreateSpaceToggle(0); 
     setOpenDetailsCard(""); 
-
-    const keys = Object.keys(spaceInputs) as (keyof SpaceInputs)[];
-    const mergedObject={...spaceInputs,...space}
-console.log(mergedObject)
-    for (const key of keys) {
-        console.log(key,mergedObject[key])
-        handleSpaceInputs(key, mergedObject[key]);
-    }
-    setQuestions(mergedObject.questions)
+   
 }
-  
+
 
 
     return(
