@@ -2,12 +2,37 @@ import { MdOutlineManageSearch } from "react-icons/md";
 import { FaLink } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { RiDeleteBack2Line } from "react-icons/ri";
-import { SetStateAction } from "react";
+import { SetStateAction, useContext } from "react";
+import { SpaceCreationDetails } from "./SpaceCreationProvider";
+import { SpaceInputs, SpacePropType } from "../api/types";
 
-export default function SpaceNavigation({setDeleteSpace,headerTitle,setOpenDetailsCard,setEditSpace}
+
+
+
+
+export default function SpaceNavigation({setDeleteSpace,headerTitle,setOpenDetailsCard,setCreateSpaceToggle,space}
     :{setDeleteSpace:React.Dispatch<SetStateAction<string>>,headerTitle:string,
-        setOpenDetailsCard:React.Dispatch<SetStateAction<string>>,setEditSpace:React.Dispatch<SetStateAction<string>>}){
-    
+        setOpenDetailsCard:React.Dispatch<SetStateAction<string>>,setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,
+    space:SpacePropType}){
+   
+   const{spaceInputs,handleSpaceInputs,setQuestions}=useContext(SpaceCreationDetails)
+   
+   function handleEdit() {
+    setCreateSpaceToggle(0); 
+    setOpenDetailsCard(""); 
+
+    const keys = Object.keys(spaceInputs) as (keyof SpaceInputs)[];
+    const mergedObject={...spaceInputs,...space}
+console.log(mergedObject)
+    for (const key of keys) {
+        console.log(key,mergedObject[key])
+        handleSpaceInputs(key, mergedObject[key]);
+    }
+    setQuestions(mergedObject.questions)
+}
+  
+
+
     return(
         <div
         className="absolute top-12 right-4  bg-[#FFFFFF] text-white p-4 rounded-md z-20 flex flex-col gap-4"
@@ -22,8 +47,7 @@ export default function SpaceNavigation({setDeleteSpace,headerTitle,setOpenDetai
                  </p>
              <p className="flex justify-start items-center gap-4 text-black hover:bg-gray-300 cursor-pointer p-2 rounded-md"
               onClick={()=>{
-                setEditSpace(headerTitle)
-                setOpenDetailsCard("")
+               handleEdit()
                 }}>
                  <MdEdit className="text-2xl"/>
                  Edit the space

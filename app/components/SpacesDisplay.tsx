@@ -29,7 +29,7 @@ export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
             </div>
                
             <div className="flex justify-start items-center w-full mt-10">
-            {spaces.map((space,idx)=><SpaceCard space={space} setCreateSpaceToggle={setCreateSpaceToggle}/>)}
+            {spaces.map((space)=><SpaceCard space={space} setCreateSpaceToggle={setCreateSpaceToggle}/>)}
             </div>
             
           </div>

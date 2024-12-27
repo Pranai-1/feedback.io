@@ -58,6 +58,7 @@ export default function SpaceCreationProvider({ children }: SpaceCreationProvide
   const [extraFields, setExtraFields] = useState<typeof fields>(fields);
 
   const handleSpaceInputs = (name: string, value: string | boolean) => {
+    console.log(name,value)
     setSpaceInputs((prev) => ({
       ...prev,
       [name]: value,

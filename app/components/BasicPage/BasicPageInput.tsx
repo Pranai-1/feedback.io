@@ -7,6 +7,7 @@ import ImageComponent from "./ImageComponent";
 export default function BasicPageInput(){
     const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
     const [clicked, setClicked] = useState(-1);
+    console.log(spaceInputs)
     return(
         <div onClick={(e)=>{
             setClicked(-1)
