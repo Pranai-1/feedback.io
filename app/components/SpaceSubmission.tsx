@@ -8,7 +8,7 @@ import PulsatingButton from "../../components/ui/pulsating-button"
 import { handleCreateSpace } from "../actions/createSpace";
 
 
-export default  function SpaceSubmission() {
+export default  function SpaceSubmission({createSpaceToggle}:{createSpaceToggle:number}) {
   const { spaceInputs,questions } = useContext(SpaceCreationDetails);
   const [loading,setLoading]=useState(false)
   //const {userId}=useContext(userContext)
@@ -82,12 +82,26 @@ export default  function SpaceSubmission() {
         </PulsatingButton>
       
       ):(
-  <button
-  className="w-full hover:bg-[#4B4ACF] bg-blue-500 p-2 rounded mt-10 text-white"
-  onClick={handleSubmit}
->
-  Create new Space
-</button>
+        <>
+        {createSpaceToggle==1 ? (
+          <button
+          className="w-full hover:bg-[#4B4ACF] bg-blue-500 p-2 rounded mt-10 text-white"
+          onClick={handleSubmit}
+        >
+          Create new Space
+        </button>
+        ):(
+          <>
+             <button
+          className="w-full hover:bg-[#4B4ACF] bg-blue-500 p-2 rounded mt-10 text-white"
+          onClick={handleSubmit}
+        >
+         Update Space
+        </button>
+          </>
+        )}
+        </>
+
       )}
     
     </>

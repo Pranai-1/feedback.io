@@ -5,7 +5,7 @@ import BasicPageInput from "./BasicPageInput";
 import BasicPageExtraInputFields from "./BasicPageExtraInputFields";
 import SpaceSubmission from "../SpaceSubmission";
 
-export default function SpaceForm() {
+export default function SpaceForm({createSpaceToggle}:{createSpaceToggle:number}) {
  
 
   return (
@@ -19,7 +19,9 @@ export default function SpaceForm() {
         <BasicPageQuestions />
         <BasicPageExtraInputFields />
         <div className="flex justify-center items-center w-full">
-          <SpaceSubmission />
+          <SpaceSubmission 
+          createSpaceToggle={createSpaceToggle}
+          />
         </div>
       </div>
     </div>

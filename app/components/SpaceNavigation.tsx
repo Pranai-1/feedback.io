@@ -4,8 +4,9 @@ import { MdEdit } from "react-icons/md";
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { SetStateAction } from "react";
 
-export default function SpaceNavigation({deleteSpace,setDeleteSpace,headerTitle,setOpenDetailsCard}
-    :{deleteSpace:string,setDeleteSpace:React.Dispatch<SetStateAction<string>>,headerTitle:string,setOpenDetailsCard:React.Dispatch<SetStateAction<number>>}){
+export default function SpaceNavigation({setDeleteSpace,headerTitle,setOpenDetailsCard,setEditSpace}
+    :{setDeleteSpace:React.Dispatch<SetStateAction<string>>,headerTitle:string,
+        setOpenDetailsCard:React.Dispatch<SetStateAction<string>>,setEditSpace:React.Dispatch<SetStateAction<string>>}){
     
     return(
         <div
@@ -19,14 +20,18 @@ export default function SpaceNavigation({deleteSpace,setDeleteSpace,headerTitle,
                  <FaLink className="text-2xl"/>
                  Get the link
                  </p>
-             <p className="flex justify-start items-center gap-4 text-black hover:bg-gray-300 cursor-pointer p-2 rounded-md">
+             <p className="flex justify-start items-center gap-4 text-black hover:bg-gray-300 cursor-pointer p-2 rounded-md"
+              onClick={()=>{
+                setEditSpace(headerTitle)
+                setOpenDetailsCard("")
+                }}>
                  <MdEdit className="text-2xl"/>
                  Edit the space
                  </p>
              <p className="flex justify-start items-center gap-4 text-black hover:bg-red-500 cursor-pointer p-2 rounded-md"
              onClick={()=>{
                 setDeleteSpace(headerTitle)
-                setOpenDetailsCard(-1)
+                setOpenDetailsCard("")
                 }}>
                  <RiDeleteBack2Line className="text-2xl" />
                  Delete the space

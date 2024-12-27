@@ -5,7 +5,8 @@ import SpaceCreationProvider from "./SpaceCreationProvider";
 
 import SpaceDetailsForm from "./SpaceDetailsForm";
 
-export default function SpaceCreationHome({setCreateSpaceToggle}:{setCreateSpaceToggle:React.Dispatch<SetStateAction<boolean>>}){
+export default function SpaceCreationHome({setCreateSpaceToggle,createSpaceToggle}:
+  {setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,createSpaceToggle:number}){
     const[displayPage,setDisplayPage]=useState(0)
     return(
         <>
@@ -14,7 +15,7 @@ export default function SpaceCreationHome({setCreateSpaceToggle}:{setCreateSpace
          
           <button
             className="absolute top-2 right-4 sm:right-20 text-gray-500 hover:text-black text-lg"
-            onClick={() => setCreateSpaceToggle(false)}
+            onClick={() => setCreateSpaceToggle(-1)}
           >
             &#10005;
           </button>
@@ -22,7 +23,10 @@ export default function SpaceCreationHome({setCreateSpaceToggle}:{setCreateSpace
           <div className="w-[100%] flex flex-wrap justify-center items-center  md:items-start gap-8  md:gap-20 mb-10  py-10">
             <SpaceCreationProvider>
             <LivePreview displayPage={displayPage} />
-            <SpaceDetailsForm displayPage={displayPage} setDisplayPage={setDisplayPage}/>
+            <SpaceDetailsForm 
+            displayPage={displayPage}
+             setDisplayPage={setDisplayPage}
+              createSpaceToggle={createSpaceToggle}/>
             </SpaceCreationProvider>
           </div>
         </div>
