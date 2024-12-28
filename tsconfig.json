@@ -22,7 +22,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/space/[spaceName]/page.jsx", "app/components/ReviewCardComponent.jsx", "app/components/QuestionCardComponent.jsx", "app/components/StarRatingComponet.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/space/[spaceName]/page.tsx", "app/components/ReviewCardComponent.jsx", "app/components/QuestionCardComponent.jsx", "app/components/StarRatingComponet.jsx"],
   "exclude": ["node_modules"],
   
 }

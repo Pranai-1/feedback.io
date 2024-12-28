@@ -5,20 +5,33 @@ import Image from "next/image";
 import getSpace from "@/app/actions/getSpace";
 import SparklesText from "@/components/ui/sparkles-text";
 import { useParams } from "next/navigation";
-import SendReviewInText from "@/app/components/SendReviewInText";
-import QuestionCard from "../../components/QuestionCardComponent"
+import SendReviewInText from "@/app/components/SpaceReviewInputs/SendReviewInText";
+import QuestionCard from "@/app/components/SpaceReviewInputs/QuestionCardComponent";
+import { SpaceInputsIncludingQuestions, spaceSchemaBackend } from "@/app/zodSchema";
+import { SpacePropType } from "@/app/api/types";
+
 
   
 export default  function spaceReviewHome() {
  const {spaceName}=useParams()
-console.log(spaceName)
-const[space,setSpace]=useState({})
+const[space,setSpace]=useState<SpacePropType>()
  const[sendInText,setSendInText]=useState(false)
-
+  
 useEffect(()=>{
   async function getSpaceDetails(){
-    const spaceDetails = await getSpace(spaceName);
-    setSpace(spaceDetails); // Set the state here
+    if(typeof spaceName==="string"){
+      const spaceDetails = await getSpace(spaceName);
+      const validatedResult=spaceSchemaBackend.safeParse(spaceDetails)
+
+      if(validatedResult.success){
+        const validatedSpace = validatedResult.data as SpacePropType;
+        validatedSpace.id = spaceDetails?.id || "";
+        validatedSpace.createdAt = spaceDetails?.createdAt || new Date();
+        setSpace(validatedSpace)
+      }
+      
+    }
+   
   }
   getSpaceDetails()
 },[])
@@ -27,7 +40,7 @@ useEffect(()=>{
   if (!space) {
     return <p className="w-full h-screen flex justify-center items-center text-red-600 font-bold text-2xl">Space doesn't exist</p>;
   }
-console.log(sendInText)
+
   
   return (
     <div className={`w-full  p-2 flex flex-col justify-start items-center gap-8 relative  ${sendInText ? "bg-gray-500 h-[140vh]" :"h-screen"}`}>
@@ -47,7 +60,7 @@ console.log(sendInText)
       questionSize="14"
       />
       <div className="w-full flex justify-center items-center gap-4 text-white mt-4">
-        <button className="p-2 px-4 rounded-md bg-blue-600"
+        <button className="p-2 px-6 rounded-md bg-blue-600"
         onClick={()=>{
           setSendInText(true)
           }}>{space.textButtonText}</button>

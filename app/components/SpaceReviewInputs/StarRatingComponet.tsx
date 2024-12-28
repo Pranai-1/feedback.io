@@ -1,11 +1,14 @@
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 
-export default function StarRating({ starRating, setStarRating }) {
-    function onHover(idx) {
-        setStarRating(idx + 1); 
+export default function StarRating({ starRating, handleInputs }:
+    {starRating:number,handleInputs:(key: string, value: string | number | boolean)=> void}) {
+
+        
+    function onHover(idx:number) {
+        handleInputs("starRating",idx + 1); 
     }
-    console.log(starRating)
+
 
     return (
         <div className="flex justify-start items-center gap-2 w-full">
@@ -16,14 +19,14 @@ export default function StarRating({ starRating, setStarRating }) {
                      key={idx}
                      onMouseEnter={() => onHover(idx)} 
                      className="text-xl cursor-pointer text-red-600"
-                     onClick={()=>setStarRating(idx+1)}
+                     onClick={()=>handleInputs("starRating",idx + 1) }
                  />
                 ):(
                     <CiStar
                      key={idx}
                      onMouseEnter={() => onHover(idx)} 
                      className="text-xl cursor-pointer"
-                     onClick={()=>setStarRating(idx+1)}
+                     onClick={()=>handleInputs("starRating",idx + 1)}
                  /> 
                 )}
                 </div>

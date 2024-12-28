@@ -10,9 +10,9 @@ export default function SpaceCreationHome({setCreateSpaceToggle,createSpaceToggl
   {setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,createSpaceToggle:number}){
     const[displayPage,setDisplayPage]=useState(0)
 
-    useEffect(()=>{
-      toast.success("success")
-    },[])
+    // useEffect(()=>{
+    //   toast.success("success")
+    // },[])
     return(
         <>
           <div className=" absolute top-4  left-0 w-full  z-50 flex justify-center items-center ">

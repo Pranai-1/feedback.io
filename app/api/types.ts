@@ -107,10 +107,7 @@ export type Options = Option[];
     spaceLogo: string;
     headerTitle: string;
     customMessage: string;
-    questions: {
-      id: number;
-      label: string;
-  }[];
+    questions: any
     createdAt: Date;
     collectionType: string;
     darkTheme: boolean;
@@ -146,3 +143,22 @@ export type Options = Option[];
     }[];
     createdAt?: any; // ISO date string
 };
+
+
+export type InitialStateType={
+  starRating:number,
+  name:string,
+  email:string,
+  reviewText:string,
+  consent:boolean
+}
+
+export type Action = { type: 'SET_INPUT'; payload: string | number | boolean ; key:string }
+
+
+export interface QuestionType{
+  
+    id: number;
+    label: string;
+
+}
