@@ -27,10 +27,10 @@ useEffect(()=>{
   if (!space) {
     return <p className="w-full h-screen flex justify-center items-center text-red-600 font-bold text-2xl">Space doesn't exist</p>;
   }
-
+console.log(sendInText)
   
   return (
-    <div className={`w-full h-screen p-2 flex flex-col justify-start items-center gap-8 relative ${sendInText ? "bg-[#5C5E61]" :""}`}>
+    <div className={`w-full  p-2 flex flex-col justify-start items-center gap-8 relative  ${sendInText ? "bg-gray-500 h-[140vh]" :"h-screen"}`}>
      <SparklesText text="Feedback.io"></SparklesText>
     
       <Image src={cheersImage.src} height={120} width={240} alt="Cheers Images" 
