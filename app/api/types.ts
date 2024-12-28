@@ -27,25 +27,25 @@ export type Options = Option[];
     thankyouDescription:string
   };
   
-  export type SpaceBody = {
-    userId:string;
-    spaceName: string;
-    questions:string[];
-    spaceLogo: string;
-    headerTitle: string;
-    customMessage: string;
-    collectStarRatings: boolean;
-    darkTheme: boolean;
-    collectionType: string;
-    videoButtonText:string,
-    textButtonText:string,
-    maxChar:string,
-    disableCheersImage:boolean,
-    videoDuration:string,
-    consent:string,
-    thankyouTitle:string,
-    thankyouDescription:string
-  };
+  // export type SpaceBody = {
+  //   userId:string;
+  //   spaceName: string;
+  //   questions:string[];
+  //   spaceLogo: string;
+  //   headerTitle: string;
+  //   customMessage: string;
+  //   collectStarRatings: boolean;
+  //   darkTheme: boolean;
+  //   collectionType: string;
+  //   videoButtonText:string,
+  //   textButtonText:string,
+  //   maxChar:string,
+  //   disableCheersImage:boolean,
+  //   videoDuration:string,
+  //   consent:string,
+  //   thankyouTitle:string,
+  //   thankyouDescription:string
+  // };
 
   export type SpaceCreationDetailsType = {
     spaceInputs: SpaceInputs;
@@ -107,7 +107,10 @@ export type Options = Option[];
     spaceLogo: string;
     headerTitle: string;
     customMessage: string;
-    questions: any; 
+    questions: {
+      id: number;
+      label: string;
+  }[];
     createdAt: Date;
     collectionType: string;
     darkTheme: boolean;

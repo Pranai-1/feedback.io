@@ -4,6 +4,7 @@
 
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import Navbar from "./components/Navbar";
 
 
 
@@ -21,6 +22,7 @@ export default async function Home() {
   // console.log(userDetails);
   return (
   <div>
+    <Navbar/>
   <p>I am in home</p>
   </div>
   );
