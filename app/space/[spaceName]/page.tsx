@@ -5,10 +5,11 @@ import Image from "next/image";
 import getSpace from "@/app/actions/getSpace";
 import SparklesText from "@/components/ui/sparkles-text";
 import { useParams } from "next/navigation";
-import SendReviewInText from "@/app/components/SpaceReviewInputs/SendReviewInText";
-import QuestionCard from "@/app/components/SpaceReviewInputs/QuestionCardComponent";
-import { SpaceInputsIncludingQuestions, spaceSchemaBackend } from "@/app/zodSchema";
+
+import { spaceSchemaBackend } from "@/app/zodSchema";
 import { SpacePropType } from "@/app/api/types";
+import QuestionCard from "@/app/components/SpaceReviewInputs/QuestionCardComponent";
+import SendReviewInText from "@/app/components/SpaceReviewInputs/SendReviewInText";
 
 
   
@@ -43,7 +44,7 @@ useEffect(()=>{
 
   
   return (
-    <div className={`w-full  p-2 flex flex-col justify-start items-center gap-8 relative  ${sendInText ? "bg-gray-500 h-[140vh]" :"h-screen"}`}>
+    <div className={`w-full  p-2 flex flex-col justify-start items-center gap-8 relative  ${sendInText ? "bg-[#5C5E61] h-[140vh]" :"h-screen"}`}>
      <SparklesText text="Feedback.io"></SparklesText>
     
       <Image src={cheersImage.src} height={120} width={240} alt="Cheers Images" 
