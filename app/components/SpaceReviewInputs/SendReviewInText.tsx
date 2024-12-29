@@ -27,11 +27,11 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
         dispatch({ type: "SET_INPUT", key, payload:value }); 
       }
 
-   
+ 
     return(
         <div className="w-[40%] h-max bg-[#FFFFFF] p-2 py-4 absolute top-10 z-50 left-[35%] rounded-md border border-gray-500">
-              <div className="relative w-full">
-                    <RxCross2 className="absolute top-2 right-2 text-xl cursor-pointer" onClick={()=>setSendInText(false)}/>
+              <div className="relative w-full h-2">
+                    <RxCross2 className="absolute top-2 right-2 text-xl cursor-pointer text-black" onClick={()=>setSendInText(false)}/>
              </div>
         <p className="text-black font-bold text-lg flex justify-center items-center gap-2">Write text testimonial to 
             <span className="text-orange-600 font-bold">{space.spaceName}</span></p>
@@ -54,19 +54,19 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
             starRating={state.starRating}
             />
 
-            <textarea className="h-[100px] w-full border border-gray-700 rounded-md" value={state.reviewText} 
-            placeholder="Enter your feedback here..." onChange={(e)=>handleInputs("reviewText",e.target.value)}>
+            <textarea className="h-[100px] w-full border border-gray-700 rounded-md pt-2 pl-2" value={state.reviewText} 
+            placeholder={`${state.starRating<=3 ? "What did you dislike?How can we make it better?":"Enter your feedback here..."}`} onChange={(e)=>handleInputs("reviewText",e.target.value)}>
                 
             </textarea>
 
-            <label htmlFor="name" className="flex justify-start items-center gap-1">
+            <label htmlFor="name" className="flex justify-start items-center gap-1 text-black">
                 Your Name 
                 <span className="text-red-600">*</span>
                 </label>
                 <input className="rounded-md w-full p-2 border" placeholder="Enter your name here..." type="text"
                 onChange={(e)=>handleInputs("name",e.target.value)}/>
 
-                <label htmlFor="email" className="flex justify-start items-center gap-1">
+                <label htmlFor="email" className="flex justify-start items-center gap-1 text-black">
                 Your Email 
                 <span className="text-red-600">*</span>
                 <IoIosInformationCircle

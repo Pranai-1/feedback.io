@@ -31,7 +31,7 @@ export default function QuestionCard({
             {questions.map((question, idx) => (
               <li
                 key={idx}
-                className={`my-${margin} text-${questionSize}`}
+                className={`my-${margin} text-${questionSize} text-[#7D898A]`}
               >
                 {question?.label}
               </li>
