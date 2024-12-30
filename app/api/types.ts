@@ -150,10 +150,12 @@ export type InitialStateType={
   name:string,
   email:string,
   reviewText:string,
-  consent:boolean
+  consent:boolean,
+  images:string[],
+  profilePhoto:string
 }
 
-export type Action = { type: 'SET_INPUT'; payload: string | number | boolean ; key:string }
+export type Action = { type: 'SET_INPUT'; payload: string | number | boolean | string[] ; key:string }
 
 
 export interface QuestionType{

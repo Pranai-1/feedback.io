@@ -7,13 +7,16 @@ import QuestionCard from "./QuestionCardComponent";
 import StarRating from "./StarRatingComponet";
 import { IoIosInformationCircle } from "react-icons/io";
 import { reducer } from "./Functions/ReducerFunctions";
+import handleImages from "./Functions/HandleImages";
 
 const initialState:InitialStateType={
     starRating:5,
     name:"",
     email:"",
     reviewText:"",
-    consent:false
+    consent:false,
+    images:[],
+    profilePhoto:""
 }
 
 
@@ -23,7 +26,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
     const[showTooltip,setShowTooltip]=useState(false)
     const[state,dispatch]=useReducer(reducer,initialState)
    
-    function handleInputs(key:string, value:string | number | boolean) {
+    function handleInputs(key:string, value:string | number | boolean | string[]) {
         dispatch({ type: "SET_INPUT", key, payload:value }); 
       }
 
@@ -58,7 +61,26 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
             placeholder={`${state.starRating<=3 ? "What did you dislike?How can we make it better?":"Enter your feedback here..."}`} onChange={(e)=>handleInputs("reviewText",e.target.value)}>
                 
             </textarea>
+            <div className="flex flex-col gap-1">
+                <p className="text-black">Attach Images(s)</p>
+             <label htmlFor="images" 
+             className="cursor-pointer bg-white p-1 px-2 text-gray-600 w-max rounded-md border border-gray-600">Choose file
+              </label>
 
+                <input
+                type="file"
+                multiple
+                className="hidden"
+                placeholder="choose file"
+                name="images"
+                id="images"
+                onChange={(e)=>{
+                    handleImages("multiple",e,dispatch)
+                }}
+                />
+               
+              </div>
+            
             <label htmlFor="name" className="flex justify-start items-center gap-1 text-black">
                 Your Name 
                 <span className="text-red-600">*</span>
@@ -75,7 +97,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
                     onMouseLeave={() => setShowTooltip(false)}
                     />
 
-      {/* Tooltip */}
+ 
                 {showTooltip && (
                     <div className="absolute top-[80%] w-max left-1/2 transform -translate-x-1/2 mt-1 px-2 py-1 bg-gray-700 text-white text-sm rounded shadow-lg">
                     Your email will not be shared publicly
