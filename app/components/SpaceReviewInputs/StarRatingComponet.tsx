@@ -1,9 +1,11 @@
+import { Action } from "@/app/api/types";
 import { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import { handleInputs } from "./Functions/ReducerFunctions";
 
-export default function StarRating({ starRating, handleInputs }:
-    {starRating:number,handleInputs:(key: string, value: string | number | boolean)=> void}) {
+export default function StarRating({ starRating, dispatch }:
+    {starRating:number,dispatch:React.Dispatch<Action>}) {
         const[hoverIndex,setHoverIndex]=useState(5)
         const[clicked,setClicked]=useState(false)
     function onHover(idx:number) {
@@ -31,7 +33,7 @@ console.log(starRating)
                      className="text-xl cursor-pointer text-[#FFB621]"
                      onClick={()=>{
                         setClicked(true)
-                        handleInputs("starRating",idx + 1)
+                        handleInputs("starRating",idx + 1,dispatch)
                     } }
                  />
                 ):(
@@ -41,7 +43,7 @@ console.log(starRating)
                      className="text-xl cursor-pointer text-black"
                      onClick={()=>{
                         setClicked(true)
-                        handleInputs("starRating",idx + 1)
+                        handleInputs("starRating",idx + 1,dispatch)
                     } }
                  /> 
                 )}

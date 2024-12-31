@@ -14,3 +14,6 @@ export function reducer(state:InitialStateType, action:Action):InitialStateType 
     }
   }
 
+  export function handleInputs(key:string, value:string | number | boolean | string[],dispatch:React.Dispatch<Action>) {
+    dispatch({ type: "SET_INPUT", key, payload:value }); 
+  }
