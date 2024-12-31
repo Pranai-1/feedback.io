@@ -37,19 +37,7 @@ export default function InputData(
             value={state.email}
             onChange={(e)=>handleInputs("email",e.target.value,dispatch)}/>
 
-            <label htmlFor="consent" className="flex justify-start items-center gap-2 text-[13px] text-gray-500 font-medium">
-              <input type="checkbox" 
-              checked={state.consent}
-             
-              onChange={()=>{
-                if(state.consent)
-                    handleInputs("consent",false,dispatch)
-                else
-                handleInputs("consent",true,dispatch)
-              }}/>
-              
-              I give permission to use this testimonial across social channels and other marketing efforts
-            </label>
+        
             </div>
     )
 }

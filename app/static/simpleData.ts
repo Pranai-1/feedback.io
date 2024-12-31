@@ -29,3 +29,6 @@ export const questionData=[
         { label: "About", path: "/about", id: 2, icon: BiBoltCircle  },
         { label: "Privacy Policy", path: "/privacy-policy", id: 3, icon: MdPrivacyTip  },
       ];
+
+      export const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']; // Allowed formats
+      export const maxSizeInMB = 3;

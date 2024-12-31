@@ -1,4 +1,5 @@
 import { Action, InitialStateType } from "@/app/api/types";
+import { maxSizeInMB, validImageTypes } from "@/app/static/simpleData";
 
 
 export  function addImages(
@@ -19,8 +20,7 @@ export  function addImages(
        }
        console.log(files)
        const images:string[]=[...state.images]
-       const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']; // Allowed formats
-       const maxSizeInMB = 3;
+      
        
        for(let i=0;i<files.length;i++){
        const file=files[i]

@@ -24,7 +24,6 @@ export default function AttachImages(
         type="file"
         multiple
         className="hidden "
-        placeholder="choose file"
         name="images"
         id="images"
         onChange={(e)=>{

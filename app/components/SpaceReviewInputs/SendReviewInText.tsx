@@ -12,6 +12,7 @@ import { addImages, deleteImages } from "./Functions/handleImages";
 import { MdDelete } from "react-icons/md";
 import InputData from "./InputData";
 import AttachImages from "./AttachImages";
+import handleProfilePhoto from "./Functions/handleProfilePhoto";
 
 
 
@@ -66,7 +67,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
             placeholder={`${state.starRating<=3 ? "What did you dislike?How can we make it better?":"Enter your feedback here..."}`} onChange={(e)=>handleInputs("reviewText",e.target.value,dispatch)}>
                 
             </textarea>
-            
+
                  <AttachImages
                  state={state}
                  dispatch={dispatch}
@@ -76,7 +77,50 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
                    state={state}
                    dispatch={dispatch}
                    />
+                <div className="flex flex-col gap-2 text-black">
+                    <p>Upload Your Photo</p>
+                    <div className="flex justify-start items-center gap-3">
+                    <span className=" w-28 h-28 bg-gray-500 rounded-full">
+                        {state.profilePhoto.length>0 ? (
+                             <Image src={state.profilePhoto} alt="profile photo" height={32} width={32}/>
+                        ):null}
+                       
+                    </span>
 
+                    <label className="p-2 px-4 rounded-md border border-gray-600 text-black"
+                    htmlFor="profilePhoto">Choose file</label>
+
+                    <input 
+                    id="profilePhoto" 
+                    name="profilePhoto"
+                    className="hidden"
+                    onChange={(e)=>{handleProfilePhoto(e,dispatch)}}
+                    />
+                    {state.profilePhoto.length>0 ? (
+                        <IoIosRemoveCircle
+                        className="text-blue-500 hover:text-blue-700 absolute z-20 -top-2 -right-2 text-2xl cursor-pointer"
+                        onClick={()=>{
+                            dispatch({type:"SET_INPUT",key:"profilePhoto",payload:""})
+                        }}
+                        />
+                    ):null}
+                    </div>
+                   
+                </div>
+
+                <label htmlFor="consent" className="flex justify-start items-center gap-2 text-[13px] text-gray-500 font-medium">
+              <input type="checkbox" 
+              checked={state.consent}
+             
+              onChange={()=>{
+                if(state.consent)
+                    handleInputs("consent",false,dispatch)
+                else
+                handleInputs("consent",true,dispatch)
+              }}/>
+              
+              I give permission to use this testimonial across social channels and other marketing efforts
+            </label>
                  <div className="flex justify-center items-center gap-4 w-full">
                  <button className="px-6 p-2 rounded-md bg-green-600 text-white ">Submit</button>
                     <button className="px-6 p-2 rounded-md bg-red-600 text-white ">Cancel</button>
