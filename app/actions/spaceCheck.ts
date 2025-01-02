@@ -1,20 +1,16 @@
 import { prisma } from "@/lib/prisma"
 
-export default async function spaceCheck(spaceName:string,user:{id:string}){
+export default async function spaceCheck(spaceName:string,userId:string){
     try{
         const space=await prisma.space.findUnique({
             where:{
-                spaceName
-            },
-            select:{
-                id:true,
-                userId:true
+                spaceName,
+                userId
             }
           })
-    
-          if(!(user.id==space?.userId))
-            return null
+        if(space)
         return space
+    return null
     }catch (error) {
         console.log(error)
         return null;

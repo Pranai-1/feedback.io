@@ -145,15 +145,23 @@ export type Options = Option[];
 };
 
 
-export type InitialStateType={
-  starRating:number,
-  name:string,
-  email:string,
-  reviewText:string,
-  consent:boolean,
-  images:string[],
-  photo:string
-}
+export type BaseFeedbackType = {
+  starRating: number;
+  name: string;
+  email: string;
+  reviewText: string;
+  consent: boolean;
+  images: string[];
+  photo: string;
+};
+
+export type InitialFeedbackType = BaseFeedbackType;
+
+export type FeedbackPropType = BaseFeedbackType & {
+  readonly id: string;
+  spaceId:string
+};
+
 
 export type Action = { type: 'SET_INPUT'; payload: string | number | boolean | string[] ; key:string }
 

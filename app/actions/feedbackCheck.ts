@@ -1,14 +1,15 @@
 import { prisma } from "@/lib/prisma";
 
-export default async function feedbackCheck(spaceId:string){
+export default async function feedbackCheck(spaceId:string,feedbackId:string){
     try{
-     const space=await prisma.space.findUnique({
+     const review=await prisma.review.findUnique({
         where:{
-            id:spaceId
+            spaceId,
+            id:feedbackId
         }
       })
 
-     return space
+     return review
     }catch (error: unknown) {
         console.log(error)
         return null;

@@ -63,6 +63,13 @@ export const storageSchema = z.object({
   thankyouDescription: z.string().min(1, "Thankyou description is required."),
 });
 
-
+export const reviewSchema=z.object({
+  name: z.string().min(1, "Name is required."),
+  email:z.string().email().min(13,"Email is not valid"),
+  reviewText: z.string().min(1, "Review Text is required."),
+  consent: z.boolean({ required_error: errorMessage }),
+  starRating:z.number().min(1).max(5)
+ 
+});
 
 export type SpaceInputsIncludingQuestions = z.infer<typeof spaceSchema>;

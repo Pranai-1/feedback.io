@@ -1,6 +1,6 @@
-import { SetStateAction, useReducer } from "react";
+import { SetStateAction, useReducer, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { InitialStateType, SpacePropType } from "../../api/types";
+import { InitialFeedbackType, SpacePropType } from "../../api/types";
 import Image from "next/image";
 import cheersImage from "@/public/cheers.webp"
 import QuestionCard from "./QuestionCardComponent";
@@ -11,11 +11,13 @@ import AttachImages from "./AttachImages";
 
 import ProfilePhoto from "./ProfilePhoto";
 import addFeedback from "@/app/actions/feedbackActions/addFeedback";
+import { toast } from "react-toastify";
+import { reviewSchema } from "@/app/zodSchema";
 
 
 
 
-const initialState:InitialStateType={
+const initialState:InitialFeedbackType={
     starRating:5,
     name:"",
     email:"",
@@ -30,8 +32,28 @@ const initialState:InitialStateType={
 export default function SendReviewInText({setSendInText,space}:{setSendInText:React.Dispatch<SetStateAction<boolean>>,space:SpacePropType}){
    
     const[state,dispatch]=useReducer(reducer,initialState)
- 
-   
+    const[loading,setLoading]=useState(false)
+  async function handleReviewSubmission(){
+     setLoading(true)
+     try{
+       const parsedFeedback= reviewSchema.safeParse(state)
+       if(!parsedFeedback.success)
+        toast.error(`Error occured while submitting review`)
+         
+       const review=await addFeedback(state,space.id)
+
+       if(review.success)
+        toast.success(review.message)
+        else
+        toast.error(review.message)
+
+     }catch(error){
+        toast.error(`${(error as Error).message || "Error Occured"}`)
+        
+     }finally{
+        setLoading(false)
+     }
+   }
 
  console.log(state,state.images.length)
     return(
@@ -95,7 +117,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
                  <div className="flex justify-center items-center gap-4 w-full">
                  <button className="px-6 p-2 rounded-md bg-green-600 text-white "
                  onClick={()=>{
-                    addFeedback(state,space.spaceName)
+                    handleReviewSubmission()
                  }}>
                     Submit</button>
                     <button className="px-6 p-2 rounded-md bg-red-600 text-white "
