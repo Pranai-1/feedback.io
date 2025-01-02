@@ -5,8 +5,9 @@ import { SpaceCreationDetails } from "./SpaceCreationProvider";
 import 'react-toastify/dist/ReactToastify.css';
 import { spaceSchema } from "../zodSchema";
 import PulsatingButton from "../../components/ui/pulsating-button"
-import { handleCreateSpace } from "../actions/createSpace";
-import { handleUpdateSpace } from "../actions/updateSpace";
+import { handleUpdateSpace } from "../actions/spaceActions/updateSpace";
+import { handleCreateSpace } from "../actions/spaceActions/createSpace";
+
 
 
 export default  function SpaceSubmission({createSpaceToggle,spaceId,setCreateSpaceToggle}

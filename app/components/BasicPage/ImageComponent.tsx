@@ -2,6 +2,7 @@ import { SpaceInputs } from "@/app/api/types";
 import Image from "next/image";
 import { RxCrossCircled } from "react-icons/rx";
 import { Tooltip as ReactTooltip } from 'react-tooltip';
+import CustomTooltip from "../SpaceReviewInputs/ReactToolTip";
 
 export default function ImageComponent(
     {spaceInputs,handleSpaceInputs}:{spaceInputs:SpaceInputs,handleSpaceInputs: (name: string, value: string | boolean)=>void})
@@ -64,7 +65,14 @@ export default function ImageComponent(
         </span>
         {spaceInputs.spaceLogo.length !== 0 ? (
           <>
-            <RxCrossCircled
+          <CustomTooltip
+          Icon={RxCrossCircled}
+            className="cursor-pointer text-xl"
+            handleClick={() => handleSpaceInputs("spaceLogo", "")}
+             content="Undo the Change"
+
+          />
+            {/* <RxCrossCircled
               className="cursor-pointer"
               id="toolTipFileChange"
               onClick={() => handleSpaceInputs("spaceLogo", "")}
@@ -74,7 +82,7 @@ export default function ImageComponent(
               content="Undo the Change"
               place="top"
               style={{ maxWidth: "300px", whiteSpace: "normal" }}
-            />
+            /> */}
           </>
         ) : null}
       </div>

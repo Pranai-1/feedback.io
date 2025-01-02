@@ -104,7 +104,7 @@ model Review{
  consent       Boolean?
  images        Json?
  reviewText    String
- stars         String
+ starRating         Int
  spaceId       String
  space         Space @relation(fields: [spaceId],references: [id],onDelete:Cascade)
 }

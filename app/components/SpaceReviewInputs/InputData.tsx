@@ -29,6 +29,8 @@ export default function InputData(
             <CustomTooltip
             Icon={IoIosInformationCircle}
             content="Your email will not be shared publicly"
+            className="text-xl cursor-pointer"
+            handleClick={()=>{}}
             />
 
 

@@ -3,10 +3,15 @@
 import { prisma } from "@/lib/prisma";
 
 export default async function getSpace(spaceName:string){
+  try{
     const space = await prisma.space.findUnique({
-        where: {
-          spaceName,
-        },
-      });
-      return space
+      where: {
+        spaceName,
+      },
+    });
+    return space
+  }catch(error){
+    throw new Error("Error Occured")
+  }
+  
 }

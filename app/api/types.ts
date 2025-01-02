@@ -152,7 +152,7 @@ export type InitialStateType={
   reviewText:string,
   consent:boolean,
   images:string[],
-  profilePhoto:string
+  photo:string
 }
 
 export type Action = { type: 'SET_INPUT'; payload: string | number | boolean | string[] ; key:string }

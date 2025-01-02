@@ -1,24 +1,19 @@
 "use server";
 
 
-import { SpaceInputsIncludingQuestions, spaceSchemaBackend } from "../zodSchema";
+import { SpaceInputsIncludingQuestions, spaceSchemaBackend } from "../../zodSchema";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { fetchUserData } from "@/lib/dataFetch";
 import { prisma } from "@/lib/prisma";
+import userCheck from "../userCheck";
 
 export async function handleUpdateSpace(spaceId: string,spaceDetails:SpaceInputsIncludingQuestions) {
-   const session=await auth()
-   if(!session){
-    throw new Error("Login and try again")
-   }
-   const {user}=await fetchUserData(session?.user?.email || "")
-   if(!user){
-    throw new Error("User not found")
-   }
+  
      
     
         try {
+          await userCheck()
             const updatedSpace=await prisma.space.update({
                 where:{
                     id:spaceId
@@ -34,9 +29,9 @@ export async function handleUpdateSpace(spaceId: string,spaceDetails:SpaceInputs
                 return {success:true}
               }
       
-          } catch (dbError) {
-            return { success: false };
-            
+          } catch (error: unknown) {
+            console.error("Error in handleCreateSpace:", error);
+            return { success: false, error: (error as Error).message || "Unknown error occurred" };
           }
         }
       

@@ -2,7 +2,7 @@ import { SetStateAction, useState } from "react"
 
 import { toast } from "react-toastify"
 import { RxCross2 } from "react-icons/rx";
-import deleteSpaceAction from "../actions/deleteSpace";
+import deleteSpaceAction from "../actions/spaceActions/deleteSpace";
 export default function DeleteSpaceCard({deleteSpace,setDeleteSpace}:
     {deleteSpace:string,setDeleteSpace:React.Dispatch<SetStateAction<string>>}){
     const[clickedOnDeleteInput,setClickedOnDeleteInput]=useState(false)

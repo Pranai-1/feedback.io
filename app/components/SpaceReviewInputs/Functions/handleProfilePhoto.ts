@@ -24,7 +24,8 @@ export default function handleProfilePhoto(
     reader.readAsDataURL(file)
 
     reader.onload=()=>{
-        //dispatch({type:"SET_INPUT",})
+        if(reader.result)
+        dispatch({type:"SET_INPUT",key:"photo",payload:reader.result.toString()})
     }
 
 }

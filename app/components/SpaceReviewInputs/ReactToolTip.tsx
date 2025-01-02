@@ -4,16 +4,21 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 export default function CustomTooltip({
   Icon,
   content,
+  handleClick,
+  className
 }: {
   Icon: React.ElementType;
   content: string;
+  handleClick:()=>void;
+  className:string
 }) {
   return (
     <div className="relative">
       <Icon
-        className="cursor-pointer text-xl"
+        className={className}
         data-tooltip-id="infoTooltip"
         data-tooltip-content={content}
+        onClick={handleClick}
       />
       <ReactTooltip
         id="infoTooltip"

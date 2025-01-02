@@ -83,7 +83,7 @@
 
 import cheersImage from "../../../public/cheers.webp";
 import Image from "next/image";
-import getSpace from "@/app/actions/getSpace";
+import getSpace from "@/app/actions/spaceActions/getSpace";
 import SparklesText from "@/components/ui/sparkles-text";
 import { spaceSchemaBackend } from "@/app/zodSchema";
 import { SpacePropType } from "@/app/api/types";

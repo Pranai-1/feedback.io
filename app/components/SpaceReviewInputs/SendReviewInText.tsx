@@ -1,18 +1,16 @@
-import { SetStateAction, useEffect, useReducer, useState } from "react";
+import { SetStateAction, useReducer } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { InitialStateType, SpacePropType } from "../../api/types";
 import Image from "next/image";
 import cheersImage from "@/public/cheers.webp"
 import QuestionCard from "./QuestionCardComponent";
 import StarRating from "./StarRatingComponet";
-import { IoIosInformationCircle } from "react-icons/io";
 import { handleInputs, reducer } from "./Functions/ReducerFunctions";
-import { IoIosRemoveCircle } from "react-icons/io";
-import { addImages, deleteImages } from "./Functions/handleImages";
-import { MdDelete } from "react-icons/md";
 import InputData from "./InputData";
 import AttachImages from "./AttachImages";
-import handleProfilePhoto from "./Functions/handleProfilePhoto";
+
+import ProfilePhoto from "./ProfilePhoto";
+import addFeedback from "@/app/actions/feedbackActions/addFeedback";
 
 
 
@@ -24,14 +22,13 @@ const initialState:InitialStateType={
     reviewText:"",
     consent:false,
     images:[],
-    profilePhoto:""
+    photo:""
 }
 
 
   
 export default function SendReviewInText({setSendInText,space}:{setSendInText:React.Dispatch<SetStateAction<boolean>>,space:SpacePropType}){
    
-    const[showTooltip,setShowTooltip]=useState(false)
     const[state,dispatch]=useReducer(reducer,initialState)
  
    
@@ -68,47 +65,21 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
                 
             </textarea>
 
-                 <AttachImages
-                 state={state}
-                 dispatch={dispatch}
-                 />
-
-                 <InputData
-                   state={state}
-                   dispatch={dispatch}
-                   />
-                <div className="flex flex-col gap-2 text-black">
-                    <p>Upload Your Photo</p>
-                    <div className="flex justify-start items-center gap-3">
-                    <span className=" w-28 h-28 bg-gray-500 rounded-full">
-                        {state.profilePhoto.length>0 ? (
-                             <Image src={state.profilePhoto} alt="profile photo" height={32} width={32}/>
-                        ):null}
-                       
-                    </span>
-
-                    <label className="p-2 px-4 rounded-md border border-gray-600 text-black"
-                    htmlFor="profilePhoto">Choose file</label>
-
-                    <input 
-                    id="profilePhoto" 
-                    name="profilePhoto"
-                    className="hidden"
-                    onChange={(e)=>{handleProfilePhoto(e,dispatch)}}
+                    <AttachImages
+                    state={state}
+                    dispatch={dispatch}
                     />
-                    {state.profilePhoto.length>0 ? (
-                        <IoIosRemoveCircle
-                        className="text-blue-500 hover:text-blue-700 absolute z-20 -top-2 -right-2 text-2xl cursor-pointer"
-                        onClick={()=>{
-                            dispatch({type:"SET_INPUT",key:"profilePhoto",payload:""})
-                        }}
-                        />
-                    ):null}
-                    </div>
-                   
-                </div>
 
-                <label htmlFor="consent" className="flex justify-start items-center gap-2 text-[13px] text-gray-500 font-medium">
+                    <InputData
+                    state={state}
+                    dispatch={dispatch}
+                    />
+                    <ProfilePhoto
+                    state={state}
+                    dispatch={dispatch}
+                    />
+
+            <label htmlFor="consent" className="flex justify-start items-center gap-2 text-[13px] text-gray-500 font-medium">
               <input type="checkbox" 
               checked={state.consent}
              
@@ -122,8 +93,14 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
               I give permission to use this testimonial across social channels and other marketing efforts
             </label>
                  <div className="flex justify-center items-center gap-4 w-full">
-                 <button className="px-6 p-2 rounded-md bg-green-600 text-white ">Submit</button>
-                    <button className="px-6 p-2 rounded-md bg-red-600 text-white ">Cancel</button>
+                 <button className="px-6 p-2 rounded-md bg-green-600 text-white "
+                 onClick={()=>{
+                    addFeedback(state,space.spaceName)
+                 }}>
+                    Submit</button>
+                    <button className="px-6 p-2 rounded-md bg-red-600 text-white "
+                    onClick={()=>setSendInText(false)}
+                    >Cancel</button>
                    
                  </div>
             </div> 

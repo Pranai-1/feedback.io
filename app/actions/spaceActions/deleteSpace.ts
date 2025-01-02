@@ -4,18 +4,12 @@ import { auth } from "@/auth";
 import { fetchUserData } from "@/lib/dataFetch";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import userCheck from "../userCheck";
 
 export default async function deleteSpaceAction(spaceName:string){
-  const session=await auth()
-    if(!session){
-     throw new Error("Login and try again")
-    }
-    const {user}=await fetchUserData(session?.user?.email || "")
-    if(!user){
-     throw new Error("User not found")
-    }
-      
+
     try{
+       await userCheck()
       const deleteSpace=await prisma.space.delete({
         where:{
             spaceName
@@ -28,10 +22,9 @@ export default async function deleteSpaceAction(spaceName:string){
         
     else
     return {success:false}
-    }catch(error){
-      if(error instanceof Error)
-        throw new Error(error.message)
-    else
-     throw new Error("Couldn't delete the space")
+
+    }catch (error: unknown) {
+      console.error("Error in handleCreateSpace:", error);
+      return { success: false, error: (error as Error).message || "Unknown error occurred" };
     }
 }
