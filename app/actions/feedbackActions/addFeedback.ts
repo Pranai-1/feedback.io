@@ -1,16 +1,11 @@
 "use server";
 
 import { InitialStateType } from "@/app/api/types";
-import userCheck from "../userCheck";
 import { prisma } from "@/lib/prisma";
 
 export default async function addFeedback(feedbackDetails: InitialStateType, spaceName: string) {
     console.log("bjbknk")
   try {
-    
-    await userCheck();
-
-
     const space = await prisma.space.findUnique({
       where: {
         spaceName,
@@ -33,10 +28,10 @@ export default async function addFeedback(feedbackDetails: InitialStateType, spa
     });
 
     if (!feedback) {
-      throw new Error("Failed to create feedback");
+        return { success: false, message:"Failed to submit feedback" };
     }
 
-    return { success: true, feedback };
+    return { success: true, message:"Feedback submitted successfully" };
   } catch (error: unknown) {
     console.error("Error in addFeedback:", error);
     return { success: false, error: (error as Error).message || "Unknown error occurred" };
