@@ -6,32 +6,28 @@ export default function QuestionCard({
   margin = 2,
   textSize = "lg",
   font = "bold",
-}:{
-  questions:QuestionType[],
-  questionSize:string,
-  margin :number,
-  textSize:string,
-  font :string,
-
+}: {
+  questions: QuestionType[];
+  questionSize: string;
+  margin: number;
+  textSize: string;
+  font: string;
 }) {
   return (
     <>
-     
       <p
-        className={`text-[#33363A] font-${font} text-${textSize} py-1 border-b-4 border-b-blue-600`}
+        className={`text-[#33363A] font-${font} text-sm sm:text-lg py-1 border-b-4 border-b-blue-600`}
       >
         QUESTIONS
       </p>
-    
 
-     
       <div>
         {questions && Array.isArray(questions) ? (
-          <> 
+          <>
             {questions.map((question, idx) => (
               <li
                 key={idx}
-                className={`my-${margin} text-${questionSize} text-[#7D898A]`}
+                className={`my-2 sm:my-${margin} text-xs sm:text-base text-gray-700`}
               >
                 {question?.label}
               </li>

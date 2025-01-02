@@ -67,11 +67,11 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
 
  console.log(state,state.images.length)
     return(
-        <div className="w-[40%] h-max bg-[#FFFFFF] p-2 py-4 absolute top-10 z-50 left-[35%] rounded-md border border-gray-500">
-              <div className="relative w-full h-2">
-                    <RxCross2 className="absolute top-2 right-2 text-xl cursor-pointer text-black" onClick={()=>setSendInText(false)}/>
+        <div className="w-[95%] sm:w-[70%] lg:w-[40%] h-max bg-[#FFFFFF] p-2 py-4 absolute top-10 z-50 left-1 md:left-28 lg:left-[35%] rounded-md border border-gray-500">
+              <div className="relative w-full h-4">
+                    <RxCross2 className="absolute top-0 sm:top-2 right-1 sm:right-2 text-xl cursor-pointer text-black" onClick={()=>setSendInText(false)}/>
              </div>
-        <p className="text-black font-bold text-lg flex justify-center items-center gap-2">Write text testimonial to 
+        <p className="text-black font-bold text-sm sm:text-lg flex justify-center items-center sm:gap-2 gap-1">Write text testimonial to 
             <span className="text-orange-600 font-bold">{space.spaceName}</span></p>
             <div className="flex flex-col justify-center items-start gap-4 mt-5 pl-4 relative">
 
@@ -84,7 +84,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
             margin={1}
             font="medium"
             textSize="12"
-            questionSize="10"
+            questionSize="18px"
             />
 
             <StarRating
@@ -92,7 +92,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
             starRating={state.starRating}
             />
 
-            <textarea className="h-[100px] w-full border border-gray-700 rounded-md pt-2 pl-2 text-black" value={state.reviewText} 
+            <textarea className="h-[100px] w-full border border-gray-700 rounded-md pt-2 pl-2 text-black text-xs sm:text-base" value={state.reviewText} 
             placeholder={`${state.starRating<=3 ? "What did you dislike?How can we make it better?":"Enter your feedback here..."}`} onChange={(e)=>handleInputs("reviewText",e.target.value,dispatch)}>
                 
             </textarea>
@@ -129,14 +129,14 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
 
                     {!loading ? (
                        <div className="flex justify-center items-center gap-4 w-full">
-                           <button className="px-6 p-2 rounded-md bg-green-600 text-white "
+                           <button className="text-sm sm:text-xl sm:px-6 p-2 rounded-md bg-green-600 text-white "
                             onClick={()=>{
                                 handleReviewSubmission()
                             }}>
                      
                     Submit</button>
 
-                    <button className="px-6 p-2 rounded-md bg-red-600 text-white "
+                    <button className="sm:px-6 p-2 rounded-md bg-red-600 text-white "
                          onClick={()=>setSendInText(false)}
                          >Cancel</button>
                     </div>

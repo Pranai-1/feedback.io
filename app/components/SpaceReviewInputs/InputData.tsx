@@ -8,7 +8,7 @@ export default function InputData(
     {state:InitialFeedbackType,dispatch:React.Dispatch<Action>}
 ){
     return(
-        <div className="flex flex-col gap-2 w-[70%]">
+        <div className="flex flex-col gap-2 w-[95%] sm:w-[70%]">
         <label htmlFor="name" className="flex justify-start items-center gap-1 text-black">
             Your Name 
             <span className="text-red-600">*</span>
