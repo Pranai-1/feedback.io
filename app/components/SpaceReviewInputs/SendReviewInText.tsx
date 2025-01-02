@@ -13,6 +13,7 @@ import ProfilePhoto from "./ProfilePhoto";
 import addFeedback from "@/app/actions/feedbackActions/addFeedback";
 import { toast } from "react-toastify";
 import { reviewSchema } from "@/app/zodSchema";
+import PulsatingButton from "@/components/ui/pulsating-button";
 
 
 
@@ -33,12 +34,19 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
    
     const[state,dispatch]=useReducer(reducer,initialState)
     const[loading,setLoading]=useState(false)
+
+
   async function handleReviewSubmission(){
      setLoading(true)
      try{
        const parsedFeedback= reviewSchema.safeParse(state)
-       if(!parsedFeedback.success)
-        toast.error(`Error occured while submitting review`)
+       if(!parsedFeedback.success){
+        const firstError = parsedFeedback.error.errors[0]; 
+        const errorMessage = `${firstError.path.join(".")}: ${firstError.message}`; 
+        toast.error(errorMessage); 
+        return;
+       }
+       
          
        const review=await addFeedback(state,space.id)
 
@@ -46,9 +54,11 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
         toast.success(review.message)
         else
         toast.error(review.message)
+    return
 
      }catch(error){
-        toast.error(`${(error as Error).message || "Error Occured"}`)
+       console.log(error)
+        toast.error("Error occured while submitting the review")
         
      }finally{
         setLoading(false)
@@ -114,17 +124,32 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
               
               I give permission to use this testimonial across social channels and other marketing efforts
             </label>
-                 <div className="flex justify-center items-center gap-4 w-full">
-                 <button className="px-6 p-2 rounded-md bg-green-600 text-white "
-                 onClick={()=>{
-                    handleReviewSubmission()
-                 }}>
+                 
+                  
+
+                    {!loading ? (
+                       <div className="flex justify-center items-center gap-4 w-full">
+                           <button className="px-6 p-2 rounded-md bg-green-600 text-white "
+                            onClick={()=>{
+                                handleReviewSubmission()
+                            }}>
+                     
                     Submit</button>
+
                     <button className="px-6 p-2 rounded-md bg-red-600 text-white "
-                    onClick={()=>setSendInText(false)}
-                    >Cancel</button>
+                         onClick={()=>setSendInText(false)}
+                         >Cancel</button>
+                    </div>
+                        
+                        
+                    ):
+                    <div  className="flex justify-center items-center gap-4 w-full">
+                     <PulsatingButton
+                    className="text-white p-2 px-4">Submitting... </PulsatingButton>
+                    </div>  
+              }
                    
-                 </div>
+                 
             </div> 
         </div>
     )
