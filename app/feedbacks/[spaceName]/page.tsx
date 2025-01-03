@@ -7,7 +7,7 @@ interface FeedbackHomeProps {
 }
 
 export default async function SpaceFeedbacks({ params }: { params: FeedbackHomeProps }) {
-  const { spaceName } = params;
+  const { spaceName } =await params;
   
   let feedbacks: FeedbackPropType[] = [];
  

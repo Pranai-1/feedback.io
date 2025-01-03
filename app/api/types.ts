@@ -1,5 +1,6 @@
 import { ReactNode, SetStateAction } from "react";
 import { fields, questionData } from "../static/simpleData";
+import { IconType } from "react-icons/lib";
 
 export type Option = {
   label: string;
@@ -172,3 +173,6 @@ export interface QuestionType{
     label: string;
 
 }
+
+export type FeedbackSideBarNavElement=
+  {label: string,  id:number, icon: IconType  }

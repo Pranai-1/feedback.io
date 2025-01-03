@@ -7,6 +7,12 @@ import { MdOutlineEmail } from "react-icons/md";
 import { CiVideoOn } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { CiStar } from "react-icons/ci";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { SiSimpleanalytics } from "react-icons/si";
+import { FaEdit } from "react-icons/fa";
+import { FaUserFriends } from "react-icons/fa";
 
 export const questionData=[
     {label:"Who are you / what are you working on?",id:0},
@@ -41,10 +47,45 @@ export const questionData=[
         { label: "Liked",  id: 3, icon: CiHeart  },
       ]
 
-      export const feedbackSideBarWidget=[
+       const feedbackSideBarWidget=[
         { label: "Wall of Love",  id: 0, icon: CiHeart  },
         { label: "Badge", id: 1, icon: CiStar  },
 
       ]
+
+       const feedbackSideBarIntegrations=[
+        { label: "X (Twitter)",  id: 0, icon: FaXTwitter  },
+        { label: "Instagram", id: 1, icon: FaInstagram  },
+
+      ]
+
+       const feedbackSideBarPages=[
+        { label: "X (Twitter)",  id: 0, icon: FaXTwitter  },
+        { label: "Instagram", id: 1, icon: FaInstagram  },
+
+      ]
+
+       const feedbackSideBarAnalytics=[
+        { label: "Metrics",  id: 0, icon:SiSimpleanalytics  },
+        
+
+      ]
+
+       const feedbackSideBarSpaceSettings=[
+        { label: "Edit the space",  id: 0, icon: FaEdit  },
+        { label: "Invite people to this space", id: 1, icon: FaUserFriends  },
+
+      ]
+
+      export const feedbackSideBarExtensionValues=[feedbackSideBarWidget,feedbackSideBarIntegrations,feedbackSideBarPages,feedbackSideBarAnalytics,feedbackSideBarSpaceSettings]
+      export const feedbackSideBarExtension=[
+        { label: "Embed Widgets",  id: 0, icon: MdKeyboardArrowRight  },
+        { label: "Integrations", id: 1, icon: MdKeyboardArrowRight  },
+        { label: "Pages",  id: 2, icon: MdKeyboardArrowRight  },
+        { label: "Analytics", id: 3, icon: MdKeyboardArrowRight  },
+        { label: "Space settings",  id: 4, icon: MdKeyboardArrowRight  },
+      ]
+
+
       export const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']; // Allowed formats
       export const maxSizeInMB = 3;
