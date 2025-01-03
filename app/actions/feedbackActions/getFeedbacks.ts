@@ -4,7 +4,6 @@ import userCheck from "../userCheck";
 
 export default async  function getFeedback(spaceName:string){
     try{
-     await userCheck()
    
      const space=await prisma.space.findUnique({
         where:{

@@ -1,14 +1,12 @@
 import { SetStateAction } from "react";
-import { LuMessageSquare } from "react-icons/lu";
-import { MdOutlineEmail } from "react-icons/md";
-import { CiVideoOn } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
-import { CiStar } from "react-icons/ci";
+
 
 
 export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<SetStateAction<string>>}){
     return(
-        <div className=" hidden sm:block sm:w-[300px] h-full  border-r-2 border-r-slate-400">
+        <div className=" overflow-x-hidden flex-col  gap-4 text-white
+        w-[85%] md:w-72 h-full px-5 pt-3 overflow-y-auto  border-r rtl:border-r-0 rtl:border-l dark:bg-black dark:border-balck">
+            <p className="text-2xl text-center w-full">Inbox</p>
         </div>
     )
 }

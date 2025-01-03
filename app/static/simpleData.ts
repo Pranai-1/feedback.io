@@ -2,7 +2,11 @@ import { RxDashboard } from "react-icons/rx";
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import { BiBoltCircle } from "react-icons/bi";
 import { MdPrivacyTip } from "react-icons/md";
-
+import { LuMessageSquare } from "react-icons/lu";
+import { MdOutlineEmail } from "react-icons/md";
+import { CiVideoOn } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+import { CiStar } from "react-icons/ci";
 
 export const questionData=[
     {label:"Who are you / what are you working on?",id:0},
@@ -30,5 +34,17 @@ export const questionData=[
         { label: "Privacy Policy", path: "/privacy-policy", id: 3, icon: MdPrivacyTip  },
       ];
 
+      export const feedbackSideBarInbox=[
+        { label: "All",  id: 0, icon: MdOutlineEmail  },
+        { label: "Video", id: 1, icon: CiVideoOn  },
+        { label: "Text",  id: 2, icon: LuMessageSquare  },
+        { label: "Liked",  id: 3, icon: CiHeart  },
+      ]
+
+      export const feedbackSideBarWidget=[
+        { label: "Wall of Love",  id: 0, icon: CiHeart  },
+        { label: "Badge", id: 1, icon: CiStar  },
+
+      ]
       export const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']; // Allowed formats
       export const maxSizeInMB = 3;

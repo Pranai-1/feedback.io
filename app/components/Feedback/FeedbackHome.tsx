@@ -8,7 +8,7 @@ export default function FeedbackHome({feedbacks}:{feedbacks:FeedbackPropType[]})
     const[display,setDisplay]=useState("")
     console.log(feedbacks)
     return(
-        <div className="w-full h-[87vh] bg-[#09090B] p-2 py-4">
+        <div className="w-full h-full">
         <FeedbackSideBar setDisplay={setDisplay}/>
         </div>
     )
