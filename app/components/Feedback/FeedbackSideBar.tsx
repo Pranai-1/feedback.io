@@ -11,7 +11,7 @@ export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<
 
     return(
         <div className=" overflow-x-hidden flex flex-col  gap-4 text-[#B2B2B3]
-        w-[95%] md:w-72 h-full px-5 pt-3 overflow-y-auto  md:border-r md:rtl:border-r-0 md:rtl:border-l dark:bg-black dark:border-balck">
+        w-[95%] md:w-72 h-full mr-2 px-3 pt-3 overflow-y-auto  md:border-r md:rtl:border-r-0 md:rtl:border-l dark:bg-black dark:border-balck">
             <div>
             <p className="text-2xl text-center w-full text-white">Inbox</p>
             <div className="flex flex-col justify-start items-center gap-4 mt-4 w-[100%]">

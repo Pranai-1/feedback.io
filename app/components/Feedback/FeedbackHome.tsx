@@ -16,34 +16,21 @@ export default function FeedbackHome({
 }) {
   const [display, setDisplay] = useState("");
 
-  if (display === "Video") {
-    return (
-      <div className="w-full h-full flex justify-start items-center gap-2">
-        <FeedbackSideBar setDisplay={setDisplay} />
-        <div className="w-full h-full">
-          <NoFeedback spaceName={spaceName} />
-        </div>
-      </div>
-    );
-  }
-
-  if (display === "Liked") {
-    return (
-      <div className="w-full h-full flex justify-start items-center gap-2">
-        <FeedbackSideBar setDisplay={setDisplay} />
-        <div className="w-full h-full">
-          <FeedbackLiked />
-        </div>
-      </div>
-    );
-  }
+  const renderContent = () => {
+    switch (display) {
+      case "Video":
+        return <NoFeedback spaceName={spaceName} />;
+      case "Liked":
+        return <FeedbackLiked />;
+      default:
+        return <FeedbackTextDisplay feedbacks={feedbacks} spaceName={spaceName} />;
+    }
+  };
 
   return (
-    <div className="w-full h-full flex justify-start items-center gap-2">
+    <div className="w-full h-full flex flex-col md:flex-row justify-start items-center gap-2">
       <FeedbackSideBar setDisplay={setDisplay} />
-      <div className="w-full h-full">
-        <FeedbackTextDisplay feedbacks={feedbacks} spaceName={spaceName} />
-      </div>
+      <div className="w-full h-full">{renderContent()}</div>
     </div>
   );
 }
