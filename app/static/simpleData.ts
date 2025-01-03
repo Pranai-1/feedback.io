@@ -13,6 +13,7 @@ import { FaInstagram } from "react-icons/fa";
 import { SiSimpleanalytics } from "react-icons/si";
 import { FaEdit } from "react-icons/fa";
 import { FaUserFriends } from "react-icons/fa";
+import { IoMdSend } from "react-icons/io";
 
 export const questionData=[
     {label:"Who are you / what are you working on?",id:0},
@@ -60,8 +61,8 @@ export const questionData=[
       ]
 
        const feedbackSideBarPages=[
-        { label: "X (Twitter)",  id: 0, icon: FaXTwitter  },
-        { label: "Instagram", id: 1, icon: FaInstagram  },
+        { label: "Request Testimonials",  id: 0, icon: FaXTwitter  },
+        { label: "Wall of love", id: 1, icon: IoMdSend  },
 
       ]
 

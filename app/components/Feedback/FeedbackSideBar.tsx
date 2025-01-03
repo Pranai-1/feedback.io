@@ -8,8 +8,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<SetStateAction<string>>}){
     const[extend,setExtend]=useState(-1)
-    console.log(extend)
-    const[clicked,setClicked]=useState("")
+
     return(
         <div className=" overflow-x-hidden flex flex-col  gap-4 text-[#B2B2B3]
         w-[95%] md:w-72 h-full px-5 pt-3 overflow-y-auto  md:border-r md:rtl:border-r-0 md:rtl:border-l dark:bg-black dark:border-balck">
@@ -18,7 +17,8 @@ export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<
             <div className="flex flex-col justify-start items-center gap-4 mt-4 w-[100%]">
             {feedbackSideBarInbox.map((data:FeedbackSideBarNavElement)=>
             <div key={data.id} className={`flex justify-start items-center gap-1 w-full hover:bg-[#19191A] cursor-pointer
-                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white`}>
+                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white`}
+                    onClick={()=>{setDisplay(data.label)}}>
                         <span className="text-2xl text-white bg-black">{React.createElement(data.icon)}</span>
                        <span className={`px-4 `}>{data.label} </span>
                       
@@ -28,7 +28,7 @@ export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<
             </div>
             <div className="flex flex-col mt-4 gap-2">
             {feedbackSideBarExtension.map((data:FeedbackSideBarNavElement)=>
-            <>
+            <div key={data.id}>
              <div className={`flex justify-between items-center w-full cursor-pointer p-2 rounded-md hover:border
               border-gray-500 hover:text-white ${extend==data.id ? "text-blue-600" :""}`} key={data.id}
               onClick={()=>{
@@ -39,19 +39,22 @@ export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<
             
              </div>
              {extend==data.id ? (
-                <div className="flex flex-col gap-2 w-full">
+                <div className="flex flex-col gap-2 w-full mt-2">
                    
                     {feedbackSideBarExtensionValues[extend].map((value:FeedbackSideBarNavElement)=>
                     <div className="flex justify-start items-center w-full gap-2 hover:bg-[#19191A] cursor-pointer
-                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white">
-                        <span className="text-2xl">{React.createElement(value.icon)}</span>
-                         <span className="text-lg">{value.label}</span>
+                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white"
+                    onClick={()=>{setDisplay(value.label)}}
+                    key={value.id}
+                    >
+                        <span className="text-xl">{React.createElement(value.icon)}</span>
+                         <span className="text-md">{value.label}</span>
                          
                     </div>
                     )}
                 </div>
              ):null}
-             </>
+             </div>
             )}
             </div>
             
