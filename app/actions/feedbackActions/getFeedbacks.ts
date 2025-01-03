@@ -2,13 +2,21 @@ import { prisma } from "@/lib/prisma";
 import userCheck from "../userCheck";
 
 
-export default async  function getFeedback(spaceId:string){
+export default async  function getFeedback(spaceName:string){
     try{
      await userCheck()
+   
+     const space=await prisma.space.findUnique({
+        where:{
+            spaceName
+        }
+     })
+    if(!space)
+        return { success: false, message:"Space doesn't exist"};
 
      const reviews=await prisma.review.findMany({
         where:{
-            spaceId
+            spaceId:space.id
         }
      })
 

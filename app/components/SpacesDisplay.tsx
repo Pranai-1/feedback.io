@@ -37,16 +37,20 @@ export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
             <div className="flex justify-center  items-center w-[100%] mt-10 flex-wrap gap-4 relative">
           
             {spaces.map((space)=>(
-              <>
-              <SpaceCard space={space} setCreateSpaceToggle={setCreateSpaceToggle} setDeleteSpace={setDeleteSpace}/>
-              {deleteSpace.length!=0 ? (
-            <DeleteSpaceCard 
-            deleteSpace={deleteSpace}
-            setDeleteSpace={setDeleteSpace}
-            />
-        ):null}
-              </>
+
+               <SpaceCard
+                 key={space.id}
+                space={space} 
+                setCreateSpaceToggle={setCreateSpaceToggle} 
+                setDeleteSpace={setDeleteSpace}/>
               ))}
+
+            {deleteSpace.length!=0 ? (
+                <DeleteSpaceCard 
+                deleteSpace={deleteSpace}
+                setDeleteSpace={setDeleteSpace}
+                />
+            ):null}
             </div>
             
           </div>

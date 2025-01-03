@@ -20,7 +20,7 @@ export default function SpaceCard({space,setCreateSpaceToggle,setDeleteSpace}:
     
   
     return(
-        <div className="flex flex-col justify-start items-start w-[90%] md:w-full md:max-w-96 rounded-md
+        <div  className="flex flex-col justify-start items-start w-[90%] md:w-full md:max-w-96 rounded-md
         xl:py-4 border border-white/20 hover:border-white/50 relative"
         key={space.id}>
       <p className="text-white font-bold p-2 w-full text-center">{space.spaceName}</p>
@@ -39,7 +39,6 @@ export default function SpaceCard({space,setCreateSpaceToggle,setDeleteSpace}:
           space={space}
           setCreateSpaceToggle={setCreateSpaceToggle}
           setDeleteSpace={setDeleteSpace}
-          headerTitle={space.headerTitle}
           setOpenDetailsCard={setOpenDetailsCard}
           />
         ):null}
