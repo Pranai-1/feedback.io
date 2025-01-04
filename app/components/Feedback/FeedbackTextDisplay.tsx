@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import addToWallOfLove from "@/app/actions/wallOfLoveActions/addToWallOfLove";
 import FeedbackStarsDisplay from "./FeedbackStarsDisplay";
 import FeedbackImagesDisplay from "./FeedbackImagesDisplay";
+import FeedbackPersonalInfo from "./FeedbackPersonalInfo";
 
 
 export default function FeedbackTextDisplay({
@@ -71,10 +72,10 @@ export default function FeedbackTextDisplay({
         <NoFeedback spaceName={spaceName} />
       ) : (
        
-            <div className={`flex flex-col gap-4 justify-center items-center w-full rounded-md py-2 `}>
+            <div className={`flex flex-col gap-4 justify-center items-center w-full rounded-md py-2`}>
               {feedbacks.map((feedback, idx) => (
                 <div
-                  className={` p-4 rounded-md w-[90%] h-max flex flex-col gap-4 bg-white`}
+                  className={` p-4 rounded-md w-[90%] h-max flex flex-col gap-4 bg-white hover:bg-[#FAF5FF]`}
                   key={feedback.id}
                 >
                   <div className="flex justify-between items-center relative w-full px-4">
@@ -124,6 +125,7 @@ export default function FeedbackTextDisplay({
                  <FeedbackStarsDisplay starRating={feedback.starRating}/>
                  <p className="text-gray-600 pl-4">{feedback.reviewText}</p>
                  <FeedbackImagesDisplay images={feedback.images}/>
+                 <FeedbackPersonalInfo feedback={feedback}/>
                 </div>
               ))}
             </div>
