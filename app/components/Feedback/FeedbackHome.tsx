@@ -34,13 +34,18 @@ export default function FeedbackHome({
       case "Video":
         return <NoFeedback spaceName={spaceName} />;
       case "Liked":
-        return <FeedbackLiked />;
+        return <FeedbackLiked 
+        wallOfLove={wallOfLove}
+        feedbacks={feedbacks}
+        spaceName={spaceName}
+        />;
       default:
         return (
           <FeedbackTextDisplay
             feedbacks={feedbacks}
             spaceName={spaceName}
             wallOfLove={wallOfLove}
+            performActions={true}
           />
         );
     }

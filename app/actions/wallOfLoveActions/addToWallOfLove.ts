@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import userCheck from "../userCheck";
+import { revalidatePath } from "next/cache";
 
 export default async function addToWallOfLove(spaceId:string,reviewId:string){
     try{
@@ -25,7 +26,7 @@ export default async function addToWallOfLove(spaceId:string,reviewId:string){
        if (!wallOfLove) {
         return { success: false, message:"Failed to add into wall of love" };
     }
-
+revalidatePath(`/feedbacks/${space.spaceName}`)
     return { success: true, message:"✅ Added to the Wall of Love successfully." };
          
 

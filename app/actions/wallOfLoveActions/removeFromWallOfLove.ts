@@ -3,6 +3,7 @@
 
 import { prisma } from "@/lib/prisma";
 import userCheck from "../userCheck";
+import { revalidatePath } from "next/cache";
 
 export default async function removeFromWallOfLove(spaceId:string,reviewId:string){
     try{
@@ -26,7 +27,7 @@ export default async function removeFromWallOfLove(spaceId:string,reviewId:strin
            if (!wallOfLove) {
             return { success: false, message:"Failed to remove from wall of love" };
         }
-    
+    revalidatePath(`/feedbacks/${space.spaceName}`)
         return { success: true, message:"✅ Removed from Wall of Love successfully." };
              
     
