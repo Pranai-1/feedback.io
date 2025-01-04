@@ -6,7 +6,7 @@ import React from "react";
 import { FeedbackSideBarNavElement } from "@/app/api/types";
 import { IoIosArrowDown } from "react-icons/io";
 
-export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<SetStateAction<string>>}){
+export default function FeedbackSideBar({handleSidebarClick}:{handleSidebarClick:(section:string)=>void}){
     const[extend,setExtend]=useState(-1)
 
     return(
@@ -18,7 +18,7 @@ export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<
             {feedbackSideBarInbox.map((data:FeedbackSideBarNavElement)=>
             <div key={data.id} className={`flex justify-start items-center gap-1 w-full hover:bg-[#19191A] cursor-pointer
                     border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white`}
-                    onClick={()=>{setDisplay(data.label)}}>
+                    onClick={()=>{handleSidebarClick(data.label)}}>
                         <span className="text-2xl text-white bg-black">{React.createElement(data.icon)}</span>
                        <span className={`px-4 `}>{data.label} </span>
                       
@@ -44,7 +44,7 @@ export default function FeedbackSideBar({setDisplay}:{setDisplay:React.Dispatch<
                     {feedbackSideBarExtensionValues[extend].map((value:FeedbackSideBarNavElement)=>
                     <div className="flex justify-start items-center w-full gap-2 hover:bg-[#19191A] cursor-pointer
                     border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white"
-                    onClick={()=>{setDisplay(value.label)}}
+                    onClick={()=>{handleSidebarClick(value.label)}}
                     key={value.id}
                     >
                         <span className="text-xl">{React.createElement(value.icon)}</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FeedbackSideBar from "./FeedbackSideBar";
 import NoFeedback from "./NoFeedback";
 import FeedbackLiked from "./FeedbackLiked";
@@ -14,9 +14,20 @@ export default function FeedbackHome({
 }: {
   feedbacks: FeedbackPropType[];
   spaceName: string;
-  wallOfLove:WallOfLoveProp[]
+  wallOfLove: WallOfLoveProp[];
 }) {
-  const [display, setDisplay] = useState("");
+  const [display, setDisplay] = useState(""); 
+  const contentRef = useRef<HTMLDivElement>(null);
+
+
+  const handleSidebarClick = (section: string) => {
+    setDisplay(section);
+
+   
+    if (window.innerWidth < 768) {
+      contentRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 
   const renderContent = () => {
     switch (display) {
@@ -25,26 +36,27 @@ export default function FeedbackHome({
       case "Liked":
         return <FeedbackLiked />;
       default:
-        return <FeedbackTextDisplay
-         feedbacks={feedbacks} 
-         spaceName={spaceName} 
-         wallOfLove={wallOfLove}
-         />;
+        return (
+          <FeedbackTextDisplay
+            feedbacks={feedbacks}
+            spaceName={spaceName}
+            wallOfLove={wallOfLove}
+          />
+        );
     }
   };
 
   return (
-    <div className="w-full h-full md:flex md:flex-row  justify-start items-start gap-2">
+    <div className="w-full h-full md:flex md:flex-row justify-start items-start gap-2 pb-4">
+   
+      <div className="w-full md:w-1/4 h-auto md:h-full">
+        <FeedbackSideBar handleSidebarClick={handleSidebarClick} />
+      </div>
+
   
-  <div className="w-full md:w-1/4 h-auto md:h-full">
-    <FeedbackSideBar setDisplay={setDisplay} />
-  </div>
-
-
-  <div className="w-full md:w-3/4 h-auto ">
-    {renderContent()}
-  </div>
-</div>
-
+      <div ref={contentRef} className="w-full md:w-3/4 h-auto md:h-full">
+        {renderContent()}
+      </div>
+    </div>
   );
 }

@@ -16,11 +16,11 @@ export default function NoFeedback({spaceName}:{spaceName:string}){
     return(
         <>
         {clicked ? (
-             <div className="flex flex-col justify-center items-center gap-4 text-white h-full w-full">
+             <div className="flex flex-col justify-center items-center gap-4 text-white h-full border-2 py-4 border-gray-400 ml-[26px] mt-10 w-[90%] md:w-full  md:py-0 md:border-0 md:ml-0 md:mt-0">
                 <TypingAnimation className="text-4xl text-white">Hold on Taking you to feedback page</TypingAnimation>
             </div>
         ):(
-        <div className="flex flex-col justify-center items-center gap-4 text-white h-full">
+        <div className="flex flex-col justify-center items-center gap-4 text-white h-full border-2 py-4 border-gray-400 ml-[26px] mt-10 w-[90%] md:w-full md:border-0 md:ml-0 md:mt-0 md:py-0">
           <CiMail className="text-4xl"/>
           <p className="text-2xl">No testimonials yet</p>
           <div className="flex justify-center items-center gap-6"
