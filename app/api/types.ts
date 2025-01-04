@@ -161,6 +161,7 @@ export type InitialFeedbackType = BaseFeedbackType;
 export type FeedbackPropType = BaseFeedbackType & {
   readonly id: string;
   spaceId:string
+  submittedAt:any
 };
 
 

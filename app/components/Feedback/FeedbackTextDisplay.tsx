@@ -7,6 +7,8 @@ import { useState } from "react";
 import removeFromWallOfLove from "@/app/actions/wallOfLoveActions/removeFromWallOfLove";
 import { toast } from "react-toastify";
 import addToWallOfLove from "@/app/actions/wallOfLoveActions/addToWallOfLove";
+import FeedbackStarsDisplay from "./FeedbackStarsDisplay";
+import FeedbackImagesDisplay from "./FeedbackImagesDisplay";
 
 
 export default function FeedbackTextDisplay({
@@ -119,6 +121,9 @@ export default function FeedbackTextDisplay({
                       />
                     )}
                   </div>
+                 <FeedbackStarsDisplay starRating={feedback.starRating}/>
+                 <p className="text-gray-600 pl-4">{feedback.reviewText}</p>
+                 <FeedbackImagesDisplay images={feedback.images}/>
                 </div>
               ))}
             </div>

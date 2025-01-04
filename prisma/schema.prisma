@@ -107,6 +107,7 @@ model Review{
  reviewText    String
  starRating         Int
  spaceId       String
+ submittedAt   DateTime @default(now())
  space         Space @relation(fields: [spaceId],references: [id],onDelete:Cascade)
 }
 
