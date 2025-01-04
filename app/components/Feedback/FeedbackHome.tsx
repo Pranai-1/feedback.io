@@ -34,9 +34,17 @@ export default function FeedbackHome({
   };
 
   return (
-    <div className="w-full h-full flex flex-col md:flex-row justify-start items-center gap-2">
-      <FeedbackSideBar setDisplay={setDisplay} />
-      <div className="w-full h-full">{renderContent()}</div>
-    </div>
+    <div className="w-full h-full md:flex md:flex-row  justify-start items-start gap-2">
+  
+  <div className="w-full md:w-1/4 h-auto md:h-full">
+    <FeedbackSideBar setDisplay={setDisplay} />
+  </div>
+
+
+  <div className="w-full md:w-3/4 h-auto ">
+    {renderContent()}
+  </div>
+</div>
+
   );
 }
