@@ -42,7 +42,7 @@ const findFeedback=await prisma.review.findUnique({
             data:feedbackDetails
         })
         if(updatedFeedback)
-            return {success:true , message:"Updated Successfully"}
+            return {success:true , message:"✅ Feedback updated Successfully"}
         else
         return {success:false , message:"Couldn't update the review"}
     }catch(error:unknown){

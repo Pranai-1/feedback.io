@@ -29,7 +29,7 @@ export default async function addFeedback(feedbackDetails: InitialFeedbackType, 
         return { success: false, message:"Failed to submit feedback" };
     }
 
-    return { success: true, message:"Feedback submitted successfully" };
+    return { success: true, message:"✅ Feedback submitted successfully" };
   } catch (error: unknown) {
     console.error("Error in addFeedback:", error);
     return { success: false, error: (error as Error).message || "Unknown error occurred" };

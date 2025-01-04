@@ -92,6 +92,7 @@ model Space{
   thankyouDescription  String
   reviews        Review[]
   user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  wallOfLove      WallOfLove[]
 }
 
 
@@ -107,4 +108,11 @@ model Review{
  starRating         Int
  spaceId       String
  space         Space @relation(fields: [spaceId],references: [id],onDelete:Cascade)
+}
+
+model WallOfLove{
+  id           String @id @default(cuid())
+  spaceId      String
+  reviewId     String @unique
+  space        Space @relation(fields: [spaceId],references: [id],onDelete: Cascade)
 }

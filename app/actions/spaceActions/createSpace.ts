@@ -31,7 +31,7 @@ export async function handleCreateSpace(spaceDetails: SpaceInputsIncludingQuesti
    
     revalidatePath("/dashboard");
 
-    return { success: true };
+    return { success: true ,message:"✅ Space created successfully" };
   } catch (error: unknown) {
     console.error("Error in handleCreateSpace:", error);
     return { success: false, error: (error as Error).message || "Unknown error occurred" };
