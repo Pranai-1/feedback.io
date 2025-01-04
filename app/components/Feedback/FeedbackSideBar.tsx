@@ -11,7 +11,7 @@ export default function FeedbackSideBar({handleSidebarClick}:{handleSidebarClick
 
     return(
         <div className="md:fixed   md:overflow-x-hidden flex flex-col  gap-4 text-[#B2B2B3]
-        w-[95%] md:w-72 h-[84%] mr-2 px-3 py-3 md:overflow-y-auto  md:border-r md:rtl:border-r-0 md:rtl:border-l dark:bg-black dark:border-balck">
+        w-[95%] md:w-80 h-[84%]  px-3 py-3 md:overflow-y-auto  md:border-r md:rtl:border-r-0 md:rtl:border-l dark:bg-black dark:border-balck">
             <div>
             <p className="text-2xl text-center w-full text-white">Inbox</p>
             <div className="flex flex-col justify-start items-center gap-4 mt-4 w-[100%]">
