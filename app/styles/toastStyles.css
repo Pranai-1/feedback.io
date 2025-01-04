@@ -1,0 +1,27 @@
+/* Custom Toast Container */
+.custom-toast-container {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Custom Toast Message */
+  .custom-toast {
+    background: #f0f4f8; /* Light background */
+    color: #333; /* Dark text */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 8px 16px; /* Add padding */
+  }
+  
+  /* Custom Toast Body */
+  .custom-toast-body {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Hide Icon if not required */
+  .custom-toast-body .Toastify__toast-icon {
+    display: none;
+  }
+  

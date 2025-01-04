@@ -176,3 +176,10 @@ export interface QuestionType{
 
 export type FeedbackSideBarNavElement=
   {label: string,  id:number, icon: IconType  }
+
+
+  export type WallOfLoveProp={
+    id:string,
+    spaceId:string,
+    reviewId:string
+  }

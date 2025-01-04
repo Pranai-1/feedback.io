@@ -1,6 +1,6 @@
 "use client";
 
-import { FeedbackPropType } from "@/app/api/types";
+import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";
 import { useState } from "react";
 import FeedbackSideBar from "./FeedbackSideBar";
 import NoFeedback from "./NoFeedback";
@@ -10,9 +10,11 @@ import FeedbackTextDisplay from "./FeedbackTextDisplay";
 export default function FeedbackHome({
   feedbacks,
   spaceName,
+  wallOfLove,
 }: {
   feedbacks: FeedbackPropType[];
   spaceName: string;
+  wallOfLove:WallOfLoveProp[]
 }) {
   const [display, setDisplay] = useState("");
 
@@ -23,7 +25,11 @@ export default function FeedbackHome({
       case "Liked":
         return <FeedbackLiked />;
       default:
-        return <FeedbackTextDisplay feedbacks={feedbacks} spaceName={spaceName} />;
+        return <FeedbackTextDisplay
+         feedbacks={feedbacks} 
+         spaceName={spaceName} 
+         wallOfLove={wallOfLove}
+         />;
     }
   };
 

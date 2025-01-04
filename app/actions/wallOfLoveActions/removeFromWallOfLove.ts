@@ -1,3 +1,6 @@
+"use server";
+
+
 import { prisma } from "@/lib/prisma";
 import userCheck from "../userCheck";
 
