@@ -1,8 +1,8 @@
-import { InitialStateType } from "@/app/api/types";
+import { InitialFeedbackType } from "@/app/api/types";
 import { Action } from "@/app/api/types";
 
 
-export function reducer(state:InitialStateType, action:Action):InitialStateType {
+export function reducer(state:InitialFeedbackType, action:Action):InitialFeedbackType {
     switch (action.type) {
       case "SET_INPUT":
         return {

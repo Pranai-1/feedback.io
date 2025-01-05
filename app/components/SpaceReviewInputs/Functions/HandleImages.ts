@@ -1,11 +1,11 @@
-import { Action, InitialStateType } from "@/app/api/types";
+import { Action, InitialFeedbackType } from "@/app/api/types";
 import { maxSizeInMB, validImageTypes } from "@/app/static/simpleData";
 
 
 export  function addImages(
     e: React.ChangeEvent<HTMLInputElement>,
     dispatch: React.Dispatch<Action>,
-    state:InitialStateType
+    state:InitialFeedbackType
 ){
       
         const files=e.target.files
@@ -18,7 +18,7 @@ export  function addImages(
             alert("Maximum three images allowed")
             return
        }
-       console.log(files)
+      
        const images:string[]=[...state.images]
       
        
@@ -51,7 +51,7 @@ export function deleteImages(
     deleteType:string,
     index:number,
     dispatch: React.Dispatch<Action>,
-state:InitialStateType)
+state:InitialFeedbackType)
     {
         if(deleteType=="all"){
             dispatch({type:"SET_INPUT",key:"images",payload:[]})

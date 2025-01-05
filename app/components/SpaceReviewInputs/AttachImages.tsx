@@ -1,8 +1,9 @@
 import { IoIosRemoveCircle } from "react-icons/io"
 import { MdDelete } from "react-icons/md"
-import { deleteImages, addImages } from "./Functions/handleImages"
+
 import Image from "next/image"
 import { Action, InitialFeedbackType } from "@/app/api/types"
+import { addImages, deleteImages } from "./Functions/handleImages"
 
 export default function AttachImages(
     {state,dispatch}:{state:InitialFeedbackType,dispatch:React.Dispatch<Action>})
