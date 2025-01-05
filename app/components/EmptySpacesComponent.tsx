@@ -1,6 +1,6 @@
 "use client"
 
-import { RainbowButton } from "@/components/ui/rainbow-button";
+
 import { useState } from "react";
 import { FiFolderPlus } from "react-icons/fi";
 import SpaceCreationHome from "./SpaceCreationHome";
@@ -9,7 +9,7 @@ import CreateSpaceButton from "./CreateSpaceButton";
 
 
 export default function EmptySpaces(){
-    const[createStateToggle,setCreateSpaceToggle]=useState(false)
+    const[createStateToggle,setCreateSpaceToggle]=useState(-1)
     return(
         <div className="flex justify-center items-center h-[80vh] overflow-auto overflow-x-hidden w-[90%] sm:w-[80%]">
         {!createStateToggle ?
@@ -25,7 +25,10 @@ export default function EmptySpaces(){
             </div>
            
         ):(
-        <SpaceCreationHome setCreateSpaceToggle={setCreateSpaceToggle}/>
+        <SpaceCreationHome 
+        setCreateSpaceToggle={setCreateSpaceToggle}
+        createSpaceToggle={createStateToggle}
+        />
         )}
       
       </div>

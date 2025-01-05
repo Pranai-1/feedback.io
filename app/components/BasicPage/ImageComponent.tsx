@@ -1,7 +1,6 @@
 import { SpaceInputs } from "@/app/api/types";
 import Image from "next/image";
 import { RxCrossCircled } from "react-icons/rx";
-import { Tooltip as ReactTooltip } from 'react-tooltip';
 import CustomTooltip from "../SpaceReviewInputs/ReactToolTip";
 
 export default function ImageComponent(

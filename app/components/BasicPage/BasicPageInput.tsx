@@ -1,16 +1,15 @@
 "use client";
 
-import {  useContext, useEffect, useState } from "react";
+import {  useContext, useState } from "react";
 import { SpaceCreationDetails } from "../SpaceCreationProvider";
 
 import InputComponent from "../InputComponent";
 import ImageComponent from "./ImageComponent";
 
-import axios from "axios";
-import { storageSchema } from "@/app/zodSchema";
+
 
 export default function BasicPageInput(){
-    const {spaceInputs,handleSpaceInputs,setSpaceInputs,setQuestions}=useContext(SpaceCreationDetails)
+    const {spaceInputs,handleSpaceInputs}=useContext(SpaceCreationDetails)
     const [clicked, setClicked] = useState(-1);
    
     return(

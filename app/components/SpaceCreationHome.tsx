@@ -1,10 +1,9 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { SetStateAction, useState } from "react";
 import LivePreview from "./LivePreview";
 
 import SpaceCreationProvider from "./SpaceCreationProvider";
 
 import SpaceDetailsForm from "./SpaceDetailsForm";
-import { toast } from "react-toastify";
 
 export default function SpaceCreationHome({setCreateSpaceToggle,createSpaceToggle}:
   {setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,createSpaceToggle:number}){

@@ -11,6 +11,7 @@ export default async function getSpace(spaceName:string){
     });
     return space
   }catch(error){
+    console.log(error)
     throw new Error("Error Occured")
   }
   

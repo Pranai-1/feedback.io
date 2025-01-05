@@ -100,7 +100,7 @@ export type Options = Option[];
   }
   
 
-  
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   export type SpacePropType = {
     id: string;
     spaceName: string;
@@ -108,7 +108,7 @@ export type Options = Option[];
     spaceLogo: string;
     headerTitle: string;
     customMessage: string;
-    questions: any
+    questions: any  // eslint-disable-line @typescript-eslint/no-explicit-any
     createdAt: Date;
     collectionType: string;
     darkTheme: boolean;
@@ -142,7 +142,7 @@ export type Options = Option[];
         id: number;
         label: string;
     }[];
-    createdAt?: any; // ISO date string
+    createdAt?: Date; // ISO date string
 };
 
 
@@ -161,7 +161,7 @@ export type InitialFeedbackType = BaseFeedbackType;
 export type FeedbackPropType = BaseFeedbackType & {
   readonly id: string;
   spaceId:string
-  submittedAt:any
+  submittedAt:Date
 };
 
 

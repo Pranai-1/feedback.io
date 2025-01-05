@@ -107,7 +107,7 @@ export default async function SpaceReviewHome({ params }: SpaceReviewHomeProps) 
   if (!validatedResult.success) {
     return (
       <p className="w-full h-screen flex justify-center items-center text-red-600 font-bold text-2xl">
-        Space doesn't exist
+        Space doesnot exist
       </p>
     );
   }

@@ -10,15 +10,20 @@ export function handleEdit(setCreateSpaceToggle:React.Dispatch<SetStateAction<nu
 }
 
 
-export const handleCopy = async (path:string,toast:any) => {
-    try {
-      await navigator.clipboard.writeText(path);
-     toast.success("✅ Link copied to clipboard!")
-    } catch (error) {
-        toast.error("Failed to copy link")
-      console.error("Failed to copy text:", error);
-    }
-  };
+
+export const handleCopy = async (path: string, toast: {
+  success: (message: string) => void;
+  error: (message: string) => void;
+}) => {
+  try {
+    await navigator.clipboard.writeText(path);
+    toast.success("✅ Link copied to clipboard!");
+  } catch (error) {
+    toast.error("Failed to copy link");
+    console.error("Failed to copy text:", error);
+  }
+};
+
 
   
 
