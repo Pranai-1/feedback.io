@@ -2,7 +2,7 @@ import { FeedbackPropType } from "@/app/api/types";
 import Image from "next/image";
 
 export default function FeedbackPersonalInfo({feedback}:{feedback:FeedbackPropType}){
-    console.log(feedback)
+
     return(
       <div className="w-full md:w-[70%] flex flex-col md:flex-row justify-between items-start gap-12 px-4 pt-4">
         <div className="flex flex-col gap-4 justify-start items-center w-full">

@@ -2,10 +2,10 @@ import { IoIosRemoveCircle } from "react-icons/io"
 import { MdDelete } from "react-icons/md"
 import { deleteImages, addImages } from "./Functions/handleImages"
 import Image from "next/image"
-import { Action, InitialStateType } from "@/app/api/types"
+import { Action, InitialFeedbackType } from "@/app/api/types"
 
 export default function AttachImages(
-    {state,dispatch}:{state:InitialStateType,dispatch:React.Dispatch<Action>})
+    {state,dispatch}:{state:InitialFeedbackType,dispatch:React.Dispatch<Action>})
     {
     return(
         <div className="flex flex-col gap-1">

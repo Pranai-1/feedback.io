@@ -1,11 +1,11 @@
 import { CiCircleRemove } from "react-icons/ci";
 import handleProfilePhoto from "./Functions/handleProfilePhoto"
 import Image from "next/image"
-import { Action, InitialStateType } from "@/app/api/types"
+import { Action, InitialFeedbackType } from "@/app/api/types"
 import CustomTooltip from "./ReactToolTip";
 
 
-export default function ProfilePhoto({state,dispatch}:{state:InitialStateType,dispatch:React.Dispatch<Action>}){
+export default function ProfilePhoto({state,dispatch}:{state:InitialFeedbackType,dispatch:React.Dispatch<Action>}){
     return(
         <div className="flex flex-col gap-2 text-black">
         <p>Upload Your Photo</p>

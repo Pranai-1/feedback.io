@@ -1,10 +1,8 @@
 "use server";
 
 
-import { SpaceInputsIncludingQuestions, spaceSchemaBackend } from "../../zodSchema";
+import { SpaceInputsIncludingQuestions } from "../../zodSchema";
 import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
-import { fetchUserData } from "@/lib/dataFetch";
 import { prisma } from "@/lib/prisma";
 import userCheck from "../userCheck";
 
@@ -20,7 +18,7 @@ export async function handleUpdateSpace(spaceId: string,spaceDetails:SpaceInputs
                 },
                 data:spaceDetails
             })
-        console.log(updatedSpace)
+ 
             if (!updatedSpace) {
                return {success:false}
               }else{

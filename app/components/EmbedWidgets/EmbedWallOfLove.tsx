@@ -1,11 +1,11 @@
-import Image from "next/image"
+// import Image from "next/image"
 // import image1 from "../../static/Images/image1.jpg"
 // import image2 from "../../static/Images/image2.jpg"
 // import image3 from "../../static/Images/image3.jpg"
 // import image4 from "../../static/Images/image4.jpg"
 // import profileImage1 from "../../static/Images/profileImage1.jpg"
 // import profileImage2 from "../../static/Images/profileImage1.png"
-import FeedbackStarsDisplay from "../Feedback/FeedbackStarsDisplay"
+// import FeedbackStarsDisplay from "../Feedback/FeedbackStarsDisplay"
 import CarouselSlider from "./CarouselSlider"
 
 //const imageArray=[{profileImage:profileImage1,image1,image2},{profileImage:profileImage2,image1:image3,image2:image4}]

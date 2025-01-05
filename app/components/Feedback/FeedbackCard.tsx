@@ -12,7 +12,7 @@ export default function FeedbackCard(
         liked:string[],loading:boolean,handleWallOfLove:(reviewId:string,spaceId:string)=>void,performActions:boolean
     }
 ){
-    console.log(performActions)
+
     return(
         <div
                   className={` p-4 rounded-md w-[90%] h-max flex flex-col gap-4 bg-white hover:bg-[#FAF5FF]`}

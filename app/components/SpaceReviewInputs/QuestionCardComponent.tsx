@@ -2,15 +2,11 @@ import { QuestionType } from "@/app/api/types";
 
 export default function QuestionCard({
   questions,
-  questionSize = "base",
   margin = 2,
-  textSize = "lg",
   font = "bold",
 }: {
   questions: QuestionType[];
-  questionSize: string;
   margin: number;
-  textSize: string;
   font: string;
 }) {
   return (

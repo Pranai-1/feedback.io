@@ -9,12 +9,12 @@ export default function StarRating({ starRating, dispatch }:
         const[hoverIndex,setHoverIndex]=useState(5)
         const[clicked,setClicked]=useState(false)
     function onHover(idx:number) {
-        console.log(idx)
+      
       setClicked(false)
       setHoverIndex(idx+1 > 5 ? 5:idx+1  )
       
     }
-console.log(starRating)
+
 
     return (
         <div className="flex justify-start items-center gap-2 w-full">

@@ -135,8 +135,6 @@ export default async function SpaceReviewHome({ params }: SpaceReviewHomeProps) 
           questions={space.questions}
           margin={2}
           font="bold"
-          textSize="18"
-          questionSize="14"
         />
          <SendInTextButton space={space}/>
       </div>

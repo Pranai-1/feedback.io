@@ -1,7 +1,5 @@
 "use server";
 
-import { auth } from "@/auth";
-import { fetchUserData } from "@/lib/dataFetch";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import userCheck from "../userCheck";

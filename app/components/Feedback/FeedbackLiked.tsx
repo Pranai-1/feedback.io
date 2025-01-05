@@ -36,7 +36,7 @@ export default  function  FeedbackLiked({wallOfLove,feedbacks,spaceName}:
         )
     );
     
-    console.log(likedFeedbacks)
+  
     return(
          <FeedbackTextDisplay
                     feedbacks={likedFeedbacks}

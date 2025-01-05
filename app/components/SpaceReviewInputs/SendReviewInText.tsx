@@ -83,8 +83,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
             questions={space.questions}
             margin={1}
             font="medium"
-            textSize="12"
-            questionSize="18px"
+        
             />
 
             <StarRating

@@ -11,7 +11,7 @@ export default function DeleteSpaceCard({deleteSpace,setDeleteSpace}:
 
     async function handleDelete(){
       setLoadingDelete(true)
-      console.log(deleteSpaceInput)
+  
       if(deleteSpaceInput!==deleteSpace){
         alert("😕 Sorry your space id isn't correct.")
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { SetStateAction, useState } from "react";
+import {  useState } from "react";
 import { feedbackSideBarExtension, feedbackSideBarExtensionValues, feedbackSideBarInbox } from "@/app/static/simpleData";
 import React from "react";
 import { FeedbackSideBarNavElement } from "@/app/api/types";

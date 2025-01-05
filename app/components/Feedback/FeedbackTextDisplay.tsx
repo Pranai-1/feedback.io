@@ -26,7 +26,7 @@ export default function FeedbackTextDisplay({
   const [showConsentMessage, setShowConsentMessage] = useState<number | null>(
     null
   );
-console.log(wallOfLove)
+
   async function handleWallOfLove(reviewId: string, spaceId: string) {
     setLoading(true);
 
