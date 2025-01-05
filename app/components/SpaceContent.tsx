@@ -6,7 +6,7 @@ import SpacesDisplay from "./SpacesDisplay";
 
 
 export default async function SpacesContent({ spaces }:{spaces:SpacePropType[] | []}) {
-   console.log(spaces)
+
 
   return spaces.length === 0 ? (
     <EmptySpaces />

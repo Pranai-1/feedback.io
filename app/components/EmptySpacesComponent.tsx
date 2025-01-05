@@ -12,7 +12,7 @@ export default function EmptySpaces(){
     const[createStateToggle,setCreateSpaceToggle]=useState(-1)
     return(
         <div className="flex justify-center items-center h-[80vh] overflow-auto overflow-x-hidden w-[90%] sm:w-[80%]">
-        {!createStateToggle ?
+        {createStateToggle==-1 ?
         (
            
             <div className="flex flex-col gap-2 justify-center items-center w-[95%] sm:w-[80%]  bg-[#FFFFFF] border-2 border-gray-100 p-4 py-10
