@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md"
 
 import Image from "next/image"
 import { Action, InitialFeedbackType } from "@/app/api/types"
-import { addImages, deleteImages } from "./Functions/handleImages"
+import { addImages, deleteImages } from "../../actions/imageActions/handleImages"
 
 export default function AttachImages(
     {state,dispatch}:{state:InitialFeedbackType,dispatch:React.Dispatch<Action>})

@@ -2,7 +2,7 @@ import { Action } from "@/app/api/types";
 import { useState } from "react";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
-import { handleInputs } from "./Functions/ReducerFunctions";
+import { handleInputs } from "../../actions/imageActions/ReducerFunctions";
 
 export default function StarRating({ starRating, dispatch }:
     {starRating:number,dispatch:React.Dispatch<Action>}) {

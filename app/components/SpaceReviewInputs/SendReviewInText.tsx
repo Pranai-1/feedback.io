@@ -5,7 +5,7 @@ import Image from "next/image";
 import cheersImage from "@/public/cheers.webp"
 import QuestionCard from "./QuestionCardComponent";
 import StarRating from "./StarRatingComponet";
-import { handleInputs, reducer } from "./Functions/ReducerFunctions";
+import { handleInputs, reducer } from "../../actions/imageActions/ReducerFunctions";
 import InputData from "./InputData";
 import AttachImages from "./AttachImages";
 
@@ -65,7 +65,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
      }
    }
 
- console.log(state,state.images.length)
+
     return(
         <div className="w-[95%] sm:w-[70%] lg:w-[40%] h-max bg-[#FFFFFF] p-2 py-4 absolute top-10 z-50 left-1 md:left-28 lg:left-[35%] rounded-md border border-gray-500">
               <div className="relative w-full h-4">

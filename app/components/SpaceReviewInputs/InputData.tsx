@@ -1,5 +1,5 @@
 import { IoIosInformationCircle } from "react-icons/io"
-import { handleInputs } from "./Functions/ReducerFunctions"
+import { handleInputs } from "../../actions/imageActions/ReducerFunctions"
 import { Action, InitialFeedbackType } from "@/app/api/types"
 import CustomTooltip from "./ReactToolTip";
 

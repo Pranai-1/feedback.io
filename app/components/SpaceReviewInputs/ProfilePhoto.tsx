@@ -1,5 +1,5 @@
 import { CiCircleRemove } from "react-icons/ci";
-import handleProfilePhoto from "./Functions/handleProfilePhoto"
+import handleProfilePhoto from "../../actions/imageActions/handleProfilePhoto"
 import Image from "next/image"
 import { Action, InitialFeedbackType } from "@/app/api/types"
 import CustomTooltip from "./ReactToolTip";
