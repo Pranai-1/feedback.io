@@ -96,7 +96,7 @@ import SendInTextButton from "@/app/components/SpaceReviewInputs/SendInTextButto
 // }
 
 export default async function SpaceReviewHome({ params }: { params: { spaceName: string }}) {
-  const { spaceName } = await params;
+  const { spaceName } =  params;
 
   // Fetch space details
   const spaceDetails = await getSpace(spaceName);

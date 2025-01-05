@@ -8,7 +8,7 @@ import FeedbackHome from "@/app/components/Feedback/FeedbackHome";
 // }
 
 export default async function SpaceFeedbacks({ params }: { params:  { spaceName: string } }) {
-  const { spaceName } =await params;
+  const { spaceName } = params;
   
   let feedbacks: FeedbackPropType[] = [];
  let wallOfLove:WallOfLoveProp[]=[]
