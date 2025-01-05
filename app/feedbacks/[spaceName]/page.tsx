@@ -3,11 +3,11 @@ import getWallOfLove from "@/app/actions/wallOfLoveActions/getWallOfLove";
 import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";
 import FeedbackHome from "@/app/components/Feedback/FeedbackHome";
 
-interface FeedbackHomeProps {
-  spaceName: string;
-}
+// interface FeedbackHomeProps {
+//   spaceName: string;
+// }
 
-export default async function SpaceFeedbacks({ params }: { params: FeedbackHomeProps }) {
+export default async function SpaceFeedbacks({ params }: { params:  { spaceName: string } }) {
   const { spaceName } =await params;
   
   let feedbacks: FeedbackPropType[] = [];
