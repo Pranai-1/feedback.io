@@ -94,8 +94,8 @@ import SendInTextButton from "@/app/components/SpaceReviewInputs/SendInTextButto
 // interface SpaceReviewHomeProps {
 //   params: { spaceName: string };
 // }
-
-export default async function SpaceReviewHome({ params }: { params: { spaceName: string }}) {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default async function SpaceReviewHome({ params }:{params: any}) {
   const { spaceName } =  params;
 
   // Fetch space details

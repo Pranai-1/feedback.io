@@ -3,7 +3,8 @@ import getWallOfLove from "@/app/actions/wallOfLoveActions/getWallOfLove";
 import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";
 import FeedbackHome from "@/app/components/Feedback/FeedbackHome";
 
-export default function SpaceFeedbacks({ params }: { params: { spaceName: string } }) {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default function SpaceFeedbacks({ params }:{ params:any} ) {
   const { spaceName } = params;
 
   let feedbacks: FeedbackPropType[] = [];
