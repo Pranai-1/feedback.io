@@ -18,6 +18,8 @@ export default function FeedbackTextDisplay({
   wallOfLove: WallOfLoveProp[];
   performActions:boolean
 }) {
+
+
   const [liked, setLiked] = useState<string[]>(
     wallOfLove?.map((item) => item.reviewId) || []
   );

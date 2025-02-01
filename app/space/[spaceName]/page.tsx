@@ -91,12 +91,10 @@ import QuestionCard from "@/app/components/SpaceReviewInputs/QuestionCardCompone
 import SendInTextButton from "@/app/components/SpaceReviewInputs/SendInTextButton";
 
 
-// interface SpaceReviewHomeProps {
-//   params: { spaceName: string };
-// }
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SpaceReviewHome({ params }:{params: any}) {
-  const { spaceName } =  params;
+  const { spaceName } =await params;
 
   // Fetch space details
   const spaceDetails = await getSpace(spaceName);
