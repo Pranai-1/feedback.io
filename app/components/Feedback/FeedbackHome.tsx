@@ -18,7 +18,7 @@ export default function FeedbackHome({
   spaceName: string;
   wallOfLove: WallOfLoveProp[];
 }) {
-
+console.log(feedbacks)
 
   const [display, setDisplay] = useState(""); 
   const contentRef = useRef<HTMLDivElement>(null);
