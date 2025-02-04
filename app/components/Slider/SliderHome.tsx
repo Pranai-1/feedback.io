@@ -6,7 +6,7 @@ import SliderCard from "./SliderCard";
 
 
 export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]}){
-    
+
     const [reviews, setReviews] = useState<FeedbackPropType[]>(wallOfLove)
  
     const [position, setPosition] = useState(0); 
@@ -78,6 +78,7 @@ export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]})
                 >
                     {reviews.map((review, i) => ( // Duplicate for infinite loop
                         <SliderCard
+                        key={i}
                         i={i}
                         review={review}
                         hover={hover}
