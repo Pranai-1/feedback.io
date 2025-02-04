@@ -14,7 +14,7 @@ export const reviewData=[
       photo: reviewDataProfileImage1.src,
       consent: true,
       images: [
-        productImage1.src,productImage2.src
+        productImage1.src,productImage2.src,productImage3.src,productImage4.src
       ],
       reviewText: 'I recently purchased this product, and overall, I’m quite satisfied! The build quality is solid, and it performs as expected. The design is sleek, and it easy to use. However, I did notice that the battery life could be improved, as it drains a bit faster than I’d like.',
       starRating: 4,

@@ -10,12 +10,12 @@ export default function SliderCard({i,hover,setHover,review}:{i:number,hover:num
     review:FeedbackPropType
 }){
     return(
-        <div key={i} className={` flex  justify-center  h-[100%] ${hover==i ? 'w-[300px] md:w-[400px] md:border-8 bg-[##A6E0E6] rounded-xl':'w-[270px] md:w-[300px]'}`}
+        <div key={i} className={` flex  justify-center  h-[350px] ${hover==i ? 'w-[300px] md:w-[400px] md:border-8 bg-[##A6E0E6] rounded-xl':'w-[270px] md:w-[300px]'}`}
                         onMouseEnter={()=>setHover(i)}
                         onMouseLeave={() => setHover(-1)}
                         >
                             <NeonGradientCard>
-                                <div className={`flex flex-col  justify-center items-start w-[100%] overflow-hidden `}>
+                                <div className={`flex flex-col  justify-center items-start gap-2 w-[100%] overflow-hidden `}>
                                 <div className={`flex ${review.images.length>1 ?'justify-start' : 'justify-center'} items-center  w-[100%] my-2  overflow-x-auto`}>
                                     {review.images.length > 0 ? (
                                         <>

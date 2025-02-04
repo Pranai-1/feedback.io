@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { FeedbackPropType } from "../../api/types";
 
 import SliderCard from "./SliderCard";
+import { reviewData } from "@/app/static/reviewData";
 
 
 export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]}){
 
-    const [reviews, setReviews] = useState<FeedbackPropType[]>(wallOfLove)
+    const [reviews, setReviews] = useState<FeedbackPropType[]>(reviewData as FeedbackPropType[])
  
     const [position, setPosition] = useState(0); 
     const [isPaused, setIsPaused] = useState(false);
@@ -61,7 +62,7 @@ export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]})
 
 
     return (
-        <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-center items-center'} w-[100%]   overflow-hidden`}>
+        <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-start items-center'} w-[100%]   overflow-hidden`}>
             <div className="h-[95%] bg-black rounded-md w-[100%] flex items-start justify-center md:justify-start gap-4 overflow-hidden relative p-2">
                 <div
                    
