@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaArrowCircleRight } from "react-icons/fa";
 import SliderCard from "./SliderCard";
+import { reviewData } from "@/app/static/reviewData";
 
 export default function ManualSliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]}){
-    const[reviews]=useState<FeedbackPropType[]>(wallOfLove)
+    const[reviews]=useState<FeedbackPropType[]>(reviewData as FeedbackPropType[])
     const[reviewstoDisplay,setReviewstoDisplay]=useState<FeedbackPropType[]>([])
     const[index,setIndex]=useState(0)
     const[isSmallScreen,setIsSmallScreen]=useState(false)
@@ -50,8 +51,10 @@ function handeClick(type:string){
 }
     return(
         <div className={`w-[100%] h-max mt-4 bg-black flex  justify-center items-center relative gap-[2px]`}>
+            <div className="w-[70%] flex  justify-center items-center gap-[2px]">
+
               {index>0 ?
-            <div className="w-max h-max bg-gray-200 rounded-xl p-1 md:p-2"
+            <div className="w-max h-max bg-gray-200 rounded-xl p-1 md:p-2 cursor-pointer"
             onClick={()=>handeClick("left")}>
             
              <FaArrowCircleLeft className="text-xl md:text-2xl"/> 
@@ -68,6 +71,7 @@ function handeClick(type:string){
                              review={review}
                             hover={hover}
                             setHover={setHover}
+                            hoverDisable={false}
                         />
             )
           })}
@@ -75,13 +79,15 @@ function handeClick(type:string){
             <p className="text-white text-center">No feedbacks to display</p>}
 
         {index<reviews.length-2 ?
-            <div className="w-max h-max bg-gray-200 rounded-xl p-1 md:p-2"
+            <div className="w-max h-max bg-gray-200 rounded-xl p-1 md:p-2 cursor-pointer"
             onClick={()=>handeClick("right")}>
             
               <FaArrowCircleRight className=" text-xl md:text-2xl"/> 
              </div>
              :
             null}
+        
+        </div>
         
         </div>
     )

@@ -71,7 +71,7 @@ export default function FeedbackTextDisplay({
         <NoFeedback spaceName={spaceName} />
       ) : (
        
-            <div className={`flex flex-col gap-4 justify-center items-center w-full rounded-md py-2`}>
+            <div className={`flex flex-col gap-4 justify-center items-center w-[90%] ml-10 rounded-md py-2 flex-wrap`}>
               {feedbacks.map((feedback, idx) => (
                 <FeedbackCard
                 feedback={feedback}

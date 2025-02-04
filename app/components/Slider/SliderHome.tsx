@@ -6,7 +6,7 @@ import SliderCard from "./SliderCard";
 
 
 
-export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]}){
+export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:FeedbackPropType[],width:string}){
 
     const [reviews, setReviews] = useState<FeedbackPropType[]>(wallOfLove)
  
@@ -62,7 +62,7 @@ export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]})
 
 
     return (
-        <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-start items-center'} w-[100%]   overflow-hidden`}>
+        <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-start items-center'} w-${width}  overflow-hidden`}>
             <div className="h-[95%] bg-black rounded-md w-[100%] flex items-start justify-center md:justify-start gap-4 overflow-hidden relative p-2">
                 <div
                    
@@ -84,6 +84,7 @@ export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]})
                         review={review}
                         hover={hover}
                         setHover={setHover}
+                        hoverDisable={width=='300' ? false:true}
                         />
                     ))}
                 </div>

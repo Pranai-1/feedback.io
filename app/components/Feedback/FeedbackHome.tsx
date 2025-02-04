@@ -60,14 +60,14 @@ console.log(feedbacks)
   };
 
   return (
-    <div className="w-full h-full md:flex md:flex-row justify-start items-start gap-1 pb-4">
+    <div className="w-full h-full md:flex md:flex-row justify-start items-center gap-2 pb-4">
    
-      <div className="w-full md:w-[22%] h-auto md:h-full">
+      <div className="w-full md:w-[330px] h-auto md:h-full">
         <FeedbackSideBar handleSidebarClick={handleSidebarClick} />
       </div>
 
   
-      <div ref={contentRef} className="w-full md:w-[76%] h-auto md:h-full">
+      <div ref={contentRef} className="w-full md:w-[80%] h-auto md:h-full">
         {renderContent()}
       </div>
     </div>

@@ -6,11 +6,11 @@ import { SetStateAction } from "react";
 import { FeedbackPropType } from "@/app/api/types";
 
 
-export default function SliderCard({i,hover,setHover,review}:{i:number,hover:number,setHover:React.Dispatch<SetStateAction<number>>,
-    review:FeedbackPropType
+export default function SliderCard({i,hover,setHover,review,hoverDisable}:{i:number,hover:number,setHover:React.Dispatch<SetStateAction<number>>,
+    review:FeedbackPropType,hoverDisable:boolean
 }){
     return(
-        <div key={i} className={` flex  justify-center  h-[350px] ${hover==i ? 'w-[300px] md:w-[400px]  rounded-xl':'w-[270px] md:w-[300px]'}`}
+        <div key={i} className={` flex  justify-center  h-[350px] ${hover==i && !hoverDisable ? 'w-[300px] md:w-[400px]  rounded-xl':'w-[270px] md:w-[300px]'}`}
                         onMouseEnter={()=>setHover(i)}
                         onMouseLeave={() => setHover(-1)}
                         >

@@ -64,5 +64,28 @@ export const reviewData=[
       starRating: 5,
       spaceId: 'cm56fr3te00010ivs9pyabf22',
     },
-   
+    {
+      id: 'cm5evrbne00090isseui22xqq',
+      name: 'Pranai',
+      email: '3eds23@gmail.com',
+      photo: reviewDataProfileImage1.src,
+      consent: true,
+      images: [
+        productImage1.src,productImage2.src,productImage3.src,productImage4.src
+      ],
+      reviewText: 'I recently purchased this product, and overall, I’m quite satisfied! The build quality is solid, and it performs as expected. The design is sleek, and it easy to use. However, I did notice that the battery life could be improved, as it drains a bit faster than I’d like.',
+      starRating: 4,
+      spaceId: 'cm56fr3te00010ivs9pyabf22',
+    },
+    {
+      id: 'cm5fcyey800010i1kbfn11fnu',
+      name: 'John',
+      email: 'dcqewcewc@gmail.com',
+      photo: reviewDataProfileImage1.src,
+      consent: true,
+      images: [productImage3.src],
+      reviewText: 'very Good product,loved it',
+      starRating: 4,
+      spaceId: 'cm56fr3te00010ivs9pyabf22',
+    },
   ]
