@@ -6,7 +6,7 @@ import SliderHome from "@/app/components/Slider/SliderHome";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function Slider({params}:{params:any}) {
-    const {spaceName}=await params
+  const {spaceName}=await params
  const reviews = await getFeedback(spaceName);
  const liked = await getWallOfLove(spaceName);
 

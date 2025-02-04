@@ -61,8 +61,8 @@ export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]})
 
 
     return (
-        <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-center items-center'} w-[95%]  sm:m-2  sm:ml-8 mr-0 sm:p-2 overflow-hidden`}>
-            <div className="h-[95%] bg-black rounded-md w-[90%] flex items-start justify-center md:justify-start gap-4 overflow-hidden relative p-2">
+        <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-center items-center'} w-[100%]   overflow-hidden`}>
+            <div className="h-[95%] bg-black rounded-md w-[100%] flex items-start justify-center md:justify-start gap-4 overflow-hidden relative p-2">
                 <div
                    
                     className={`flex gap-4 justify-center items-center flex-col md:flex-row ${hover !=-1 ? ' md:bg-gray-200':''}`}
