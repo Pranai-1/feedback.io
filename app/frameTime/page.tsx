@@ -43,3 +43,10 @@
 // };
 
 // export default FrameRenderLogger;
+export default function FrameTime(){
+    return(
+        <>
+        <p>Helloo</p>
+        </>
+    )
+}
