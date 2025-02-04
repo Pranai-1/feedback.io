@@ -10,7 +10,7 @@ export default function SliderCard({i,hover,setHover,review}:{i:number,hover:num
     review:FeedbackPropType
 }){
     return(
-        <div key={i} className={` flex  justify-center  h-[350px] ${hover==i ? 'w-[300px] md:w-[400px] md:border-8 bg-[##A6E0E6] rounded-xl':'w-[270px] md:w-[300px]'}`}
+        <div key={i} className={` flex  justify-center  h-[350px] ${hover==i ? 'w-[300px] md:w-[400px]  rounded-xl':'w-[270px] md:w-[300px]'}`}
                         onMouseEnter={()=>setHover(i)}
                         onMouseLeave={() => setHover(-1)}
                         >

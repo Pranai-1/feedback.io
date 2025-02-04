@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FeedbackPropType } from "../../api/types";
 
 import SliderCard from "./SliderCard";
-import { reviewData } from "@/app/static/reviewData";
+
 
 
 export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]}){
