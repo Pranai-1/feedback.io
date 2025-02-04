@@ -26,5 +26,5 @@ export default async function Slider({params}:{params:any}) {
 
 
 
- return <SliderHome wallOfLove={likedFeedbacks}/>
+ return <SliderHome wallOfLove={likedFeedbacks} width="full"/>
 }
