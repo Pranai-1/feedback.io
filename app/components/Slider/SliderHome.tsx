@@ -8,7 +8,7 @@ import { reviewData } from "@/app/static/reviewData";
 
 export default function SliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]}){
 
-    const [reviews, setReviews] = useState<FeedbackPropType[]>(reviewData as FeedbackPropType[])
+    const [reviews, setReviews] = useState<FeedbackPropType[]>(wallOfLove)
  
     const [position, setPosition] = useState(0); 
     const [isPaused, setIsPaused] = useState(false);

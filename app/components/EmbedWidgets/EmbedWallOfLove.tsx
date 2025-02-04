@@ -27,6 +27,11 @@ export default function EmbedWallOfLove(){
     const selectedComp=index==1 ? 'Autoplay Carousel' : 'Manual Carousel'
     toast.success(`✅ selected ${selectedComp} widget`)
   }
+
+
+  function handleSubmit(){
+    console.log(selected)
+  }
     return(
         <div className=" h-full w-full flex justify-center items-start">
             <div className="bg-[#FFFFFF] rounded-md h-max w-[100%]  flex flex-col justify-center items-center gap-4 pb-4">
@@ -52,7 +57,8 @@ export default function EmbedWallOfLove(){
                 <p>Different type..</p>
             </div>
           </div>
-          <button className="bg-green-600 px-4 p-2 rounded-md text-gray-100 font-medium text-xl">Submit</button>
+          <button className="bg-green-600 px-4 p-2 rounded-md text-gray-100 font-medium text-xl"
+          onClick={handleSubmit}>Submit</button>
             </div>
        
         </div>
