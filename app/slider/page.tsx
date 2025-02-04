@@ -11,10 +11,22 @@ export default function Slider() {
     const [reviews, setReviews] = useState<FeedbackPropType[]>(
         reviewData as FeedbackPropType[]
     );
-    console.log(reviews)
+ 
     const [position, setPosition] = useState(0); 
     const [isPaused, setIsPaused] = useState(false);
-    const scrollRef = useRef<HTMLDivElement>(null);
+    const[isSmallScreen,setIsSmallScreen]=useState<boolean>(false) 
+    const[hover,setHover]=useState<number>(-1)
+
+
+   useEffect(()=>{
+        const handleResize=()=>{
+            setIsSmallScreen(window.innerWidth<768)
+        }
+        handleResize()
+    window.addEventListener("resize",handleResize)
+    return ()=>window.removeEventListener("resize",handleResize)
+
+   },[])
 
     useEffect(()=>{
         if(reviews.length<8){
@@ -48,24 +60,30 @@ export default function Slider() {
         return () => cancelAnimationFrame(animationFrameId); // Clean up on unmount
     
     }, [isPaused]);
-console.log(position)
+console.log(hover,isSmallScreen)
     return (
-        <div className="h-max w-[95%] flex justify-center items-center sm:m-2  sm:ml-8 mr-0 sm:p-2 overflow-hidden">
-            <div className="h-[95%] bg-black rounded-md w-[90%] flex items-center justify-center md:justify-start gap-4 overflow-hidden relative p-2">
+        <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-center items-center'} w-[95%]  sm:m-2  sm:ml-8 mr-0 sm:p-2 overflow-hidden`}>
+            <div className="h-[95%] bg-black rounded-md w-[90%] flex items-start justify-center md:justify-start gap-4 overflow-hidden relative p-2">
                 <div
-                    ref={scrollRef}
-                    className="flex gap-4 justify-center items-center flex-col md:flex-row"
+                   
+                    className={`flex gap-4 justify-center items-center flex-col md:flex-row ${hover !=-1 ? ' md:bg-gray-200':''}`}
                     style={{
-                        transform: `translateX(${position}px)`, // Smooth translation
+                        transform: isSmallScreen ? `translateY(${position}px)` : `translateX(${position}px)`, // Smooth translation
                         whiteSpace: "nowrap",
                     }}
                     onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
+                    onMouseLeave={() => {
+                        setIsPaused(false)
+                        setHover(-1)
+                    }}
                 >
                     {reviews.map((review, i) => ( // Duplicate for infinite loop
-                        <div key={i} className="w-[270px] md:w-[300px] flex  justify-center  h-[100%]">
+                        <div key={i} className={` flex  justify-center  h-[100%] ${hover==i ? 'w-[300px] md:w-[400px] md:border-8 bg-[##A6E0E6] rounded-xl':'w-[270px] md:w-[300px]'}`}
+                        onMouseEnter={()=>setHover(i)}
+                        onMouseLeave={() => setHover(-1)}
+                        >
                             <NeonGradientCard>
-                                <div className="flex flex-col  justify-center items-start w-[100%] overflow-hidden">
+                                <div className={`flex flex-col  justify-center items-start w-[100%] overflow-hidden `}>
                                 <div className={`flex ${review.images.length>1 ?'justify-start' : 'justify-center'} items-center  w-[100%] my-2  overflow-x-auto`}>
                                     {review.images.length > 0 ? (
                                         <>
@@ -91,7 +109,8 @@ console.log(position)
                                     <FeedbackStarsDisplay starRating={review.starRating}/>
                                     </div>
                                     <div className="w-full mt-4 mb-6 max-h-[80px] overflow-y-auto border border-gray-300 p-2 rounded-lg">
-                                    <p className="text-sm text-orange-600 whitespace-pre-wrap break-words text-center">
+                                    <p 
+                                     className="text-sm text-orange-600 whitespace-pre-wrap break-words text-center">
 
                                         {review.reviewText || "No review provided."}
                                         </p>
