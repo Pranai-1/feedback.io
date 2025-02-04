@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaArrowCircleRight } from "react-icons/fa";
 import SliderCard from "./SliderCard";
-import { reviewData } from "@/app/static/reviewData";
+
 
 export default function ManualSliderHome({wallOfLove}:{wallOfLove:FeedbackPropType[]}){
-    const[reviews]=useState<FeedbackPropType[]>(reviewData as FeedbackPropType[])
+    const[reviews]=useState<FeedbackPropType[]>(wallOfLove)
     const[reviewstoDisplay,setReviewstoDisplay]=useState<FeedbackPropType[]>([])
     const[index,setIndex]=useState(0)
     const[isSmallScreen,setIsSmallScreen]=useState(false)
