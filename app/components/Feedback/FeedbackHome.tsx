@@ -7,6 +7,7 @@ import NoFeedback from "./NoFeedback";
 import FeedbackTextDisplay from "./FeedbackTextDisplay";
 import EmbedWallOfLove from "../EmbedWidgets/EmbedWallOfLove";
 import EmbedBadge from "../EmbedWidgets/EmbedBadge";
+import NotImplemented from "./NotImplemented";
 
 export default function FeedbackHome({
   feedbacks,
@@ -39,6 +40,13 @@ console.log(feedbacks)
 
   const renderContent = () => {
     switch (display) {
+      case "All":
+        return  <FeedbackTextDisplay
+        feedbacks={feedbacks}
+        spaceName={spaceName}
+        wallOfLove={wallOfLove}
+        performActions={true}
+      />
       case "Video":
         return <NoFeedback spaceName={spaceName} />;
       case "Liked":
@@ -56,12 +64,7 @@ console.log(feedbacks)
             return <EmbedBadge/>
       default:
         return (
-          <FeedbackTextDisplay
-            feedbacks={feedbacks}
-            spaceName={spaceName}
-            wallOfLove={wallOfLove}
-            performActions={true}
-          />
+         <NotImplemented/>
         );
     }
   };
