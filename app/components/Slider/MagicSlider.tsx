@@ -31,16 +31,16 @@ export default  function MagicSlider({wallOfLove}:{wallOfLove:FeedbackPropType[]
 
 
   return (
-    <div className="relative flex h-max mt-6 w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-gradient-to-r from-gray-700 to-gray-600 p-4 md:shadow-xl">
-    <Marquee pauseOnHover={true} vertical={isSmallScreen} className="[--duration:40s]">
-      {reviews.map((review, index) => (
-        <SliderCard key={index} i={index} review={review} />
-      ))}
-    </Marquee>
-  
-    {/* Optional Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30"></div>
-  </div>
+     <div className="relative flex h-max py-4 mt-4 w-full  flex-col items-center justify-center overflow-hidden rounded-lg bg-black border md:shadow-xl">
+          <Marquee pauseOnHover vertical={isSmallScreen}  className="[--duration:40s]">
+            {reviews.map((review, index) => (
+              <SliderCard key={index} i={index} review={review} />
+            ))}
+          </Marquee>
+          
+         
+          
+        </div>
   
   );
 }

@@ -13,7 +13,7 @@ const firstRow = reviews.slice(0, reviews.length / 1);
 export default  function MarqueeDemoVertical() {
   return (
     <div className="relative flex h-[500px] w-full  flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-      <Marquee pauseOnHover vertical  className="[--duration:20s]">
+      <Marquee pauseOnHover   className="[--duration:40s]">
         {firstRow.map((review, index) => (
           <SliderCard key={review.name} i={index} review={review} />
         ))}
