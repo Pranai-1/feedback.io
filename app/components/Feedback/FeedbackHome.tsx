@@ -61,7 +61,7 @@ console.log(feedbacks)
           likedFeedbacks={likedFeedbacks}
           spaceName={spaceName}/>
           case "Badge":
-            return <EmbedBadge/>
+            return <NotImplemented/>
       default:
         return (
          <NotImplemented/>

@@ -6,9 +6,9 @@ export default function NotImplemented() {
   return (
     <div className="flex items-center justify-center h-[90%] mt-4 ml-4 md:ml-0 w-[90%] md:w-full">
       <div className="text-center p-8 bg-white rounded-2xl shadow-2xl w-full max-w-lg">
-        <p className="text-lg md:text-2xl lg:text-4xl font-bold text-gray-900 mb-6">
-          We're Working on It!
-        </p>
+      <p className="text-lg md:text-2xl lg:text-4xl font-bold text-gray-900 mb-6">
+        We&apos;re Working on It!
+    </p>
         <p className="text-sm md:text-base lg:text-lg text-gray-700 mb-6">
           This feature is currently under development. Thank you for your patience!
         </p>
