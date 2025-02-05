@@ -6,7 +6,6 @@ import FeedbackSideBar from "./FeedbackSideBar";
 import NoFeedback from "./NoFeedback";
 import FeedbackTextDisplay from "./FeedbackTextDisplay";
 import EmbedWallOfLove from "../EmbedWidgets/EmbedWallOfLove";
-import EmbedBadge from "../EmbedWidgets/EmbedBadge";
 import NotImplemented from "./NotImplemented";
 
 export default function FeedbackHome({
