@@ -23,6 +23,11 @@ console.log(feedbacks)
   const [display, setDisplay] = useState(""); 
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const likedFeedbacks = feedbacks.filter((feedback) =>
+    wallOfLove.some(
+        (loved) => loved.reviewId === feedback.id && loved.spaceId === feedback.spaceId
+    )
+);
 
   const handleSidebarClick = (section: string) => {
     setDisplay(section);
@@ -38,13 +43,16 @@ console.log(feedbacks)
       case "Video":
         return <NoFeedback spaceName={spaceName} />;
       case "Liked":
-        return <FeedbackLiked 
+        return <FeedbackTextDisplay 
         wallOfLove={wallOfLove}
-        feedbacks={feedbacks}
+        feedbacks={likedFeedbacks}
         spaceName={spaceName}
+        performActions={false}
         />;
         case "Wall of Love":
-          return <EmbedWallOfLove/>
+          return <EmbedWallOfLove
+          likedFeedbacks={likedFeedbacks}
+          spaceName={spaceName}/>
           case "Badge":
             return <EmbedBadge/>
       default:
