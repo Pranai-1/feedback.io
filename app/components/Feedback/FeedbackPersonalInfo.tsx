@@ -1,3 +1,5 @@
+"use client";
+
 import { FeedbackPropType } from "@/app/api/types";
 import Image from "next/image";
 
@@ -17,7 +19,15 @@ export default function FeedbackPersonalInfo({feedback}:{feedback:FeedbackPropTy
           </div>
           <div className="flex flex-col gap-2 justify-start items-center w-full">
          <p className="text-gray-800 font-medium  w-full">Submitted at :</p>
-         <p className="w-full  text-gray-600">{feedback.submittedAt ? new Date(feedback.submittedAt).toLocaleString() : "Date not available"}</p>
+         <p className="w-full  text-gray-600">{feedback.submittedAt ?  new Date(feedback.submittedAt).toLocaleString("en-US", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true,
+            }) : "Date not available"}</p>
          </div>
 
         </div>

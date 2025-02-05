@@ -20,7 +20,9 @@ export default function SliderCard({i,hover,setHover,review,hoverDisable}:{i:num
                                     {review.images.length > 0 ? (
                                         <>
                                         {review.images.map((image, index) => (
-                                            <Image key={index} src={image} alt="Images" width={100} height={50} className="bg-gray-200 rounded-md mr-2 h-20"/>
+                                            <Image key={index} src={image} alt="Images" width={100} height={50} 
+                                            style={{ objectFit: "cover" }}
+                                            className="bg-gray-200 rounded-md mr-2 h-20"/>
                                         ))}
                                         </>
                                     ) : (
@@ -32,7 +34,8 @@ export default function SliderCard({i,hover,setHover,review,hoverDisable}:{i:num
 
                                     <div className="flex justify-start items-start gap-4 mt-4 mb-2">
                                         {review.photo ? 
-                                        <Image src={review.photo} alt="Profile Photo" width={40} height={40} className="bg-gray-200 rounded-full"/>  :
+                                        <Image src={review.photo} alt="Profile Photo" width={40} height={40}   style={{ objectFit: "cover" }}
+                                        className="bg-gray-200 rounded-full"/>  :
                                          <AiFillTruck  className="h-10 w-10 bg-gray-200 rounded-full"/>}
                                        <p className="text-gray-800 pt-2 font-medium">{review.name}</p>
                                        

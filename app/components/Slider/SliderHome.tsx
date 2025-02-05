@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FeedbackPropType } from "../../api/types";
 
 import SliderCard from "./SliderCard";
@@ -8,7 +8,14 @@ import SliderCard from "./SliderCard";
 
 export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:FeedbackPropType[],width:string}){
 
-    const [reviews, setReviews] = useState<FeedbackPropType[]>(wallOfLove)
+
+    const reviews:FeedbackPropType[] = useMemo(() => {
+        return wallOfLove.length < 8 
+            ? Array.from({ length: Math.ceil(8 / wallOfLove.length) }, () => wallOfLove).flat()
+            : wallOfLove;
+    }, [wallOfLove]);
+
+
  
     const [position, setPosition] = useState(0); 
     const [isPaused, setIsPaused] = useState(false);
@@ -26,40 +33,57 @@ export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:Feedbac
 
    },[])
 
-    useEffect(()=>{
-        if(reviews.length<8){
-            setReviews((prev)=>[...prev,...reviews])
-        }
-    },[reviews])
+    // useEffect(()=>{
+    //     if(reviews.length<8){
+    //         setReviews((prev)=>[...prev,...reviews])
+    //     }
+    // },[reviews])
+
+    // useEffect(() => {
+
+    //    //Approach 1
+    //     // const interval = setInterval(() => {
+    //     //     if (!isPaused) { 
+    //     //         setPosition((prev) => prev >= -500 ? prev - 1 : 0); // Move left smoothly
+    //     //     }
+    //     // }, 50); 
+    //     // return () => clearInterval(interval);
+
+
+    //      //Approach 2
+    //     let animationFrameId: number;
+    //     const updatePosition = () => {
+    //         if (!isPaused) {
+    //             setPosition((prev) =>prev >= -500 ? prev - 0.5 : 0); // Smooth translation rate (adjust as needed)
+    //         }
+    //         animationFrameId = requestAnimationFrame(updatePosition); // Repeat update at next frame
+    //     };
+
+
+    //     updatePosition(); // Start the animation loop
+
+    //     return () => cancelAnimationFrame(animationFrameId); // Clean up on unmount
+    
+    // }, [isPaused]);
+
+    const frameRef = useRef<number | null>(null); // Store animation frame ID
 
     useEffect(() => {
-
-       //Approach 1
-        // const interval = setInterval(() => {
-        //     if (!isPaused) { 
-        //         setPosition((prev) => prev >= -500 ? prev - 1 : 0); // Move left smoothly
-        //     }
-        // }, 50); 
-        // return () => clearInterval(interval);
-
-
-         //Approach 2
-        let animationFrameId: number;
         const updatePosition = () => {
-            if (!isPaused) {
-                setPosition((prev) =>prev >= -500 ? prev - 0.5 : 0); // Smooth translation rate (adjust as needed)
-            }
-            animationFrameId = requestAnimationFrame(updatePosition); // Repeat update at next frame
+            setPosition((prev) => (prev >= -500 ? prev - 0.5 : 0));
+            frameRef.current = requestAnimationFrame(updatePosition);
         };
 
+        if (!isPaused) {
+            frameRef.current = requestAnimationFrame(updatePosition);
+        }
 
-        updatePosition(); // Start the animation loop
-
-        return () => cancelAnimationFrame(animationFrameId); // Clean up on unmount
-    
-    }, [isPaused]);
-
-
+        return () => {
+            if (frameRef.current) {
+                cancelAnimationFrame(frameRef.current);
+            }
+        };
+    }, [isPaused]); // Depend only on `isPaused`
 
     return (
         <div className={` ${isSmallScreen ? 'h-[400px] flex justify-start items-center'  :'h-max flex justify-start items-center'} w-${width}  overflow-hidden`}>

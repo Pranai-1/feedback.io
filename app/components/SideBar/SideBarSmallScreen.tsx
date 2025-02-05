@@ -1,10 +1,11 @@
 "use client"
-import { useState } from "react";
+import { memo, useState } from "react";
 import { IoReorderThree } from "react-icons/io5";
 import BarMap from "./BarMap";
+import FeedbackSideBar from "../Feedback/FeedbackSideBar";
 
 
-export default function SideBarSmallScreen(){
+ function SideBarSmallScreen(){
     const[toggleSidebar,setToggleSidebar]=useState(false)
     console.log(toggleSidebar)
     return(
@@ -43,3 +44,5 @@ export default function SideBarSmallScreen(){
         </div>
     )
 }
+
+export default memo(SideBarSmallScreen)
