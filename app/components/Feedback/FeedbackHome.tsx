@@ -4,7 +4,6 @@ import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";
 import { useRef, useState } from "react";
 import FeedbackSideBar from "./FeedbackSideBar";
 import NoFeedback from "./NoFeedback";
-import FeedbackLiked from "./FeedbackLiked";
 import FeedbackTextDisplay from "./FeedbackTextDisplay";
 import EmbedWallOfLove from "../EmbedWidgets/EmbedWallOfLove";
 import EmbedBadge from "../EmbedWidgets/EmbedBadge";

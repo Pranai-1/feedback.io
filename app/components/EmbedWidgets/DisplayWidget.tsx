@@ -40,7 +40,7 @@ export default function DisplayWidget({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
+console.log(likedFeedbacks)
   return (
     <div className="bg-white rounded-xl shadow-lg w-[90%] md:w-[70%] flex flex-col justify-center items-center gap-6 p-6 border border-gray-200">
       {/* 🎉 Success Message */}

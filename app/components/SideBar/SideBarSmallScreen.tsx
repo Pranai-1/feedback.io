@@ -2,7 +2,6 @@
 import { memo, useState } from "react";
 import { IoReorderThree } from "react-icons/io5";
 import BarMap from "./BarMap";
-import FeedbackSideBar from "../Feedback/FeedbackSideBar";
 
 
  function SideBarSmallScreen(){
