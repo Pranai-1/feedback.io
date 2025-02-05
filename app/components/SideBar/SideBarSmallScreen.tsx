@@ -6,7 +6,7 @@ import BarMap from "./BarMap";
 
  function SideBarSmallScreen(){
     const[toggleSidebar,setToggleSidebar]=useState(false)
-    console.log(toggleSidebar)
+ 
     return(
         <div className="flex sm:hidden text-4xl cursor-pointer bg-[#09090b]"
        >

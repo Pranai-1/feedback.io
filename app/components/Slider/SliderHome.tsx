@@ -21,49 +21,19 @@ export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:Feedbac
     const [isPaused, setIsPaused] = useState(false);
     const[isSmallScreen,setIsSmallScreen]=useState<boolean>(false) 
 
-
+    const handleResize=()=>{
+        setIsSmallScreen(window.innerWidth<768)
+    }
+    
    useEffect(()=>{
-        const handleResize=()=>{
-            setIsSmallScreen(window.innerWidth<768)
-        }
+       
    handleResize()
     window.addEventListener("resize",handleResize)
     return ()=>window.removeEventListener("resize",handleResize)
 
    },[])
 
-    // useEffect(()=>{
-    //     if(reviews.length<8){
-    //         setReviews((prev)=>[...prev,...reviews])
-    //     }
-    // },[reviews])
-
-    // useEffect(() => {
-
-    //    //Approach 1
-    //     // const interval = setInterval(() => {
-    //     //     if (!isPaused) { 
-    //     //         setPosition((prev) => prev >= -500 ? prev - 1 : 0); // Move left smoothly
-    //     //     }
-    //     // }, 50); 
-    //     // return () => clearInterval(interval);
-
-
-    //      //Approach 2
-    //     let animationFrameId: number;
-    //     const updatePosition = () => {
-    //         if (!isPaused) {
-    //             setPosition((prev) =>prev >= -500 ? prev - 0.5 : 0); // Smooth translation rate (adjust as needed)
-    //         }
-    //         animationFrameId = requestAnimationFrame(updatePosition); // Repeat update at next frame
-    //     };
-
-
-    //     updatePosition(); // Start the animation loop
-
-    //     return () => cancelAnimationFrame(animationFrameId); // Clean up on unmount
     
-    // }, [isPaused]);
 
     const frameRef = useRef<number | null>(null); // Store animation frame ID
 
@@ -111,3 +81,19 @@ export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:Feedbac
         </div>
     );
 }
+
+
+
+    //useEffect(() => {
+
+   
+        // const interval = setInterval(() => {
+        //     if (!isPaused) { 
+        //         setPosition((prev) => prev >= -500 ? prev - 1 : 0); // Move left smoothly
+        //     }
+        // }, 50); 
+        // return () => clearInterval(interval);
+
+
+
+ 

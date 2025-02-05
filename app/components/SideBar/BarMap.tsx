@@ -1,9 +1,9 @@
 import { sideBarNav } from "@/app/static/simpleData";
-import React from "react";
+import React, { memo } from "react";
 
 
 
-export default function BarMap({text}:{text:string}){
+ function BarMap({text}:{text:string}){
     
     return(
         <>
@@ -19,3 +19,5 @@ export default function BarMap({text}:{text:string}){
         </>
     )
 }
+
+export default memo(BarMap)

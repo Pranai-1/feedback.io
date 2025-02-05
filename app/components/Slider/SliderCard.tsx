@@ -2,11 +2,10 @@ import { NeonGradientCard } from "@/components/ui/neon-gradient-card";
 import FeedbackStarsDisplay from "../../components/Feedback/FeedbackStarsDisplay";
 import Image from "next/image";
 import { AiFillTruck } from "react-icons/ai";
-import { SetStateAction } from "react";
 import { FeedbackPropType } from "@/app/api/types";
+import { memo } from "react";
 
-
-export default function SliderCard({i,review,}:{i:number,review:FeedbackPropType,
+ function SliderCard({i,review,}:{i:number,review:FeedbackPropType,
 }){
     return(
         <div key={i} className={` flex  justify-center  h-[350px] w-[270px] md:w-[300px]}`}
@@ -53,3 +52,6 @@ export default function SliderCard({i,review,}:{i:number,review:FeedbackPropType
                         </div>
     )
 }
+
+
+export default memo(SliderCard)
