@@ -12,7 +12,7 @@ export default function ManualSliderHome({wallOfLove}:{wallOfLove:FeedbackPropTy
     const[reviewstoDisplay,setReviewstoDisplay]=useState<FeedbackPropType[]>([])
     const[index,setIndex]=useState(0)
     const[isSmallScreen,setIsSmallScreen]=useState(false)
-    const[hover,setHover]=useState<number>(-1)
+
 
     useEffect(()=>{
        const handleResize=()=>{
@@ -22,13 +22,12 @@ export default function ManualSliderHome({wallOfLove}:{wallOfLove:FeedbackPropTy
        window.addEventListener("resize",handleResize)
        return ()=>window.removeEventListener("resize",handleResize)
     },[])
-console.log(isSmallScreen,reviewstoDisplay)
+
 
 
     useEffect(()=>{
    
        if(isSmallScreen && reviews.length>index){
-        console.log("fvfrkjncrkjn")
         setReviewstoDisplay([reviews[index]])
         return
        }
@@ -42,6 +41,7 @@ console.log(isSmallScreen,reviewstoDisplay)
        setReviewstoDisplay([])
     },[index,isSmallScreen])
     
+
 function handeClick(type:string){
     const incrementIndex=isSmallScreen ? 1 :2
     if(type=="right")
@@ -49,6 +49,8 @@ function handeClick(type:string){
     else
     setIndex((prev)=>prev-incrementIndex)
 }
+
+
     return(
         <div className={`w-[100%] h-max mt-4 bg-black flex  justify-center items-center relative`}>
             <div className="w-[100%] xl:w-[70%] flex  justify-center items-center gap-[2px] sm:gap-4 lg:gap-[2px]">
@@ -69,9 +71,6 @@ function handeClick(type:string){
                             key={i}
                              i={i}
                              review={review}
-                            hover={hover}
-                            setHover={setHover}
-                            hoverDisable={false}
                         />
             )
           })}

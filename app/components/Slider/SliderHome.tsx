@@ -20,7 +20,6 @@ export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:Feedbac
     const [position, setPosition] = useState(0); 
     const [isPaused, setIsPaused] = useState(false);
     const[isSmallScreen,setIsSmallScreen]=useState<boolean>(false) 
-    const[hover,setHover]=useState<number>(-1)
 
 
    useEffect(()=>{
@@ -90,7 +89,7 @@ export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:Feedbac
             <div className="h-[95%] bg-black rounded-md w-[100%] flex items-start justify-center md:justify-start gap-4 overflow-hidden relative p-2">
                 <div
                    
-                    className={`flex gap-4 justify-center items-center flex-col md:flex-row ${hover !=-1 ? ' md:bg-gray-200':''}`}
+                    className={`flex gap-4 justify-center items-center flex-col md:flex-row`}
                     style={{
                         transform: isSmallScreen ? `translateY(${position}px)` : `translateX(${position}px)`, // Smooth translation
                         whiteSpace: "nowrap",
@@ -98,7 +97,6 @@ export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:Feedbac
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => {
                         setIsPaused(false)
-                        setHover(-1)
                     }}
                 >
                     {reviews.map((review, i) => ( // Duplicate for infinite loop
@@ -106,9 +104,6 @@ export default function SliderHome({wallOfLove,width='full'}:{wallOfLove:Feedbac
                         key={i}
                         i={i}
                         review={review}
-                        hover={hover}
-                        setHover={setHover}
-                        hoverDisable={width=='300' ? false:true}
                         />
                     ))}
                 </div>

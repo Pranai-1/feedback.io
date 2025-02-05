@@ -6,13 +6,10 @@ import { SetStateAction } from "react";
 import { FeedbackPropType } from "@/app/api/types";
 
 
-export default function SliderCard({i,hover,setHover,review,hoverDisable}:{i:number,hover:number,setHover:React.Dispatch<SetStateAction<number>>,
-    review:FeedbackPropType,hoverDisable:boolean
+export default function SliderCard({i,review,}:{i:number,review:FeedbackPropType,
 }){
     return(
-        <div key={i} className={` flex  justify-center  h-[350px] ${hover==i && !hoverDisable ? 'w-[300px] md:w-[400px]  rounded-xl':'w-[270px] md:w-[300px]'}`}
-                        onMouseEnter={()=>setHover(i)}
-                        onMouseLeave={() => setHover(-1)}
+        <div key={i} className={` flex  justify-center  h-[350px] w-[270px] md:w-[300px]}`}
                         >
                             <NeonGradientCard>
                                 <div className={`flex flex-col  justify-center items-start gap-2 w-[100%] overflow-hidden `}>

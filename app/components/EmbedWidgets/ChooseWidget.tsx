@@ -43,7 +43,7 @@ export default function ChooseWidget({setSubmitted}:{setSubmitted:React.Dispatch
             </div>
           <div className="w-[95%] flex flex-col lg:flex-row justify-center items-center gap-4 h-max ">
           <div className={`xl:w-[45%] w-[100%]  h-[340px] cursor-pointer flex flex-col justify-center items-center gap-6 p-2 border-2 border-gray-600
-             ${hover==2 ? ' border-2 border-orange-300 rounded-md':''} overflow-hidden py-12`}
+             ${hover==2 ? ' border-2 border-orange-300 rounded-md':''} overflow-hidden py-12 ${selected==2  ? ' border-4 border-orange-500 rounded-md':''}`}
             onMouseEnter={()=>setHover(2)}
             onMouseLeave={()=>setHover(-1)}
             onClick={()=>handleSelect(2)}>
@@ -51,7 +51,7 @@ export default function ChooseWidget({setSubmitted}:{setSubmitted:React.Dispatch
            <p className="text-orange-600 font-medium text-lg text-center ">Manual Carousel</p>
             </div>
             <div className={`xl:w-[45%] w-[100%]  h-[340px] cursor-pointer py-12 flex flex-col justify-center items-center gap-6 p-2 border-2 border-gray-600
-             ${hover==1 ? ' border-2 border-orange-300 rounded-md':''} `}
+             ${hover==1  ? ' border-2 border-orange-300 rounded-md':''}  ${selected==1  ? ' border-4 border-orange-500 rounded-md':''} `}
             onMouseEnter={()=>setHover(1)}
             onMouseLeave={()=>setHover(-1)}
             onClick={()=>handleSelect(1)}
