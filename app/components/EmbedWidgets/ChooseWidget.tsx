@@ -3,8 +3,9 @@ import manualImage from "../../Images/manualSlider.png";
 import autoPlayImage from "../../Images/autoPlayImage.png";
 import { SetStateAction, useState } from "react";
 import { toast } from "react-toastify";
+import { FcCancel } from "react-icons/fc";
 
-export default function ChooseWidget({setSubmitted}:{setSubmitted:React.Dispatch<SetStateAction<boolean>>}){
+export default function ChooseWidget({setSubmitted}:{setSubmitted:React.Dispatch<SetStateAction<number>>}){
 
 
         const[selected,setSelected]=useState<number>(-1)
@@ -19,9 +20,17 @@ export default function ChooseWidget({setSubmitted}:{setSubmitted:React.Dispatch
           }
         
         
-          function handleSubmit(){
-           setSubmitted(true)
-          }
+          function handleSubmit() {
+            if (selected === -1) {
+                toast.error(
+                    <div className="flex items-center gap-2">
+                        <FcCancel className="text-2xl"/> <span>Select at least one widget</span>
+                    </div>
+                );
+                return;
+            }
+            setSubmitted(selected);
+        }
     
 
           

@@ -50,8 +50,8 @@ function handeClick(type:string){
     setIndex((prev)=>prev-incrementIndex)
 }
     return(
-        <div className={`w-[100%] h-max mt-4 bg-black flex  justify-center items-center relative gap-[2px]`}>
-            <div className="w-[70%] flex  justify-center items-center gap-[2px]">
+        <div className={`w-[100%] h-max mt-4 bg-black flex  justify-center items-center relative`}>
+            <div className="w-[100%] xl:w-[70%] flex  justify-center items-center gap-[2px] sm:gap-4 lg:gap-[2px]">
 
               {index>0 ?
             <div className="w-max h-max bg-gray-200 rounded-xl p-1 md:p-2 cursor-pointer"
