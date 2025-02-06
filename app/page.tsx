@@ -5,6 +5,8 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Navbar from "./components/Navbar";
+import { Particles } from "@/components/particles";
+import Header from "./components/HomePage/Header";
 
 
 
@@ -23,7 +25,12 @@ export default async function Home() {
   return (
   <div>
     <Navbar/>
-  <p>I am in home</p>
+     <div className="w-[100%] h-screen bg-black relative">
+     <Particles className="absolute z-50"/> 
+     <Header/>
+     
+    
+     </div>
   </div>
   );
 }

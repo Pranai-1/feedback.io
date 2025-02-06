@@ -5,7 +5,8 @@ import SignupButton from "../components/SignupButton"
 import SignoutButton from "../components/SignOutButton"
 import DashboardButton from "./DashboardButton"
 import SideBarSmallScreen from "./SideBar/SideBarSmallScreen"
-
+import Image from "next/image"
+import feedbackLogo from "../Images/feedbackLogo.webp"
 
 
 export default async function Navbar(){
@@ -17,7 +18,8 @@ const session=await auth()
         <>
         <nav className="relative flex justify-between p-2  sm:p-4 bg-black border-b-2 border-zinc-800">
             <div className="flex justify-center items-center">
-                <SideBarSmallScreen/>
+                <SideBarSmallScreen/> 
+                <Image src={feedbackLogo.src} width={50} height={20} alt="Logo" className="bg-black"/>
                 <h1 className="text-white font-medium sm:text-xl p-3">Feedback.io</h1>
             </div>
            
