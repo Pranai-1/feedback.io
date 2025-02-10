@@ -46,6 +46,13 @@ console.log(feedbacks)
         wallOfLove={wallOfLove}
         performActions={true}
       />
+      case "Text":
+        return  <FeedbackTextDisplay
+        feedbacks={feedbacks}
+        spaceName={spaceName}
+        wallOfLove={wallOfLove}
+        performActions={true}
+      />
       case "Video":
         return <NoFeedback spaceName={spaceName} />;
       case "Liked":
