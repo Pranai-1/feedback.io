@@ -1,5 +1,4 @@
-import { auth } from "@/auth";
-import { fetchUserData } from "@/lib/dataFetch";
+
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 import { fetchLikedFeedbacks } from "@/app/actions/fetchLikedFeedbacks";
