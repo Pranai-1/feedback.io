@@ -31,7 +31,8 @@ export default function SpaceNavigation({setDeleteSpace,setOpenDetailsCard,setCr
       >
              <p className="flex justify-start items-center gap-4 text-black hover:bg-gray-300 cursor-pointer p-2 rounded-md"
               onClick={()=>{
-                router.push(`/feedbacks/${space.spaceName}`)
+                window.open(`/feedbacks/${space.spaceName}`)
+                //router.push(`/feedbacks/${space.spaceName}`)
                 setOpenDetailsCard("")
                }}
                >

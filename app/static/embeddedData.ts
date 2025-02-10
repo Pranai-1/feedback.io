@@ -8,7 +8,9 @@ export default function(pageName:string,codeType:string,spaceName:string){
           frameborder="0"
           scrolling="no"
           width="100%"
-          style="border: none; min-height: 300px; width: 100%; display: block;">
+          loading="lazy"
+          title="Feedback Widget"
+          style="border: none; min-height: 400px; width: 100%; display: block;">
         </iframe>
         
         <script>
@@ -22,5 +24,8 @@ export default function(pageName:string,codeType:string,spaceName:string){
         </script>
 `
     }
-    else return ""
+    else return `<FeedbackWidget pageName=${pageName} spaceName=${spaceName}/>`
 }
+
+
+
