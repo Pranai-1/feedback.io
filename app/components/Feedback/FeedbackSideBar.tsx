@@ -8,6 +8,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 export default function FeedbackSideBar({handleSidebarClick}:{handleSidebarClick:(section:string)=>void}){
     const[extend,setExtend]=useState(-1)
+    const[selected,setSelected]=useState("All")
 
     return(
         <div className="md:fixed   md:overflow-x-hidden flex flex-col  gap-4 text-[#B2B2B3] 
@@ -17,8 +18,12 @@ export default function FeedbackSideBar({handleSidebarClick}:{handleSidebarClick
             <div className="flex flex-col justify-start items-center gap-4 mt-4 w-[100%]">
             {feedbackSideBarInbox.map((data:FeedbackSideBarNavElement)=>
             <div key={data.id} className={`flex justify-start items-center gap-1 w-full hover:bg-[#19191A] cursor-pointer
-                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white`}
-                    onClick={()=>{handleSidebarClick(data.label)}}>
+                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white
+                    ${data.label==selected ? "text-orange-600 bg-[#19191A]" :""}`}
+                    onClick={()=>{
+                        handleSidebarClick(data.label)
+                        setSelected(data.label)
+                    }}>
                         <span className="text-2xl text-white bg-black">{React.createElement(data.icon)}</span>
                        <span className={`px-4 `}>{data.label} </span>
                       
@@ -42,9 +47,13 @@ export default function FeedbackSideBar({handleSidebarClick}:{handleSidebarClick
                 <div className="flex flex-col gap-2 w-full mt-2">
                    
                     {feedbackSideBarExtensionValues[extend].map((value:FeedbackSideBarNavElement)=>
-                    <div className="flex justify-start items-center w-full gap-2 hover:bg-[#19191A] cursor-pointer
-                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white"
-                    onClick={()=>{handleSidebarClick(value.label)}}
+                    <div className={`flex justify-start items-center w-full gap-2 hover:bg-[#19191A] cursor-pointer
+                    border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base hover:text-white
+                      ${value.label==selected ? "text-orange-600 bg-[#19191A]" :""}`}
+                    onClick={()=>{
+                        handleSidebarClick(value.label)
+                        setSelected(value.label)
+                    }}
                     key={value.id}
                     >
                         <span className="text-xl">{React.createElement(value.icon)}</span>
