@@ -24,7 +24,7 @@ export default async function Home() {
 
   // console.log(userDetails);
   return (
-  <div>
+  <div className="bg-black">
     <Navbar/>
      <div className="w-[100%] h-screen bg-black relative">
     

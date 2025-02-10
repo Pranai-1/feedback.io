@@ -1,9 +1,11 @@
 import { signOut } from "@/auth"
+import { redirect } from "next/navigation";
 
 export default function SignoutButton() {
     async function handleSignOut() {
         "use server";
         await signOut();
+        redirect("/");
     }
 
     return (

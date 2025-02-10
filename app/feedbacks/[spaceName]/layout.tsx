@@ -8,9 +8,9 @@ export default function FeedbacksLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Navbar />
-      {children}
-    </>
+   <div className="bg-black">
+       <Navbar/>
+       {children}
+       </div>
   );
 }

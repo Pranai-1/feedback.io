@@ -30,9 +30,9 @@ export default function SignupButton() {
         "use server"
          await signIn("google", { redirectTo: "/" });
        }}>
-      <button type="submit" className="bg-[#4B4ACF] p-2 rounded-lg font-medium px-4" >
+      <button type="submit" className="bg-[#202024] p-2 rounded-lg font-medium text-sm sm:text-base sm:px-4 w-max hover:border border-gray-400" >
        
-        Sign Up
+        Sign In
       </button>
     </form>
   );

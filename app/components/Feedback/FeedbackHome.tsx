@@ -19,7 +19,7 @@ export default function FeedbackHome({
 }) {
 console.log(feedbacks)
 
-  const [display, setDisplay] = useState(""); 
+  const [display, setDisplay] = useState("All"); 
   const contentRef = useRef<HTMLDivElement>(null);
 
   const likedFeedbacks = feedbacks.filter((feedback) =>
