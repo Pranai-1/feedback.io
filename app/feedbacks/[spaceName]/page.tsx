@@ -14,7 +14,7 @@ export default async function SpaceFeedbacks({ params }:{ params:any} ) {
       return redirect("/");
     }
   
-    const { user, spaces } = await fetchUserData(session.user?.email || "");
+    const { user } = await fetchUserData(session.user?.email || "");
   
     if (!user) {
       return redirect("/");

@@ -1,7 +1,7 @@
 
 import { fetchLikedFeedbacks } from "@/app/actions/fetchLikedFeedbacks";
 import MagicSlider from "@/app/components/Slider/MagicSlider";
-import SliderHome from "@/app/components/Slider/SliderHome";
+
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function Slider({params}:{params:any}) {

@@ -15,14 +15,7 @@ export default async function Home() {
   const session=await auth()
   if(session)
     return redirect("/dashboard")
-  // const userDetails = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/userDetails`, {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // }).then((res) => res.json());
 
-  // console.log(userDetails);
   return (
   <div className="bg-black">
     <Navbar/>

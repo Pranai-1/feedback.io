@@ -3,6 +3,8 @@
 import { cn } from "@/lib/utils";
 import { motion, MotionProps, useScroll, useSpring } from "motion/react";
 import React from "react";
+
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 interface ScrollProgressProps
   extends Omit<React.HTMLAttributes<HTMLElement>, keyof MotionProps> {}
 
