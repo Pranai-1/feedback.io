@@ -1,3 +1,4 @@
+"use server";
 import getFeedback from "@/app/actions/feedbackActions/getFeedbacks";
 import getWallOfLove from "@/app/actions/wallOfLoveActions/getWallOfLove";
 import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";

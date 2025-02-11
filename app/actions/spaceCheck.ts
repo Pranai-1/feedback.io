@@ -1,3 +1,4 @@
+"use server";
 import { prisma } from "@/lib/prisma"
 
 export default async function spaceCheck(spaceName:string,userId:string){

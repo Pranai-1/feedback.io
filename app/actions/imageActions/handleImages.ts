@@ -1,3 +1,4 @@
+
 import { Action, InitialFeedbackType } from "@/app/api/types";
 import { maxSizeInMB, validImageTypes } from "@/app/static/simpleData";
 
