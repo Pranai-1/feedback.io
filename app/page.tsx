@@ -12,13 +12,13 @@ import { ScrollProgress } from "@/components/scroll-progress";
 
 
 export default async function Home() {
-  const session=await auth()
-  if(session)
-    return redirect("/dashboard")
+
 
   return (
   <div className="bg-black">
+     
     <Navbar/>
+  
      <div className="w-[100%] h-screen bg-black relative">
     
      <Particles className="absolute z-80 h-full w-full"/> 

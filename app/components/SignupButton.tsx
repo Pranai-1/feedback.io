@@ -28,7 +28,7 @@ export default function SignupButton() {
   return (
     <form className="w-[100%]" action={async () => {
         "use server"
-         await signIn("google", { redirectTo: "/" });
+         await signIn("google", { redirectTo: "/dashboard" });
        }}>
       <button type="submit" className="bg-[#202024] p-2 rounded-lg font-medium text-sm sm:text-base sm:px-4 w-max hover:border border-gray-400" >
        

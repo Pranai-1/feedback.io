@@ -1,13 +1,12 @@
 import { auth } from "@/auth";
 
-import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
 
-export default async function middleware(){
+export default async function middleware(request:any){
     console.log("inside middleware")
     const session=await auth()
     if(!session)
-        return redirect("/login")
+        return NextResponse.redirect("/login",request.url)
   return NextResponse.next()
 }
 

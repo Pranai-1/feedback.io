@@ -1,6 +1,19 @@
-import { prisma } from "@/lib/prisma";
+"use server";
 
-export async function fetchUserData(email: string) {
+import { auth } from "@/auth";
+import { prisma } from "@/lib/prisma";
+import { redirect } from "next/navigation";
+
+export async function fetchUserData() {
+
+   const session = await auth();
+  
+    if (!session || !session.user) {
+      return { user: null, spaces: [] };
+    }
+  const email=session.user.email
+  
+
   if (!email || email.length==0) return { user: null, spaces: [] };
 
   const user = await prisma.user.findUnique({
