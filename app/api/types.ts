@@ -117,7 +117,8 @@ export type Options = Option[];
     disableCheersImage: boolean;
     thankyouTitle: string;
     thankyouDescription: string;
-  
+    reviews:FeedbackPropType[]
+    wallOfLove:WallOfLoveProp[]
   };
   
   export type MergedObject = {

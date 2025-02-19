@@ -2,16 +2,16 @@
 
 import { Suspense } from "react";
 import DashboardHome from "@/app/components/Dashboard/DashboardHome";
-import { LoadingSpaces } from "../components/LoadingComponent";
+import { fetchUserData } from "@/lib/dataFetch";
+import Loading from "./loading";
 
 
 
 
 export default async function Dashboard() {
- 
-
+  fetchUserData() //preloading the data
   return (
-   <Suspense fallback={<LoadingSpaces/>}>
+   <Suspense fallback={<Loading/>}>
     <DashboardHome/>
    </Suspense>
   );

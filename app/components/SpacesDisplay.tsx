@@ -13,7 +13,7 @@ export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
      const[clickedOnSearch,setClickedOnSearch]=useState(false)
      const[searchText,setSearchText]=useState("")
      const[deleteSpace,setDeleteSpace]=useState("")
-  
+     const[openDetailsCard,setOpenDetailsCard]=useState<string>("")
     return(
         <>
         {createStateToggle==-1 ? (
@@ -34,7 +34,7 @@ export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
            <SearchSpaces clickedOnSearch={clickedOnSearch} setClickedOnSearch={setClickedOnSearch}
            searchText={searchText} setSearchText={setSearchText}/>
            </div>
-            <div className="flex justify-center  items-center w-[100%] mt-10 flex-wrap gap-4 relative">
+            <div className="flex justify-center  items-center w-[100%] my-10 pb-4 flex-wrap gap-4 relative">
           
             {spaces.map((space)=>(
 
@@ -42,7 +42,10 @@ export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
                  key={space.id}
                 space={space} 
                 setCreateSpaceToggle={setCreateSpaceToggle} 
-                setDeleteSpace={setDeleteSpace}/>
+                setDeleteSpace={setDeleteSpace}
+                openDetailsCard={openDetailsCard}
+                setOpenDetailsCard={setOpenDetailsCard}
+                />
               ))}
 
             {deleteSpace.length!=0 ? (
