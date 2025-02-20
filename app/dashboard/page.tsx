@@ -9,9 +9,10 @@ import Loading from "./loading";
 
 
 export default async function Dashboard() {
-  fetchUserData() //preloading the data
-  console.log("prefetch data")
+  fetchUserData() //prefetching the data
+  
   return (
+ 
    <Suspense fallback={<Loading/>}>
     <DashboardHome/>
    </Suspense>
