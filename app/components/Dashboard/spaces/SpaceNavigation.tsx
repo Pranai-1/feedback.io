@@ -1,15 +1,13 @@
 
 "use client";
 
-import { MdOutlineManageSearch } from "react-icons/md";
-import { FaLink } from "react-icons/fa";
-import { MdEdit } from "react-icons/md";
-import { RiDeleteBack2Line } from "react-icons/ri";
-import { SetStateAction,  } from "react";
-import {SpacePropType } from "../api/types";
-import { handleCopy, handleEdit } from "./SpaceComponenets/functions/handleFunctions";
-import {  useRouter } from "next/navigation";
+import { SpacePropType } from "@/app/api/types";
+import { SetStateAction } from "react";
+import { FaLink } from "react-icons/fa6";
+import { MdOutlineManageSearch, MdEdit } from "react-icons/md";
 import { toast } from "react-toastify";
+import { handleCopy, handleEdit } from "../functions/handleFunctions";
+import { RiDeleteBack2Line } from "react-icons/ri";
 
 
 
@@ -20,7 +18,7 @@ export default function SpaceNavigation({setDeleteSpace,setOpenDetailsCard,setCr
         setOpenDetailsCard:React.Dispatch<SetStateAction<string>>,setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,
     space:SpacePropType}){
    
-   const router=useRouter()
+
 
     return(
         <div

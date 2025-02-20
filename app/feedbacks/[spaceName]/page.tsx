@@ -8,17 +8,7 @@ import { redirect } from "next/navigation";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SpaceFeedbacks({ params }:{ params:any} ) {
-    const session = await auth();
-  
-    if (!session) {
-      return redirect("/");
-    }
-  
-    const { user } = await fetchUserData(session.user?.email || "");
-  
-    if (!user) {
-      return redirect("/");
-    }
+    
   const { spaceName } =await params;
  // Fetch feedbacks and wallOfLove data asynchronously
  const reviews = await getFeedback(spaceName);

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import manualImage from "../../Images/manualSlider.png";
-import autoPlayImage from "../../Images/autoPlayImage.png";
+import manualImage from "@/app/Images/dummyImages/manualSlider.png";
+import autoPlayImage from "@/app/Images/dummyImages/autoPlayImage.png";
 import { SetStateAction, useState } from "react";
 import { toast } from "react-toastify";
 import { FcCancel } from "react-icons/fc";

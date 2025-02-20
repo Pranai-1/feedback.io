@@ -1,10 +1,10 @@
 import { auth } from "@/auth"
+import SideBarSmallScreen from "../SideBar/SideBarSmallScreen"
 import DashboardButton from "./DashboardButton"
-import SideBarSmallScreen from "./SideBar/SideBarSmallScreen"
 import SignoutButton from "./SignOutButton"
 import SignupButton from "./SignupButton"
 import Image from "next/image"
-import feedbackLogo from "../Images/feedbackLogo.webp"
+import feedbackLogo from "@/app/Images/feedbackLogo.webp"
 
 export default async function Navbar() {
     const session = await auth()

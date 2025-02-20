@@ -1,7 +1,7 @@
 
 "use client";
 import Image from "next/image";
-import projectOfTheWeek from "../../Images/projectOfTheWeek.png"
+import projectOfTheWeek from "@/app/Images/projectOfTheWeek.png"
 import { MdArrowRightAlt } from "react-icons/md";
 import { AvatarCircles } from "@/components/avatar-circles";
 import avatarUrl from "../../Images/AvatarImages/avatarUrl.jpg"

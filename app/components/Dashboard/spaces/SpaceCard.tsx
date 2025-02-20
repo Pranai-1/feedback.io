@@ -1,11 +1,10 @@
 "use client";
 
 import { SpacePropType } from "@/app/api/types";
-import Image from "next/image";
-import Link from "next/link";
 import { SetStateAction } from "react";
+import SpaceNavigation from "./SpaceNavigation";
+import Image from "next/image";
 import { PiDotsThreeCircleLight } from "react-icons/pi";
-import SpaceNavigation from "../SpaceNavigation";
 
 export default function SpaceCard({
   space,

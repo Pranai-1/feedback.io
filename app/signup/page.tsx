@@ -1,7 +1,7 @@
 
 
 // import CustomSignup from "../components/CustomSignup"
-import GoogleSignIn from "../components/GoogleSignInForm"
+import GoogleSignIn from "../components/HomePage/GoogleSignInForm"
 
 export default function Signup(){
 

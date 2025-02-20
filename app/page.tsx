@@ -2,9 +2,7 @@
 // import axios from "axios";
 // import { redirect } from "next/navigation";
 
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/HomePage/Navbar";
 import { Particles } from "@/components/particles";
 import Header from "./components/HomePage/Header";
 import { ScrollProgress } from "@/components/scroll-progress";

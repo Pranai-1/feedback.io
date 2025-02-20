@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react"
+import { SetStateAction, useState } from "react"
 import CreateSpaceButton from "./CreateSpaceButton";
-import SpaceCard from "./SpaceComponenets/SpaceCard";
-import { SpacePropType } from "../api/types";
-import SpaceCreationHome from "./SpaceCreationHome";
+import SpaceCard from "./spaces/SpaceCard";
+import { SpacePropType } from "../../api/types";
+import SpaceCreationHome from "../SpaceCreationHome";
 import SearchSpaces from "./SearchSpaces";
-import DeleteSpaceCard from "./DeleteSpaceCard";
+import DeleteSpaceCard from "./spaces/DeleteSpaceCard";
 
-export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
-     const[createStateToggle,setCreateSpaceToggle]=useState(-1)// 0 for edit and 1 for create
+export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpaceToggle}:
+  {spaces:SpacePropType[] | [],createStateToggle:number, setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>}){
+     
      const[clickedOnSearch,setClickedOnSearch]=useState(false)
      const[searchText,setSearchText]=useState("")
      const[deleteSpace,setDeleteSpace]=useState("")

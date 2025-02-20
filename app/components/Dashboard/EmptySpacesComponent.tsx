@@ -1,15 +1,15 @@
 "use client"
 
 
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { FiFolderPlus } from "react-icons/fi";
-import SpaceCreationHome from "./SpaceCreationHome";
+import SpaceCreationHome from "../SpaceCreationHome";
 import CreateSpaceButton from "./CreateSpaceButton";
 
 
 
-export default function EmptySpaces(){
-    const[createStateToggle,setCreateSpaceToggle]=useState(-1)
+export default function EmptySpaces({createStateToggle,setCreateSpaceToggle}:{createStateToggle:number, setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>}){
+   
     return(
         <div className="flex justify-center items-center h-[80vh] overflow-auto overflow-x-hidden w-[90%] sm:w-[80%]">
         {createStateToggle==-1 ?

@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
 
-    const {user}=await fetchUserData(session?.user?.email || "")
+    const {user}=await fetchUserData()
     if(!user)
       return NextResponse.json(
         { message: "Validation failed", error: "User doesn't exist" },
@@ -88,9 +88,12 @@ try{
 
 
 export async function GET(req: NextRequest) {
+
   try {
     // Extract 'id' from headers
-    const id = req.headers.get("id");
+   // const id = req.headers.get("id");
+   const id = req.nextUrl.searchParams.get("id");
+
     if (!id) {
       return NextResponse.json(
         { message: "Validation failed", error: "id doesn't exist" },
@@ -98,23 +101,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Authenticate session
-    const session = await auth();
-    if (!session) {
-      return NextResponse.json(
-        { message: "Validation failed", error: "User doesn't exist" },
-        { status: 401 }
-      );
-    }
-
-    // Fetch user data
-    const { user } = await fetchUserData(session.user?.email || "");
-    if (!user) {
-      return NextResponse.json(
-        { message: "Validation failed", error: "User doesn't exist" },
-        { status: 404 }
-      );
-    }
+ 
 
     // Fetch the space by ID
     const space = await prisma.space.findUnique({
