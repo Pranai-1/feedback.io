@@ -29,7 +29,7 @@ export default function SpaceCard({
 
   return (
     <div
-      className="relative h-[300px] flex flex-col rounded-xl bg-[#E5E7EB] backdrop-blur-sm p-4 shadow-md hover:shadow-lg transition-shadow duration-200 w-full max-w-md mx-auto"
+      className="relative h-[300px] flex flex-col rounded-xl bg-[#E5E7EB] backdrop-blur-sm p-4 shadow-md hover:shadow-lg transition-shadow duration-200 w-full max-w-md "
       key={space.id}
     >
       {/* Options Icon */}

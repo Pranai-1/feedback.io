@@ -17,7 +17,7 @@ export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
     return(
         <>
         {createStateToggle==-1 ? (
-            <div className="w-full sm:pl-8 h-full flex flex-col justify-start items-center" onClick={()=>setClickedOnSearch(false)}>
+            <div className="w-full pt-20 mt-56 sm:pt-0 sm:pl-8 h-full flex flex-col justify-start items-center" onClick={()=>setClickedOnSearch(false)}>
             <div className="w-[98%] flex justify-between px-2 bg-gray-200 p-2 md:py-4 rounded-md items-center">
             <p className="text-black text-xl sm:text-2xl font-bold from-neutral-50">Spaces</p>
 
@@ -34,7 +34,7 @@ export default function SpacesDisplay({ spaces }:{spaces:SpacePropType[] | []}){
            <SearchSpaces clickedOnSearch={clickedOnSearch} setClickedOnSearch={setClickedOnSearch}
            searchText={searchText} setSearchText={setSearchText}/>
            </div>
-            <div className="flex justify-center  items-center w-[100%] my-10 pb-4 flex-wrap gap-4 relative">
+            <div className="flex justify-center  items-center w-[100%] my-10 pb-4 flex-wrap gap-8 relative">
           
             {spaces.map((space)=>(
 

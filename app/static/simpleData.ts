@@ -35,7 +35,7 @@ export const questionData=[
       }
 
       export const sideBarNav = [
-        { label: "Dashboard", path: "/", id: 0, icon: RxDashboard  },
+        { label: "Home", path: "/", id: 0, icon: RxDashboard  },
         { label: "Pricing", path: "/pricing", id: 1, icon: HiOutlineCurrencyRupee  },
         { label: "About", path: "/about", id: 2, icon: BiBoltCircle  },
         { label: "Privacy Policy", path: "/privacy-policy", id: 3, icon: MdPrivacyTip  },

@@ -22,8 +22,6 @@ export default function SpaceNavigation({setDeleteSpace,setOpenDetailsCard,setCr
    
    const router=useRouter()
 
-
-
     return(
         <div
         className="absolute top-[15%] right-4  bg-[#FFFFFF] text-white p-4 rounded-md z-20 flex flex-col gap-4"
