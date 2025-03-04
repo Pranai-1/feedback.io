@@ -1,5 +1,6 @@
 
 
+"use client"
 import Header from "./Header";
 import { ScrollProgress } from "@/components/scroll-progress";
 
