@@ -1,13 +1,13 @@
 "use client";
-import { useEffect, useState } from "react"; // Import useEffect and useState
+
 import Image from "next/image";
 import { MdArrowRightAlt } from "react-icons/md";
 import { AvatarCircles } from "@/components/avatar-circles";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import Features from "./Features";
+// import Features from "./Features";
 import { useRouter } from "next/navigation";
-import HomePageImages from "./HomePageImages";
-import Footer from "../Footer";
+// import HomePageImages from "./HomePageImages";
+// import Footer from "../Footer";
 
 // Import images
 import projectOfTheWeek from "@/app/Images/projectOfTheWeek.png";
@@ -21,11 +21,8 @@ import avatarUrl5 from "../../Images/AvatarImages/avatarUrl5.jpg";
 export default function Header() {
   const router = useRouter();
   const time = 0.25;
-  const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true); // Ensures we are on the client
-  }, []);
+
 
   return (
     <div className="flex flex-col justify-center items-center absolute top-0 right-0 left-0 bg-black">
@@ -55,7 +52,7 @@ export default function Header() {
 
       <div className="flex flex-col justify-center items-center w-full">
         <BlurFade delay={time * 5} inView>
-          {isClient && (
+        
             <AvatarCircles
               className="mt-6 mb-2 w-full flex justify-center items-center"
               avatarUrls={[
@@ -67,7 +64,7 @@ export default function Header() {
                 { imageUrl: avatarUrl5.src, profileUrl: "https://github.com/Pranai-1" },
               ]}
             />
-          )}
+       
 
           <p className="w-[70vw] mt-4 text-center sm:w-[25vw] font-medium text-[#92A0B5]">
             More than 12 trusted partners using <span className="text-gray-50">Feedback.io</span>
@@ -75,12 +72,12 @@ export default function Header() {
         </BlurFade>
       </div>
 
-      <div className="w-[90vw] flex justify-center items-center my-12 bg-black">
-        {isClient && <HomePageImages />}
+      {/* <div className="w-[90vw] flex justify-center items-center my-12 bg-black">
+        <HomePageImages />
       </div>
 
       <Features />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
