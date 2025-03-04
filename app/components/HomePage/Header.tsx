@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MdArrowRightAlt } from "react-icons/md";
 import { AvatarCircles } from "@/components/avatar-circles";
 import { BlurFade } from "@/components/magicui/blur-fade";
-// import Features from "./Features";
+import Features from "./Features";
 import { useRouter } from "next/navigation";
 import HomePageImages from "./HomePageImages";
 import Footer from "../Footer";
@@ -76,7 +76,7 @@ export default function Header() {
         <HomePageImages />
       </div>
 
-      {/* <Features /> */}
+      <Features />
       <Footer />
     </div>
   );
