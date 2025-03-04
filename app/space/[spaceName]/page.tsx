@@ -83,12 +83,13 @@
 
 import cheersImage from "../../../public/cheers.webp";
 import Image from "next/image";
-import getSpace from "@/app/actions/spaceActions/getSpace";
+
 import SparklesText from "@/components/ui/sparkles-text";
 import { spaceSchemaBackend } from "@/app/zodSchema";
 import { SpacePropType } from "@/app/api/types";
 import QuestionCard from "@/app/components/SpaceReviewInputs/QuestionCardComponent";
 import SendInTextButton from "@/app/components/SpaceReviewInputs/SendInTextButton";
+import getSpace from "@/lib/getSpace";
 
 
 
@@ -105,7 +106,7 @@ export default async function SpaceReviewHome({ params }:{params: any}) {
   if (!validatedResult.success) {
     return (
       <p className="w-full h-screen flex justify-center items-center text-red-600 font-bold text-2xl">
-        Space doesnot exist
+        Space doesn&apos;t exist
       </p>
     );
   }
@@ -127,7 +128,7 @@ export default async function SpaceReviewHome({ params }:{params: any}) {
         className="rounded-md mt-5"
       />
       <p className="text-4xl text-center font-bold w-full">{spaceName}</p>
-      <p className="text-gray-600 text-xl text-center w-full">{space.customMessage}</p>
+      <p className="text-gray-600  text-center w-full text-sm sm:text-md">{space.customMessage}</p>
       <div className="flex flex-col justify-start items-start gap-4">
         <QuestionCard
           questions={space.questions}

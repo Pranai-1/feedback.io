@@ -11,7 +11,7 @@ import { FeedbackPropType } from "@/app/api/types";
   const[submitted,setSubmitted]=useState(-1)
   
   if(likedFeedbacks.length==0)
-    return <p className="w-[90%] flex justify-center items-center text-wrap text-center text-orange-600 text-xl font-medium p-2">
+    return <p className="w-[90%] flex justify-center items-center text-wrap text-center text-gray-200 text-xl font-medium p-2">
       Please add some feedbacks to wall of love to generate the widget</p>
       
     return(

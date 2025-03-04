@@ -17,20 +17,18 @@ export default function QuestionCard({
         QUESTIONS
       </p>
 
-      <div>
+      <ul className="list-none">
         {questions && Array.isArray(questions) ? (
-          <>
-            {questions.map((question, idx) => (
-              <li
-                key={idx}
-                className={`my-2 sm:my-${margin} text-xs sm:text-base text-gray-700`}
-              >
-                {question?.label}
-              </li>
-            ))}
-          </>
+          questions.map((question, idx) => (
+            <li
+              key={idx}
+              className={`my-${margin} text-xs sm:text-base text-gray-700 break-words whitespace-normal max-w-full`}
+            >
+             {idx+1}. {question?.label}
+            </li>
+          ))
         ) : null}
-      </div>
+      </ul>
     </>
   );
 }

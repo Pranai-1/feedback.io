@@ -35,7 +35,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
     const[state,dispatch]=useReducer(reducer,initialState)
     const[loading,setLoading]=useState(false)
 
-
+console.log(state)
   async function handleReviewSubmission(){
      setLoading(true)
      try{
@@ -50,8 +50,13 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
          
        const review=await addFeedback(state,space.id)
 
-       if(review.success)
+       if(review.success){
+        console.log("resetting....")
+        handleInputs("RESET_INPUT","","",dispatch)
         toast.success(review.message)
+       
+       }
+      
         else
         toast.error(review.message)
     return
@@ -92,7 +97,7 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
             />
 
             <textarea className="h-[100px] w-full border border-gray-700 rounded-md pt-2 pl-2 text-black text-xs sm:text-base" value={state.reviewText} 
-            placeholder={`${state.starRating<=3 ? "What did you dislike?How can we make it better?":"Enter your feedback here..."}`} onChange={(e)=>handleInputs("reviewText",e.target.value,dispatch)}>
+            placeholder={`${state.starRating<=3 ? "What did you dislike?How can we make it better?":"Enter your feedback here..."}`} onChange={(e)=>handleInputs("SET_INPUT","reviewText",e.target.value,dispatch)}>
                 
             </textarea>
 
@@ -116,9 +121,9 @@ export default function SendReviewInText({setSendInText,space}:{setSendInText:Re
              
               onChange={()=>{
                 if(state.consent)
-                    handleInputs("consent",false,dispatch)
+                    handleInputs("SET_INPUT","consent",false,dispatch)
                 else
-                handleInputs("consent",true,dispatch)
+                    handleInputs("SET_INPUT","consent",true,dispatch)
               }}/>
               
               I give permission to use this testimonial across social channels and other marketing efforts

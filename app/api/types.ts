@@ -166,7 +166,7 @@ export type FeedbackPropType = BaseFeedbackType & {
 };
 
 
-export type Action = { type: 'SET_INPUT'; payload: string | number | boolean | string[] ; key:string }
+export type Action = { type: 'SET_INPUT' | "RESET_INPUT"; payload: string | number | boolean | string[] ; key:string }
 
 
 export interface QuestionType{

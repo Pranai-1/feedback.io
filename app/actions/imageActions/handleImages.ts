@@ -38,6 +38,7 @@ export  function addImages(
        reader.onload=()=>{
         if(reader.result){
           images.push(reader.result.toString())
+         
           dispatch({type:"SET_INPUT",key:"images",payload:images})
         }
        }

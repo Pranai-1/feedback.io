@@ -18,7 +18,7 @@ export default function InputData(
                     placeholder="Enter your name here..."
                     type="text"
                     value={state.name}
-                    onChange={(e) => handleInputs("name", e.target.value,dispatch)}
+                    onChange={(e) => handleInputs("SET_INPUT","name", e.target.value,dispatch)}
             />  
 
 
@@ -37,7 +37,7 @@ export default function InputData(
             </label>
             <input className="rounded-md w-full p-2 border text-black" placeholder="Enter your email here..." type="text"
             value={state.email}
-            onChange={(e)=>handleInputs("email",e.target.value,dispatch)}/>
+            onChange={(e)=>handleInputs("SET_INPUT","email",e.target.value,dispatch)}/>
 
         
             </div>
