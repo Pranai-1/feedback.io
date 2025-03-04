@@ -6,6 +6,7 @@ import Navbar from "./components/HomePage/Navbar";
 import { Particles } from "@/components/particles";
 import Header from "./components/HomePage/Header";
 import { ScrollProgress } from "@/components/scroll-progress";
+import Footer from "./components/Footer";
 
 
 
@@ -22,9 +23,10 @@ export default async function Home() {
      <Particles className="absolute z-80 h-full w-full"/> 
      <ScrollProgress className="top-[85px] z-10 rounded-lg" />
      <Header/>
-     
+   
     
      </div>
+     <Footer/>
   </div>
   );
 }

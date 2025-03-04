@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 // import Navbar from "./components/Navbar";
 import "react-toastify/dist/ReactToastify.css"; // Make sure to import default styles
 import "./styles/toastStyles.css"
+import Footer from "./components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -53,6 +54,7 @@ export default function RootLayout({
           {/* <Navbar/> */}
           {/* <UserContextProvider> */}
           {children}
+          
           {/* </UserContextProvider> */}
       </body>
     </html>
