@@ -15,7 +15,7 @@ export default function SpaceCreationHome({setCreateSpaceToggle,createSpaceToggl
         <div className="bg-gray-50 rounded-md shadow-lg flex justify-center w-[105%] md:w-[99%]">
          
           <button
-            className="absolute top-2 right-4 sm:right-12 text-gray-500 hover:text-black text-lg"
+            className="absolute top-2 right-4 md:right-12 text-gray-500 hover:text-black text-lg"
             onClick={() => setCreateSpaceToggle(-1)}
           >
             &#10005;

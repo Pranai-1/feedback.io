@@ -4,7 +4,8 @@ export default async function UserProfile(){
     const {user,spaces}=await fetchUserData()
     let truncatedName=""
     let truncatedEmail=""
-    if(user && user.name){
+   
+    if(user && user.name && user.email){
         truncatedName=user.name.length >10 ? user.name.slice(0,12)+"..." : user.name
         truncatedEmail=user.email.length >25 ? user.email.slice(0,25)+"..." : user.email
     }

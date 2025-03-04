@@ -24,7 +24,7 @@ import BarMap from "./BarMap";
                     }}>
                     <div className="w-[80%] bg-white h-[100vh] border-r border-zinc-700 py-4">
                  <button
-            className="absolute top-4 right-24 sm:right-20 text-gray-500 hover:text-black text-lg"
+            className="absolute top-4 right-32 sm:right-20 text-gray-500 hover:text-black text-lg border border-gray-700 rounded-full px-[6px]"
             onClick={(e)=>{
                
                 setToggleSidebar(false)

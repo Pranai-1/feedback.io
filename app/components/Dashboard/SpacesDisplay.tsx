@@ -1,6 +1,6 @@
 "use client";
 
-import { SetStateAction, useState } from "react"
+import { SetStateAction, useRef, useState } from "react"
 import CreateSpaceButton from "./CreateSpaceButton";
 import SpaceCard from "./spaces/SpaceCard";
 import { SpacePropType } from "../../api/types";
@@ -10,11 +10,34 @@ import DeleteSpaceCard from "./spaces/DeleteSpaceCard";
 
 export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpaceToggle}:
   {spaces:SpacePropType[] | [],createStateToggle:number, setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>}){
-     
+     const[spacesData,setSpacesData]=useState(spaces)
      const[clickedOnSearch,setClickedOnSearch]=useState(false)
      const[searchText,setSearchText]=useState("")
      const[deleteSpace,setDeleteSpace]=useState("")
      const[openDetailsCard,setOpenDetailsCard]=useState<string>("")
+     const timerRef=useRef<any>()
+
+    function Search(text:string){
+    const filteredSpaces=spaces.filter((space)=>space.spaceName.toLowerCase().includes(text))
+    console.log(filteredSpaces)
+    return filteredSpaces
+    }
+    
+     function handleSpaceSearch(text:string){
+      console.log(text)
+      if(text.length==0)
+      {
+        clearTimeout(timerRef.current)
+        setSpacesData(spaces)
+        return
+      }
+          clearTimeout(timerRef.current)
+          timerRef.current=setTimeout(()=>{
+              const filteredSpaces=Search(text)
+              setSpacesData(filteredSpaces.length>0 ? filteredSpaces :[])
+          },300)
+     }
+
     return(
         <>
         {createStateToggle==-1 ? (
@@ -23,32 +46,36 @@ export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpace
             <p className="text-black text-xl sm:text-2xl font-bold from-neutral-50">Spaces</p>
 
             <div className="hidden md:flex w-1/2  justify-center items-center">
-           <SearchSpaces clickedOnSearch={clickedOnSearch} setClickedOnSearch={setClickedOnSearch}
+           <SearchSpaces handleSpaceSearch={handleSpaceSearch} clickedOnSearch={clickedOnSearch} setClickedOnSearch={setClickedOnSearch}
            searchText={searchText} setSearchText={setSearchText}/>
            </div>
 
-           <CreateSpaceButton spaceCount={spaces.length} setCreateSpaceToggle={setCreateSpaceToggle}/>
+           <CreateSpaceButton spaceCount={spacesData.length} setCreateSpaceToggle={setCreateSpaceToggle}/>
 
            
             </div>
             <div className="md:hidden mt-6 w-full flex justify-center items-center">
-           <SearchSpaces clickedOnSearch={clickedOnSearch} setClickedOnSearch={setClickedOnSearch}
+           <SearchSpaces handleSpaceSearch={handleSpaceSearch} clickedOnSearch={clickedOnSearch} setClickedOnSearch={setClickedOnSearch}
            searchText={searchText} setSearchText={setSearchText}/>
            </div>
             <div className="flex justify-center  items-center w-[100%] my-10 pb-4 flex-wrap gap-8 relative">
-          
-            {spaces.map((space)=>(
+             {spacesData.length>0 ?
+              <>
+              {spacesData.map((space)=>(
 
-               <SpaceCard
-                 key={space.id}
+                <SpaceCard
+                  key={space.id}
                 space={space} 
                 setCreateSpaceToggle={setCreateSpaceToggle} 
                 setDeleteSpace={setDeleteSpace}
                 openDetailsCard={openDetailsCard}
                 setOpenDetailsCard={setOpenDetailsCard}
                 />
-              ))}
+                ))}
 
+              </>
+              :<p className="text-gray-200 font-medium">No Spaces found</p>}
+            
             {deleteSpace.length!=0 ? (
                 <DeleteSpaceCard 
                 deleteSpace={deleteSpace}
