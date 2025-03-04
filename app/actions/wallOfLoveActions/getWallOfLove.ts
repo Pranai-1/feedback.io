@@ -1,5 +1,5 @@
 "use server";
-"use server";
+
 import { prisma } from "@/lib/prisma";
 
 export default async function getWallOfLove(spaceName:string){

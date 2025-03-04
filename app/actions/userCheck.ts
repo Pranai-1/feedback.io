@@ -13,7 +13,7 @@ export default async function userCheck() {
     }
 
    
-    const { user } = await fetchUserData(session.user?.email || "");
+    const { user } = await fetchUserData();
 
     if (!user) {
       throw new Error("User not found. Please contact support.");

@@ -33,7 +33,7 @@ export default function StarRating({ starRating, dispatch }:
                      className="text-xl cursor-pointer text-[#FFB621]"
                      onClick={()=>{
                         setClicked(true)
-                        handleInputs("starRating",idx + 1,dispatch)
+                        handleInputs("SET_INPUT","starRating",idx + 1,dispatch)
                     } }
                  />
                 ):(
@@ -43,7 +43,7 @@ export default function StarRating({ starRating, dispatch }:
                      className="text-xl cursor-pointer text-black"
                      onClick={()=>{
                         setClicked(true)
-                        handleInputs("starRating",idx + 1,dispatch)
+                        handleInputs("SET_INPUT","starRating",idx + 1,dispatch)
                     } }
                  /> 
                 )}

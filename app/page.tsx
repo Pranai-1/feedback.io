@@ -23,10 +23,9 @@ export default async function Home() {
      <Particles className="absolute z-80 h-full w-full"/> 
      <ScrollProgress className="top-[85px] z-10 rounded-lg" />
      <Header/>
-   
+     
     
      </div>
-     <Footer/>
   </div>
   );
 }

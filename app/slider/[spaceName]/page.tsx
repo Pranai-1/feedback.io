@@ -1,6 +1,7 @@
 
-import { fetchLikedFeedbacks } from "@/app/actions/fetchLikedFeedbacks";
+
 import MagicSlider from "@/app/components/Slider/MagicSlider";
+import { fetchLikedFeedbacks } from "@/lib/fetchLikedFeedbacks";
 
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
