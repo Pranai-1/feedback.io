@@ -1,9 +1,9 @@
 import { auth } from "@/auth";
 
 import { NextResponse } from "next/server";
-
+// eslint-disable-line @typescript-eslint/no-explicit-any
 export default async function middleware(request:any){
-    console.log("inside middleware")
+   
     const session=await auth()
     if(!session)
         return NextResponse.redirect("/login",request.url)

@@ -4,7 +4,7 @@ import FeatureSections from "../FeatureSection";
 import { FeedbackWidget } from "feedback.io-widget";
 
 export default function Features(){
-    let time=0.25
+    const time=0.25
     return(
         <div>
              <BlurFade

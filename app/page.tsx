@@ -6,7 +6,7 @@ import Navbar from "./components/HomePage/Navbar";
 import { Particles } from "@/components/particles";
 import Header from "./components/HomePage/Header";
 import { ScrollProgress } from "@/components/scroll-progress";
-import Footer from "./components/Footer";
+
 
 
 

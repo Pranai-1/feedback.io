@@ -1,4 +1,4 @@
-export default function(pageName:string,codeType:string,spaceName:string){
+export default function EmbedData(pageName:string,codeType:string,spaceName:string){
     if(codeType=="HTML"){
         return `<script src="https://feedback-io-xi.vercel.app/iframeResizer.min.js"></script>
         
@@ -24,7 +24,7 @@ export default function(pageName:string,codeType:string,spaceName:string){
         </script>
 `
     }
-    else return `<FeedbackWidget pageName=${pageName} spaceName=${spaceName}/>`
+    else return `<FeedbackWidget pageName='${pageName}' spaceName='${spaceName}'/>`
 }
 
 

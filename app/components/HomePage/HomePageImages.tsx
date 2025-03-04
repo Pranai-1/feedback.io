@@ -10,7 +10,7 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 const images=[dashboardImage,feedbackImage,widgetTypeImage,ReactWidgetImage]
 export default function HomePageImages(){
     const[index,setIndex]=useState(0)
-    let time=0.25
+    const time=0.25
 
     useEffect(()=>{
         const interval = setInterval(() => {

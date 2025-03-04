@@ -2,9 +2,7 @@ import getFeedback from "@/app/actions/feedbackActions/getFeedbacks";
 import getWallOfLove from "@/app/actions/wallOfLoveActions/getWallOfLove";
 import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";
 import FeedbackHome from "@/app/components/Feedback/FeedbackHome";
-import { auth } from "@/auth";
-import { fetchUserData } from "@/lib/dataFetch";
-import { redirect } from "next/navigation";
+
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SpaceFeedbacks({ params }:{ params:any} ) {

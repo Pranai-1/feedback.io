@@ -14,12 +14,11 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import Features from "./Features";
 import { useRouter } from "next/navigation";
 import HomePageImages from "./HomePageImages";
-import { FeedbackWidget } from 'feedback.io-widget';
 import Footer from "../Footer";
 
 export default function Header(){
   const router=useRouter()
-  let time = 0.25;
+  const time = 0.25;
     return(
        <div className="flex flex-col justify-center items-center absolute top-0 right-0 left-0 bg-black">
         <BlurFade  delay={time} inView>

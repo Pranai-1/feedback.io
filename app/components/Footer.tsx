@@ -1,3 +1,5 @@
+
+import Link from "next/link";
 import React from "react";
 
 const GitHubIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
@@ -32,10 +34,10 @@ const SocialLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <a href={href} target="_blank" rel="noreferrer">
+    <Link href={href} target="_blank" rel="noreferrer">
       <span className="sr-only">{children}</span>
       <Icon className="h-5 w-5 fill-zinc-200 transition group-hover:fill-gray-100 dark:group-hover:fill-gray-200" />
-    </a>
+    </Link>
   );
 };
 
@@ -44,19 +46,19 @@ const Footer = () => {
     <div className="bg-black flex w-full z-[100000] flex-col items-center px-10 justify-between gap-5 border-t border-gray-200 py-8 sm:flex-row dark:border-white/5">
       <p className="text-sm font-medium text-gray-200 dark:text-gray-100">
         Copyright © {new Date().getFullYear()}{" "}
-        <a
+        <Link
           href="/"
           className=" text-zinc-500 underline hover:text-zinc-500 "
         >
          Pranai
-        </a>
+        </Link>
         <span className="mx-2">|</span>
-        <a
+        <Link
           href="/privacy"
           className=" text-zinc-500 underline hover:text-zinc-500 "
         >
           Privacy Policy
-        </a>{" "}
+        </Link>{" "}
       </p>
       <div className="flex gap-4">
         <SocialLink href="https://x.com/RDugginen" icon={XIcon}>

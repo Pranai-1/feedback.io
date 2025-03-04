@@ -1,7 +1,7 @@
 "use client"
 
 
-import { SetStateAction, useState } from "react";
+import { SetStateAction } from "react";
 import { FiFolderPlus } from "react-icons/fi";
 import SpaceCreationHome from "../SpaceCreationHome";
 import CreateSpaceButton from "./CreateSpaceButton";
