@@ -27,7 +27,7 @@ export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpace
            searchText={searchText} setSearchText={setSearchText}/>
            </div>
 
-           <CreateSpaceButton setCreateSpaceToggle={setCreateSpaceToggle}/>
+           <CreateSpaceButton spaceCount={spaces.length} setCreateSpaceToggle={setCreateSpaceToggle}/>
 
            
             </div>

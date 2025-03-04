@@ -21,7 +21,7 @@ export default function EmptySpaces({createStateToggle,setCreateSpaceToggle}:{cr
             <p className="text-black font-medium  sm:text-xl ">No spaces yet</p>
             <p className="text-gray-500 w-full text-center text-wrap text-xs sm:text-sm">Create your first space to start collecting testimonials</p>
             <p  className="mt-8"></p>
-          <CreateSpaceButton setCreateSpaceToggle={setCreateSpaceToggle}/>
+          <CreateSpaceButton spaceCount={0} setCreateSpaceToggle={setCreateSpaceToggle}/>
             </div>
            
         ):(
