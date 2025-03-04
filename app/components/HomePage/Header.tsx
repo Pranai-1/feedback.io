@@ -6,8 +6,8 @@ import { AvatarCircles } from "@/components/avatar-circles";
 import { BlurFade } from "@/components/magicui/blur-fade";
 // import Features from "./Features";
 import { useRouter } from "next/navigation";
-// import HomePageImages from "./HomePageImages";
-// import Footer from "../Footer";
+import HomePageImages from "./HomePageImages";
+import Footer from "../Footer";
 
 // Import images
 import projectOfTheWeek from "@/app/Images/projectOfTheWeek.png";
@@ -72,12 +72,12 @@ export default function Header() {
         </BlurFade>
       </div>
 
-      {/* <div className="w-[90vw] flex justify-center items-center my-12 bg-black">
+      <div className="w-[90vw] flex justify-center items-center my-12 bg-black">
         <HomePageImages />
       </div>
 
-      <Features />
-      <Footer /> */}
+      {/* <Features /> */}
+      <Footer />
     </div>
   );
 }
