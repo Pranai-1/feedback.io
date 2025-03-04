@@ -27,16 +27,16 @@ export default function SpaceForm({
   // Retrieve the space ID from localStorage once when the component mounts
   useEffect(() => {
     const id = localStorage.getItem("space");
-    console.log(id)
-    if (id) {
+    if(!id)
+      return
       setSpaceId(id);
       localStorage.removeItem("space");
-    }
   }, []);
+
 
   // Use SWR to fetch space details only when spaceId is available
   const { data, error } = useSWR(
-    spaceId ? [`/api/spaceDetails/?id=${spaceId}`] : null,
+    spaceId.length>0 ? [`/api/spaceDetails/?id=${spaceId}`] : null,
     fetcher
   );
 
@@ -58,12 +58,12 @@ export default function SpaceForm({
 
   if (error) {
     console.error("Error fetching space details:", error);
-    return <div>Error loading space details.</div>;
+    return <div className="h-[70vh] text-center flex items-center justify-center font-bold ">Error loading space details.</div>;
   }
 
-  if (!data) {
-    return <div className="h-[70vh] text-center flex items-center justify-center font-bold ">Loading...</div>;
-  }
+  // if (!data) {
+  //   return <div className="h-[70vh] text-center flex items-center justify-center font-bold ">Loading...</div>;
+  // }
 
   return (
     <div>

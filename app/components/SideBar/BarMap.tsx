@@ -10,7 +10,7 @@ import React, { memo } from "react";
     return(
         <>
          {sideBarNav.map((data)=>(
-        <Link key={data.id} className={`flex justify-start items-center gap-2 hover:bg-[#19191A] cursor-pointer
+        <Link key={data.id} className={`flex justify-start items-center gap-2 hover:bg-[#19191A] cursor-pointer w-[90%]
          border border-zinc-700 font-medium px-4 py-2 text-[#B2B2B3] rounded-lg text-base  text-${text} hover:text-white`}
          href={data.path}>
              <span className="text-2xl text-white bg-black">{React.createElement(data.icon)}</span>

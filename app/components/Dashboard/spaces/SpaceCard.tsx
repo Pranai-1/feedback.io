@@ -20,7 +20,7 @@ export default function SpaceCard({
   setOpenDetailsCard: React.Dispatch<SetStateAction<string>>;
 }) {
   // Helper function to truncate text to 30 characters
-  const truncateText = (text: string, maxLength: number = 30) =>
+  const truncateText = (text: string, maxLength: number = 40) =>
     text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 
   const truncatedTitle = truncateText(space.headerTitle);
@@ -30,12 +30,15 @@ export default function SpaceCard({
     <div
       className="relative h-[300px] flex flex-col rounded-xl bg-[#E5E7EB] backdrop-blur-sm p-4 shadow-md hover:shadow-lg transition-shadow duration-200 w-full max-w-md "
       key={space.id}
-    >
+   onClick={()=>setOpenDetailsCard("")} >
       {/* Options Icon */}
       <button
         className="absolute top-3 right-3 text-black hover:text-red-600"
-        onClick={() =>
+        onClick={(e) =>{
           setOpenDetailsCard((prev) => (prev === space.id ? "" : space.id))
+          e.stopPropagation()
+        }
+          
         }
       >
         <PiDotsThreeCircleLight className="text-2xl" />
@@ -72,7 +75,7 @@ export default function SpaceCard({
       <div className="mb-3 flex flex-col gap-2">
       
           <p
-            className="text-md text-gray-800 flex items-center gap-2 truncate hover:text-green-600"
+            className="text-sm md:text-md text-gray-800 flex items-center gap-2 truncate hover:text-green-600"
             title={space.headerTitle}
           >
             <span className="font-bold ">Title:</span> {truncatedTitle}

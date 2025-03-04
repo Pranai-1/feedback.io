@@ -12,7 +12,7 @@ export default function SpaceDetailsForm({displayPage,setDisplayPage,createSpace
     }){
   
     return(
-        <ShineBorder className="bg-[#FFFFFF] md:w-[720px] sm:px-4 sm:p-4 w-[95%] rounded-lg">
+        <ShineBorder className="bg-[#FFFFFF] md:w-[760px] sm:px-4 sm:p-4 w-[95%] rounded-lg">
        <FormNavigator setDisplayPage={setDisplayPage} displayPage={displayPage}/>
        {displayPage==0 ? (
         <SpaceForm
