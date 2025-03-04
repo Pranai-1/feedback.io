@@ -1,5 +1,5 @@
 import { signIn } from "@/auth";
-import googleImage from "../../public/google.png";
+import googleImage from "../../../public/Images/google.png"
 import Image from "next/image";
 
 export default function GoogleSignIn() {

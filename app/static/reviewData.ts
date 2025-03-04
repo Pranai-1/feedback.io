@@ -1,11 +1,11 @@
-import productImage1 from "../Images/productImage1.jpg"
-import productImage2 from "../Images/productImage2.jpg"
-import productImage3 from "../Images/productImage3.jpg"
-import productImage4 from "../Images/productImage4.jpg"
-import reviewDataProfileImage1 from "../Images/reviewDataProfileImage1.jpg"
-import reviewDataProfileImage2 from "../Images/reviewDataProfileImage1.jpg"
-import reviewDataProfileImage3 from "../Images/reviewDataProfileImage1.jpg"
-import reviewDataProfileImage4 from "../Images/reviewDataProfileImage1.jpg"
+import productImage1 from "../Images/productImages/productImage1.jpg"
+import productImage2 from "../Images/productImages/productImage2.jpg"
+import productImage3 from "../Images/productImages/productImage3.jpg"
+import productImage4 from "../Images/productImages/productImage4.jpg"
+import reviewDataProfileImage1 from "../Images/reviewDataImages/reviewDataProfileImage1.jpg"
+import reviewDataProfileImage2 from "../Images/reviewDataImages/reviewDataProfileImage2.jpg"
+import reviewDataProfileImage3 from "../Images/reviewDataImages/reviewDataProfileImage3.jpg"
+import reviewDataProfileImage4 from "../Images/reviewDataImages/reviewDataProfileImage4.jpg"
 export const reviewData=[
     {
       id: 'cm5evrbne00090isseui22xqq',

@@ -1,7 +1,8 @@
 
+import { fetchLikedFeedbacks } from "@/lib/fetchLikedFeedbacks";
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { fetchLikedFeedbacks } from "@/app/actions/fetchLikedFeedbacks";
+
 
 export  async function GET(req:NextRequest){
 try{

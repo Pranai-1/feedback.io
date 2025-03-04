@@ -1,6 +1,6 @@
 
-import { fetchLikedFeedbacks } from "@/app/actions/fetchLikedFeedbacks";
 import ManualSliderHome from "@/app/components/Slider/ManualSliderHome";
+import { fetchLikedFeedbacks } from "@/lib/fetchLikedFeedbacks";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function ManualSlider({params}:{params:any}) {
