@@ -15,29 +15,23 @@ export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpace
      const[searchText,setSearchText]=useState("")
      const[deleteSpace,setDeleteSpace]=useState("")
      const[openDetailsCard,setOpenDetailsCard]=useState<string>("")
-     const timerRef=useRef<any>()
+     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-    function Search(text:string){
-    const filteredSpaces=spaces.filter((space)=>space.spaceName.toLowerCase().includes(text))
-    console.log(filteredSpaces)
-    return filteredSpaces
-    }
-    
-     function handleSpaceSearch(text:string){
-      console.log(text)
-      if(text.length==0)
-      {
-        clearTimeout(timerRef.current)
-        setSpacesData(spaces)
-        return
-      }
-          clearTimeout(timerRef.current)
-          timerRef.current=setTimeout(()=>{
-              const filteredSpaces=Search(text)
-              setSpacesData(filteredSpaces.length>0 ? filteredSpaces :[])
-          },300)
-     }
-
+     const Search = (text: string) => spaces.filter((space) =>
+       space.spaceName.toLowerCase().includes(text.toLowerCase())
+     );
+     
+     const handleSpaceSearch = (text: string) => {
+       if (timerRef.current) clearTimeout(timerRef.current);
+     
+       if (!text.trim()) {
+         setSpacesData(spaces);
+         return;
+       }
+     
+       timerRef.current = setTimeout(() => setSpacesData(Search(text)), 300);
+     };
+     
     return(
         <>
         {createStateToggle==-1 ? (
