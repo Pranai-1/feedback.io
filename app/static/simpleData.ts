@@ -90,3 +90,36 @@ export const questionData=[
 
       export const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']; // Allowed formats
       export const maxSizeInMB = 3;
+
+
+      export const pricingPackages=[
+        {
+          name:"BASIC",
+          description:"Get started with essential feedback tools for small businesses.",
+          price:0,
+          textButton:"Already Basic Member 🥳",
+          features:[
+            "Limited to 3 spaces",
+            "Custom NPM Packages",
+            "No analytics",
+            "Standard email support",
+            "Limited feedback storage",
+            "Integration with Websites",
+          
+          ]
+        },
+        {
+          name:"PRO",
+          description:"Advanced features and dedicated support for growing enterprises.",
+          price:5999,
+          textButton:"Buy Pro 🚀",
+          features:[
+            "Unlimited spaces",
+            "Everything in Basic plan",
+            "Advanced analytics and reporting",
+            "Unlimited feedback storage",
+            "Customizable integration options",
+            "Priority support and training",
+          ]
+        },
+      ]
