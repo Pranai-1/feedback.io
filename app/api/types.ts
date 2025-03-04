@@ -175,6 +175,7 @@ export interface QuestionType{
     label: string;
 
 }
+export  type SpacePromiseType = Promise<{ spaces: SpacePropType[] }>;
 
 export type FeedbackSideBarNavElement=
   {label: string,  id:number, icon: IconType  }

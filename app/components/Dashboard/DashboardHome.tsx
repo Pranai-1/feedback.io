@@ -3,6 +3,7 @@
 import { fetchUserData } from "@/lib/dataFetch";
 import SpacesContent from "./SpaceContent";
 import SideBarLarge from "../SideBar/SideBarLargeScreen";
+import { SpacePromiseType } from "@/app/api/types";
 
 
 export default async function DashboardHome() {
@@ -13,7 +14,7 @@ export default async function DashboardHome() {
       <SideBarLarge />
   
       <div className=" w-[95%] sm:w-full  md:ml-72  bg-[#09090B]">
-        <SpacesContent spacePromise={spacePromise} />
+        <SpacesContent spacePromise={spacePromise as SpacePromiseType} />
       </div>
     </div>
   );

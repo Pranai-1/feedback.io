@@ -1,7 +1,8 @@
 import { auth } from "@/auth";
 
 import { NextResponse } from "next/server";
-// eslint-disable-line @typescript-eslint/no-explicit-any
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function middleware(request:any){
    
     const session=await auth()
