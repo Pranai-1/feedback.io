@@ -1,3 +1,4 @@
+"use client"
 import { BlurFade } from "@/components/magicui/blur-fade";
 import Accordian from "../Accordian";
 import FeatureSections from "../FeatureSection";

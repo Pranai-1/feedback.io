@@ -2,7 +2,7 @@
 // import axios from "axios";
 // import { redirect } from "next/navigation";
 
-import HomeBody from "./components/HomePage/HomeBody";
+// import HomeBody from "./components/HomePage/HomeBody";
 import Navbar from "./components/HomePage/Navbar";
 
 
@@ -16,7 +16,7 @@ export default async function Home() {
   <div className="bg-black">
      
     <Navbar/>
-  <HomeBody/>
+  {/* <HomeBody/> */}
   
   </div>
   );
