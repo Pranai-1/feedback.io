@@ -23,13 +23,13 @@ export default function Features(){
           <FeatureSections />
        
         </BlurFade>
-        <BlurFade
+        {/* <BlurFade
           delay={time * 1}
           inView
           className="flex justify-center md:mb-10 mb-5"
         >
-          {/* <FeedbackWidget pageName="slider" spaceName="Feedback.io"/> */}
-          </BlurFade>
+          <FeedbackWidget pageName="slider" spaceName="Feedback.io"/>
+          </BlurFade> */}
                   {/* <BlurFade
           delay={time * 1}
           inView
