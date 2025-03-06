@@ -5,6 +5,7 @@ import { useEffect, useState, useCallback } from "react";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import SliderCard from "./SliderCard";
 
+
 export default function ManualSliderHome({ wallOfLove }: { wallOfLove: FeedbackPropType[] }) {
   const [reviewsToDisplay, setReviewsToDisplay] = useState<FeedbackPropType[]>([]);
   const [index, setIndex] = useState(0);
@@ -14,7 +15,7 @@ export default function ManualSliderHome({ wallOfLove }: { wallOfLove: FeedbackP
   const handleResize = useCallback(() => {
     setIsSmallScreen(window.innerWidth < 768);
   }, []);
-
+ 
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize);

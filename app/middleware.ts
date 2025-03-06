@@ -6,6 +6,10 @@ import { NextResponse } from "next/server";
 export default async function middleware(request:any){
    
     const session=await auth()
+    if (request.url.startsWith("/slider/") || (request.url.startsWith("/manualSlider/"))) {
+        return NextResponse.next();
+      }
+
     if(!session)
         return NextResponse.redirect("/login",request.url)
   return NextResponse.next()

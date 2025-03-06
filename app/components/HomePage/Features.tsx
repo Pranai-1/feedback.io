@@ -2,6 +2,7 @@
 import { BlurFade } from "@/components/magicui/blur-fade";
  import Accordian from "../Accordian";
 import FeatureSections from "../FeatureSection";
+import WidgetDisplay from "./WidegtDisplay";
 //  import { FeedbackWidget } from "feedback.io-widget";
 
 export default function Features(){
@@ -23,15 +24,8 @@ export default function Features(){
           <FeatureSections />
        
         </BlurFade>
-        {/* <FeedbackWidget pageName="slider" spaceName="Feedback.io"/> */}
-        {/* <BlurFade
-          delay={time * 1}
-          inView
-          className="flex justify-center md:mb-10 mb-5"
-        >
-         
-          </BlurFade> */}
-                  <BlurFade
+        <WidgetDisplay/>
+         <BlurFade
           delay={time * 1}
           inView
           className="flex justify-center md:mb-10 mb-5"
