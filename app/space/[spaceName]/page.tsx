@@ -90,8 +90,11 @@ import { SpacePropType } from "@/app/api/types";
 import QuestionCard from "@/app/components/SpaceReviewInputs/QuestionCardComponent";
 import SendInTextButton from "@/app/components/SpaceReviewInputs/SendInTextButton";
 import getSpace from "@/lib/getSpace";
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = {
+  title: "Spaces",
+};
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SpaceReviewHome({ params }:{params: any}) {

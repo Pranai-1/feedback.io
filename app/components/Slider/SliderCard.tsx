@@ -8,11 +8,11 @@ import { memo } from "react";
  function SliderCard({i,review,}:{i:number,review:FeedbackPropType,
 }){
     return(
-        <div key={i} className={` flex  justify-center overflow-hidden h-[300px]  w-[270px] md:w-[350px] bg-gray-200 rounded-xl px-4`}
+        <div key={i} className={` flex  justify-center overflow-hidden h-[320px]  w-[270px] md:w-[350px] bg-gray-200 rounded-xl px-4`}
                         >
                            
                                 <div className={`flex flex-col  justify-center items-start gap-2 w-[100%] overflow-hidden `}>
-                                <div className={`flex ${review.images.length>1 ?'justify-start' : 'justify-center'} items-center  w-[100%] my-2 overflow-x-auto`}>
+                                <div className={`flex justify-center items-center  w-[100%] my-2 overflow-x-auto`}>
                                     {review.images.length > 0 ? (
                                         <>
                                         {review.images.map((image, index) => (

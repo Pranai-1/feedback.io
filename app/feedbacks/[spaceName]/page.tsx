@@ -2,9 +2,12 @@
 import {  FetchFeedbackDetails } from "@/app/api/types";
 import FeedbackHome from "@/app/components/Feedback/FeedbackHome";
 import { fetchFeedbacks } from "@/lib/fetchFeedbackDetails";
+import { Metadata } from "next";
 
 
-
+export const metadata: Metadata = {
+  title: "Feedbacks",
+};
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SpaceFeedbacks({ params }:{ params:any} ) {
     

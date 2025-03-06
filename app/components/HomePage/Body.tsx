@@ -25,7 +25,7 @@ export default function Body(){
             { imageUrl: avatarUrl5.src, profileUrl: "https://github.com/Pranai-1" },
           ]}
         />
-      <p className="w-[70vw] mt-4 text-center sm:w-[25vw] font-medium text-[#92A0B5]">
+      <p className="w-[70vw] mt-4 text-center sm:w-[50vw] font-medium text-[#92A0B5]">
         More than 12 trusted partners using <span className="text-gray-50">Feedback.io</span>
       </p>
     </BlurFade>
