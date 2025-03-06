@@ -3,7 +3,7 @@
 // import { BlurFade } from "@/components/magicui/blur-fade";
 // import {FeedbackWidget} from "feedback.io-widget"
 export default function WidgetDisplay(){
-    const time=0.5
+    //const time=0.5
     return(
         <div className="w-[100%]">
         <p>kjewnckew</p>
