@@ -8,7 +8,7 @@ export default async function ManualSlider({params}:{params:any}) {
 
  
  const likedFeedbacks =await fetchLikedFeedbacks(spaceName)
-
+console.log(likedFeedbacks)
  if(likedFeedbacks.length==0){
     return <p className="text-2xl h-screen w-screen text-center text-black">No feedbacks to display</p>
  }

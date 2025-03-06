@@ -6,13 +6,13 @@ import { FeedbackPropType, WallOfLoveProp } from "@/app/api/types";
 export async function fetchLikedFeedbacks(spaceName: string) {
   const reviews = await getFeedback(spaceName);
   const liked = await getWallOfLove(spaceName);
-
+console.log(reviews,liked)
   const feedbacks: FeedbackPropType[] =
     reviews.success && Array.isArray(reviews.reviews) ? reviews.reviews as FeedbackPropType[] : [];
 
   const wallOfLove: WallOfLoveProp[] =
     liked.success && Array.isArray(liked.wallOfLove) ? liked.wallOfLove as WallOfLoveProp[]: [];
-
+console.log(wallOfLove)
   if (wallOfLove.length === 0 || feedbacks.length === 0) {
     return [];
   }
