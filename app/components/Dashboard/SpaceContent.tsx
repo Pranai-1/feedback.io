@@ -3,7 +3,7 @@
 import {  SpacePropType } from "@/app/api/types";
 import EmptySpaces from "./EmptySpacesComponent";
 import SpacesDisplay from "./SpacesDisplay";
-import { useState, use } from "react";
+import { useState } from "react";
 
 
 
