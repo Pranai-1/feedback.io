@@ -1,13 +1,15 @@
 "use server";
 
 
+import { fetchUserData } from "@/lib/dataFetch";
 import { prisma } from "@/lib/prisma";
-import userCheck from "../userCheck";
 import { revalidatePath } from "next/cache";
 
 export default async function removeFromWallOfLove(spaceId:string,reviewId:string){
     try{
-            const user= await userCheck()
+            const {user}= await fetchUserData()
+            if(!user)
+                return { success: false, message:"User doesn't exist" };
             const space=await prisma.space.findUnique({
                 where:{
                     id:spaceId,

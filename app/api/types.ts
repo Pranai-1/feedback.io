@@ -186,3 +186,8 @@ export type FeedbackSideBarNavElement=
     spaceId:string,
     reviewId:string
   }
+
+  export type FetchFeedbackDetails=
+  {likedFeedbacks: FeedbackPropType[],feedbacks:FeedbackPropType[],wallOfLove:WallOfLoveProp[]
+    
+  }

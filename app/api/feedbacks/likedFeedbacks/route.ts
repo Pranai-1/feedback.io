@@ -1,5 +1,5 @@
 
-import { fetchLikedFeedbacks } from "@/lib/fetchLikedFeedbacks";
+import { fetchLikedFeedbacks } from "@/lib/fetchFeedbackDetails";
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 

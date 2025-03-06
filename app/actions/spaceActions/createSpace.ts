@@ -3,12 +3,15 @@
 import { SpaceInputsIncludingQuestions, spaceSchemaBackend } from "../../zodSchema";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
-import userCheck from "../userCheck";
+import { fetchUserData } from "@/lib/dataFetch";
+
 
 export async function handleCreateSpace(spaceDetails: SpaceInputsIncludingQuestions) {
   try {
   
-    const user = await userCheck();
+     const {user}= await fetchUserData()
+       if(!user)
+        return { success: false, message:"User doesn't exist" };
 
    
     const validationResult = spaceSchemaBackend.safeParse({

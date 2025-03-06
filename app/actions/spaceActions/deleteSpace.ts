@@ -1,13 +1,16 @@
 "use server";
 
+import { fetchUserData } from "@/lib/dataFetch";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import userCheck from "../userCheck";
+
 
 export default async function deleteSpaceAction(spaceName:string){
 
     try{
-       await userCheck()
+         const {user}= await fetchUserData()
+          if(!user)
+           return { success: false, message:"User doesn't exist" };
       const deleteSpace=await prisma.space.delete({
         where:{
             spaceName

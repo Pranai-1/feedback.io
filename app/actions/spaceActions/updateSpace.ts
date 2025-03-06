@@ -4,14 +4,17 @@
 import { SpaceInputsIncludingQuestions } from "../../zodSchema";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
-import userCheck from "../userCheck";
+import { fetchUserData } from "@/lib/dataFetch";
+
 
 export async function handleUpdateSpace(spaceId: string,spaceDetails:SpaceInputsIncludingQuestions) {
   
      
     
         try {
-          await userCheck()
+               const {user}= await fetchUserData()
+                if(!user)
+                 return { success: false, message:"User doesn't exist" };
             const updatedSpace=await prisma.space.update({
                 where:{
                     id:spaceId

@@ -12,21 +12,18 @@ export default function FeedbackHome({
   feedbacks,
   spaceName,
   wallOfLove,
+  likedFeedbacks
 }: {
   feedbacks: FeedbackPropType[];
   spaceName: string;
   wallOfLove: WallOfLoveProp[];
+  likedFeedbacks:FeedbackPropType[]
 }) {
-console.log(feedbacks)
+
 
   const [display, setDisplay] = useState("All"); 
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const likedFeedbacks = feedbacks.filter((feedback) =>
-    wallOfLove.some(
-        (loved) => loved.reviewId === feedback.id && loved.spaceId === feedback.spaceId
-    )
-);
 
   const handleSidebarClick = (section: string) => {
     setDisplay(section);
