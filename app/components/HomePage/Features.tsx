@@ -1,9 +1,9 @@
-
+"use client"
 import { BlurFade } from "@/components/magicui/blur-fade";
  import Accordian from "../Accordian";
 import FeatureSections from "../FeatureSection";
 import WidgetDisplay from "./WidegtDisplay";
-//  import { FeedbackWidget } from "feedback.io-widget";
+
 
 export default function Features(){
     const time=0.25
