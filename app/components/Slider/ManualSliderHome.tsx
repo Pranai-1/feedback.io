@@ -31,14 +31,14 @@ export default function ManualSliderHome({ wallOfLove }: { wallOfLove: FeedbackP
     if (isSmallScreen) {
       setReviewsToDisplay([wallOfLove[index]]);
     } else {
-      setReviewsToDisplay(wallOfLove.slice(index, index + 2));
+      setReviewsToDisplay(wallOfLove.slice(index, index + 3));
     }
   }, [index, isSmallScreen, wallOfLove]);
 
 
   const handleClick = useCallback(
     (type: "left" | "right") => {
-      const incrementIndex = isSmallScreen ? 1 : 2;
+      const incrementIndex = isSmallScreen ? 1 : 3;
   
       setIndex((prevIndex) => {
         if (type === "right" && prevIndex + incrementIndex < wallOfLove.length) {
@@ -67,7 +67,7 @@ export default function ManualSliderHome({ wallOfLove }: { wallOfLove: FeedbackP
         )}
 
         {reviewsToDisplay.length > 0 ? (
-          <div className="w-[80%] md:w-[60%] md:m-2 p-2 flex justify-center items-center gap-8">
+          <div className="w-[80%] md:w-[90%]  md:m-2 p-2 flex justify-center items-center gap-8">
             {reviewsToDisplay.map((review, i) => (
               <SliderCard key={i} i={i} review={review} />
             ))}
