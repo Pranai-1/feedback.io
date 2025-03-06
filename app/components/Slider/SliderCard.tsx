@@ -8,9 +8,9 @@ import { memo } from "react";
  function SliderCard({i,review,}:{i:number,review:FeedbackPropType,
 }){
     return(
-        <div key={i} className={` flex  justify-center  h-[300px] w-[270px] md:w-[300px]}`}
+        <div key={i} className={` flex  justify-center  h-[300px] w-[270px] md:w-[300px] bg-gray-200 rounded-xl px-3`}
                         >
-                            <NeonGradientCard>
+                           
                                 <div className={`flex flex-col  justify-center items-start gap-2 w-[100%] overflow-hidden `}>
                                 <div className={`flex ${review.images.length>1 ?'justify-start' : 'justify-center'} items-center  w-[100%] my-2 overflow-x-auto`}>
                                     {review.images.length > 0 ? (
@@ -48,7 +48,7 @@ import { memo } from "react";
                                     </div>
                                     
                                 </div>
-                            </NeonGradientCard>
+                          
                         </div>
     )
 }

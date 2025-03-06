@@ -14,7 +14,12 @@ export default async function Slider({params}:{params:any}) {
  if(!likedFeedbacks || likedFeedbacks.length==0){
     return <p className="text-2xl h-screen w-screen text-center text-black">No feedbacks to display</p>
  }
- return <MagicSlider wallOfLove={likedFeedbacks}/>
+ return(
+ <>
+ <MagicSlider wallOfLove={likedFeedbacks}/>
+ <p>kebdkjwexnwkjsxn</p>
+
+ </>) 
 
 //  return <SliderHome wallOfLove={likedFeedbacks} width="full"/>
 }
