@@ -6,7 +6,8 @@ export default async function deleteFeedback(id:string,spaceId:string){
             
         const deletedFeedback=await prisma.review.delete({
             where:{
-                id
+                id,
+                spaceId
             }
         })
         if(deletedFeedback)

@@ -1,7 +1,8 @@
 
-import { fetchLikedFeedbacks } from "@/lib/fetchFeedbackDetails";
+import { fetchFeedbacks } from "@/lib/fetchFeedbackDetails";
 import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
+import { FetchFeedbackDetails } from "../../types";
 
 
 export  async function GET(req:NextRequest){
@@ -11,7 +12,7 @@ try{
    
     
           try{
-           const likedFeedbacks=await fetchLikedFeedbacks(spaceName)
+           const {likedFeedbacks}=await fetchFeedbacks(spaceName) as FetchFeedbackDetails
           return NextResponse.json({message:"Retrieved liked feedbacks successfully",likedFeedbacks},{status:200})
           }catch(error){
             console.log(error)
