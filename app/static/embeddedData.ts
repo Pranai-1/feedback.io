@@ -12,16 +12,6 @@ export default function EmbedData(pageName:string,codeType:string,spaceName:stri
           title="Feedback Widget"
           style="border: none; min-height: 400px; width: 100%; display: block;">
         </iframe>
-        
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            iFrameResize({ 
-              log: false, 
-              checkOrigin: ['https://feedback-io-xi.vercel.app'], 
-              heightCalculationMethod: 'max' 
-            }, "#feedback-io-widget");
-          });
-        </script>
 `
     }
     else return `<FeedbackWidget pageName='${pageName}' spaceName='${spaceName}'/>`

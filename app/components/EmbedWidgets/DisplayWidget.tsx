@@ -3,6 +3,7 @@ import embeddedData from "@/app/static/embeddedData";
 import { SetStateAction, useState } from "react";
 import { MdContentCopy, MdCheckCircle } from "react-icons/md";
 import CopyBlock from "./ReactCopyBlock";
+import Link from "next/link";
 
 export default function DisplayWidget({
   spaceName,
@@ -136,6 +137,9 @@ const ComponentImport="import { FeedbackWidget } from 'feedback.io-widget';"
       {steps.map((step) => (
         <CopyBlock key={step.id} title={step.title} content={step.content} state={step.state} copyType={step.id} handleCopy={handleCopy} />
       ))}
+      <p>Note: Make Sure you have Tailwind CSS is installed in your application</p>
+      <p className="flex justify-center items-center gap-4 text-gray-400 text-sm font-bold">Visit :- <Link href="https://v3.tailwindcss.com/docs/guides/create-react-app"
+      className="text-blue-600 underline">https://v3.tailwindcss.com/docs/guides/create-react-app</Link></p>
     </div>
       }
           
