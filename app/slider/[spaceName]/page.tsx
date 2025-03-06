@@ -17,8 +17,6 @@ export default async function Slider({params}:{params:any}) {
  return(
  <>
  <MagicSlider wallOfLove={likedFeedbacks}/>
- <p>kebdkjwexnwkjsxn</p>
-
  </>) 
 
 //  return <SliderHome wallOfLove={likedFeedbacks} width="full"/>
