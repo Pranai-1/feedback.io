@@ -8,27 +8,27 @@ import { memo } from "react";
  function SliderCard({i,review,}:{i:number,review:FeedbackPropType,
 }){
     return(
-        <div key={i} className={` flex  justify-center  h-[350px] w-[270px] md:w-[300px]}`}
+        <div key={i} className={` flex  justify-center  h-[300px] w-[270px] md:w-[300px]}`}
                         >
                             <NeonGradientCard>
                                 <div className={`flex flex-col  justify-center items-start gap-2 w-[100%] overflow-hidden `}>
-                                <div className={`flex ${review.images.length>1 ?'justify-start' : 'justify-center'} items-center  w-[100%] my-2  overflow-x-auto`}>
+                                <div className={`flex ${review.images.length>1 ?'justify-start' : 'justify-center'} items-center  w-[100%] my-2 overflow-x-auto`}>
                                     {review.images.length > 0 ? (
                                         <>
                                         {review.images.map((image, index) => (
                                             <Image key={index} src={image} alt="Images" width={100} height={50} 
                                             style={{ objectFit: "cover" }}
-                                            className="bg-gray-200 rounded-md mr-2 h-20"/>
+                                            className="bg-gray-200 rounded-md mr-2 h-16"/>
                                         ))}
                                         </>
                                     ) : (
-                                        <div className="h-20 w-32 bg-gray-200 rounded-md flex justify-center items-center">
-                                        <p className="text-black text-xs">No Images Available</p>
+                                        <div className="h-16 w-32 bg-gray-200 rounded-md flex justify-center items-center">
+                                        <p className="text-gray-600 font-medium text-xs">No Images Available</p>
                                         </div>
                                     )}
                                 </div>
 
-                                    <div className="flex justify-start items-start gap-4 mt-4 mb-2">
+                                    <div className="flex justify-start items-start gap-2 ">
                                         {review.photo ? 
                                         <Image src={review.photo} alt="Profile Photo" width={40} height={40}   style={{ objectFit: "cover" }}
                                         className="bg-gray-200 rounded-full"/>  :

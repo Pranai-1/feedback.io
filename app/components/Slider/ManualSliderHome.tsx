@@ -53,7 +53,7 @@ export default function ManualSliderHome({ wallOfLove }: { wallOfLove: FeedbackP
   
 
   return (
-    <div className="w-full h-max mt-4 bg-black flex justify-center items-center relative">
+    <div className="w-full h-max mt-2  flex justify-center items-center relative">
       <div className="w-full xl:w-[70%] flex justify-center items-center gap-2 sm:gap-4 lg:gap-2">
         
         {index > 0 && wallOfLove.length > 0 && (
@@ -72,7 +72,7 @@ export default function ManualSliderHome({ wallOfLove }: { wallOfLove: FeedbackP
             ))}
           </div>
         ) : (
-          <p className="text-white text-center w-full h-screen flex justify-center items-center">
+          <p className="text-orange-600 text-center w-full h-screen flex justify-center items-center">
             No feedbacks to display
           </p>
         )}

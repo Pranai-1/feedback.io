@@ -11,7 +11,7 @@ export default async function Slider({params}:{params:any}) {
  const likedFeedbacks =await fetchLikedFeedbacks(spaceName)
 
  if(likedFeedbacks.length==0){
-    return <p className="text-2xl h-screen w-screen text-center text-black">No feedbacks to display</p>
+    return <p className="text-2xl h-screen w-screen text-center flex justify-center items-center text-orange-600">No feedbacks to display</p>
  }
 
  return <MagicSlider wallOfLove={likedFeedbacks}/>
