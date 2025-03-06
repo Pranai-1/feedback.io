@@ -37,7 +37,7 @@ export default function SpaceNavigation({setDeleteSpace,setOpenDetailsCard,setCr
              <p className="flex justify-start items-center gap-4 text-black hover:bg-gray-300 cursor-pointer p-2 rounded-md"
 
               onClick={()=>{
-              handleCopy(`http://localhost:3000/space/${space.spaceName}`,toast)
+              handleCopy(`https://feedback-io-xi.vercel.app/space/${space.spaceName}`,toast)
               setOpenDetailsCard("")
              }}
              >

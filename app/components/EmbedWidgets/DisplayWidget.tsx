@@ -1,5 +1,4 @@
 "use client";
-import { FeedbackPropType } from "@/app/api/types";
 import embeddedData from "@/app/static/embeddedData";
 import { SetStateAction, useState } from "react";
 import { MdContentCopy, MdCheckCircle } from "react-icons/md";
