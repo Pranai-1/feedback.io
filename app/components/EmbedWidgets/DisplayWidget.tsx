@@ -88,7 +88,6 @@ const ComponentImport="import { FeedbackWidget } from 'feedback.io-widget';"
 
 
 
-console.log(likedFeedbacks)
   return (
     <div className="bg-white rounded-xl shadow-lg w-[90%] lg:w-[70%] flex flex-col justify-center items-center gap-6 p-6 border border-gray-200">
     

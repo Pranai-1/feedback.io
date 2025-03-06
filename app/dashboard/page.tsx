@@ -1,4 +1,3 @@
-"use server";
 
 import { Suspense } from "react";
 import DashboardHome from "@/app/components/Dashboard/DashboardHome";
