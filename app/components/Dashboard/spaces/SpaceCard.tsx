@@ -1,7 +1,7 @@
 "use client";
 
 import { SpacePropType } from "@/app/api/types";
-import { SetStateAction } from "react";
+import { RefObject, SetStateAction } from "react";
 import SpaceNavigation from "./SpaceNavigation";
 import Image from "next/image";
 import { PiDotsThreeCircleLight } from "react-icons/pi";
@@ -12,12 +12,14 @@ export default function SpaceCard({
   setDeleteSpace,
   openDetailsCard,
   setOpenDetailsCard,
+  deleteCardRef
 }: {
   space: SpacePropType;
   setCreateSpaceToggle: React.Dispatch<SetStateAction<number>>;
   setDeleteSpace: React.Dispatch<SetStateAction<string>>;
   openDetailsCard: string;
   setOpenDetailsCard: React.Dispatch<SetStateAction<string>>;
+   deleteCardRef:RefObject<HTMLDivElement>
 }) {
   // Helper function to truncate text to 30 characters
   const truncateText = (text: string, maxLength: number = 40) =>
@@ -66,6 +68,7 @@ export default function SpaceCard({
           setCreateSpaceToggle={setCreateSpaceToggle}
           setDeleteSpace={setDeleteSpace}
           setOpenDetailsCard={setOpenDetailsCard}
+          deleteCardRef={deleteCardRef}
         />
       )}
 

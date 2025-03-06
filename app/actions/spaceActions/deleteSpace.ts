@@ -6,23 +6,22 @@ import { revalidatePath } from "next/cache";
 
 
 export default async function deleteSpaceAction(spaceName:string){
-
+const {user}=await fetchUserData()
+if(!user){
+  return {success:false}
+}
     try{
-         const {user}= await fetchUserData()
-          if(!user)
-           return { success: false, message:"User doesn't exist" };
       const deleteSpace=await prisma.space.delete({
         where:{
             spaceName
         }
       })
-      if(deleteSpace){
-          revalidatePath("/dashboard")
-          return {success:true}
-      }
-        
-    else
-    return {success:false}
+      revalidatePath("/dashboard")
+     
+       
+          return {success:deleteSpace ? true : false}
+  
+  
 
     }catch (error: unknown) {
       console.error("Error in handleCreateSpace:", error);

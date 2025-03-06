@@ -1,12 +1,12 @@
 import "server-only";
 
-import { cache } from "react";
+
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
 
-export const fetchUserData = cache(async ()=>{
+export const fetchUserData = async ()=>{
   const session = await auth();
 
   if (!session || !session.user) {
@@ -38,4 +38,4 @@ export const fetchUserData = cache(async ()=>{
     });
 
   return { user,spaces };
-});
+};

@@ -1,18 +1,14 @@
 "use client";
 
-import { SpacePromiseType, SpacePropType } from "@/app/api/types";
+import {  SpacePropType } from "@/app/api/types";
 import EmptySpaces from "./EmptySpacesComponent";
 import SpacesDisplay from "./SpacesDisplay";
 import { useState, use } from "react";
 
 
 
-export default function SpacesContent({ spacePromise }: { spacePromise: SpacePromiseType }) {
+export default function SpacesContent({ spaces }: { spaces: SpacePropType[] }) {
   const [createStateToggle, setCreateSpaceToggle] = useState<number>(-1); // Explicit types for state
-
-  const result = use(spacePromise) as Awaited<SpacePromiseType>; // Ensures proper type inference
-  console.log(result)
-  const spaces: SpacePropType[] = result.spaces;
 
   return spaces.length === 0 ? (
     <EmptySpaces createStateToggle={createStateToggle} setCreateSpaceToggle={setCreateSpaceToggle} />

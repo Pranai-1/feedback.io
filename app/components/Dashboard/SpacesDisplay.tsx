@@ -1,6 +1,6 @@
 "use client";
 
-import { SetStateAction, useRef, useState } from "react"
+import { SetStateAction, useEffect, useRef, useState } from "react"
 import CreateSpaceButton from "./CreateSpaceButton";
 import SpaceCard from "./spaces/SpaceCard";
 import { SpacePropType } from "../../api/types";
@@ -16,11 +16,12 @@ export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpace
      const[deleteSpace,setDeleteSpace]=useState("")
      const[openDetailsCard,setOpenDetailsCard]=useState<string>("")
      const timerRef = useRef<NodeJS.Timeout | null>(null);
+     const deleteCardRef = useRef<HTMLDivElement>(null);
 
      const Search = (text: string) => spaces.filter((space) =>
        space.spaceName.toLowerCase().includes(text.toLowerCase())
      );
-     
+   useEffect(()=>{setSpacesData(spaces)},[spaces])
      const handleSpaceSearch = (text: string) => {
        if (timerRef.current) clearTimeout(timerRef.current);
      
@@ -64,6 +65,7 @@ export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpace
                 setDeleteSpace={setDeleteSpace}
                 openDetailsCard={openDetailsCard}
                 setOpenDetailsCard={setOpenDetailsCard}
+                deleteCardRef={deleteCardRef}
                 />
                 ))}
 
@@ -72,6 +74,7 @@ export default function SpacesDisplay({ spaces,createStateToggle, setCreateSpace
             
             {deleteSpace.length!=0 ? (
                 <DeleteSpaceCard 
+                deleteCardRef={deleteCardRef}
                 deleteSpace={deleteSpace}
                 setDeleteSpace={setDeleteSpace}
                 />

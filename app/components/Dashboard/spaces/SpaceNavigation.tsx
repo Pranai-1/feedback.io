@@ -2,7 +2,7 @@
 "use client";
 
 import { SpacePropType } from "@/app/api/types";
-import { SetStateAction } from "react";
+import { RefObject, SetStateAction } from "react";
 import { FaLink } from "react-icons/fa6";
 import { MdOutlineManageSearch, MdEdit } from "react-icons/md";
 import { toast } from "react-toastify";
@@ -13,10 +13,11 @@ import { RiDeleteBack2Line } from "react-icons/ri";
 
 
 
-export default function SpaceNavigation({setDeleteSpace,setOpenDetailsCard,setCreateSpaceToggle,space}
+export default function SpaceNavigation(
+    {setDeleteSpace,setOpenDetailsCard,setCreateSpaceToggle,space,deleteCardRef}
     :{setDeleteSpace:React.Dispatch<SetStateAction<string>>,
         setOpenDetailsCard:React.Dispatch<SetStateAction<string>>,setCreateSpaceToggle:React.Dispatch<SetStateAction<number>>,
-    space:SpacePropType}){
+    space:SpacePropType,deleteCardRef:RefObject<HTMLDivElement>}){
    
 
 
@@ -57,6 +58,7 @@ export default function SpaceNavigation({setDeleteSpace,setOpenDetailsCard,setCr
              onClick={()=>{
                 setDeleteSpace(space.spaceName)
                 setOpenDetailsCard("")
+                deleteCardRef.current?.scrollIntoView({ behavior: "smooth" });
                 }}>
                  <RiDeleteBack2Line className="text-2xl" />
                  Delete the space

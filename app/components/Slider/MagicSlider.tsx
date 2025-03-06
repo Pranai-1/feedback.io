@@ -31,7 +31,7 @@ export default  function MagicSlider({wallOfLove}:{wallOfLove:FeedbackPropType[]
 
 
   return (
-     <div className="relative flex h-max p-2 pb-[14px] w-full bg-black flex-col items-center justify-start overflow-hidden   md:shadow-xl">
+     <div className="relative flex h-[350px] sm:h-max p-2 pb-[14px] w-full bg-black flex-col items-center justify-start overflow-hidden overflow-y-hidden  md:shadow-xl">
           <Marquee pauseOnHover vertical={isSmallScreen}  className="[--duration:40s]">
             {reviews.map((review, index) => (
               <SliderCard key={index} i={index} review={review} />

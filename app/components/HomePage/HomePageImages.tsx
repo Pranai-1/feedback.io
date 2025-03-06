@@ -23,10 +23,10 @@ export default function HomePageImages(){
    
     return(
       
-        <div className="h-max md:h-[450px] w-[90vw] bg-gray-950 flex justify-center items-center overflow-hidden">
+        <div className="h-max md:h-[450px] w-[85vw] bg-gray-950 flex justify-center items-center overflow-hidden">
   <BlurFade delay={time * 2} inView>
     <ShineBorder>
-      <div className="relative w-max md:w-[800px] bg-black h-max md:h-[400px] flex justify-center items-center overflow-hidden">
+      <div className="relative w-[90vw] md:w-[800px] bg-black h-max md:h-[400px] flex justify-center items-center overflow-hidden">
 
       <Image
         src={images[index].src}
