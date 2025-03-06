@@ -7,12 +7,10 @@ import CopyBlock from "./ReactCopyBlock";
 
 export default function DisplayWidget({
   spaceName,
-  likedFeedbacks,
   widgetType,
   setSubmitted
 }: {
   spaceName: string;
-  likedFeedbacks: FeedbackPropType[];
   widgetType: string;
   setSubmitted:React.Dispatch<SetStateAction<number>>
 }) {

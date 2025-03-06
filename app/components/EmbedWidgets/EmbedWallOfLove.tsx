@@ -18,7 +18,7 @@ import { FeedbackPropType } from "@/app/api/types";
         <div className="flex flex-col gap-4 justify-center items-center md:w-[90%] w-full md:ml-10 rounded-md py-2 ">
           {submitted==-1 ? 
           <ChooseWidget  setSubmitted={setSubmitted}/> :
-          <DisplayWidget spaceName={spaceName} likedFeedbacks={likedFeedbacks} widgetType={submitted==1 ? "Auto Play":"Manual"}
+          <DisplayWidget spaceName={spaceName}  widgetType={submitted==1 ? "Auto Play":"Manual"}
           setSubmitted={setSubmitted}/>
           }
         </div>
