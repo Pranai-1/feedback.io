@@ -9,11 +9,11 @@ import Footer from "../Footer";
 import Features from "./Features";
 import HomePageImages from "./HomePageImages";
 
+
 export default function HomePage(){
     return(
-        <div className="w-[100%] h-screen bg-black relative">
-    
-        {/* <Particles className="absolute z-80 h-full w-full"/>  */}
+        <div className="w-[100%] h-[2700px] md:h-[2410px] bg-black relative overflow-auto">
+            
         <ScrollProgress className="top-[85px] z-10 rounded-lg" />
             <div className="flex flex-col justify-center items-center absolute top-0 right-0 left-0 bg-black">
                 <Header/>
@@ -24,7 +24,9 @@ export default function HomePage(){
                  <div className="w-[90vw] flex justify-center items-center my-12 bg-black">
                      <HomePageImages />
                  </div>
+                
                         <Features />
+                       
                         <Footer />
                 </div>
             </div>

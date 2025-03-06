@@ -8,7 +8,7 @@ import { memo } from "react";
  function SliderCard({i,review,}:{i:number,review:FeedbackPropType,
 }){
     return(
-        <div key={i} className={` flex  justify-center  h-[300px] w-[270px] md:w-[350px] bg-gray-200 rounded-xl px-4`}
+        <div key={i} className={` flex  justify-center overflow-hidden h-[300px]  w-[270px] md:w-[350px] bg-gray-200 rounded-xl px-4`}
                         >
                            
                                 <div className={`flex flex-col  justify-center items-start gap-2 w-[100%] overflow-hidden `}>
