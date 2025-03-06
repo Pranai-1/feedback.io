@@ -36,6 +36,6 @@ export const fetchUserData = cache(async ()=>{
         reviews:true
       },
     });
-console.log(spaces)
+
   return { user,spaces };
 });

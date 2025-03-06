@@ -80,7 +80,7 @@ export default function FeedbackHome({
       </div>
 
   
-      <div ref={contentRef} className="w-full md:w-[80%] h-auto md:h-full">
+      <div ref={contentRef} className="w-full md:w-[80%] h-auto md:h-full flex justify-center items-center">
         {renderContent()}
       </div>
     </div>

@@ -66,12 +66,12 @@ export default function FeedbackTextDisplay({
   }
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full flex justify-center items-center md:justify-start md:items-start">
       {feedbacks.length === 0 ? (
         <NoFeedback spaceName={spaceName} />
       ) : (
        
-            <div className={`flex flex-col gap-4 justify-center items-center w-[90%] ml-10 rounded-md py-2 flex-wrap`}>
+            <div className={`flex flex-col gap-4 justify-center items-center w-[90%] sm:ml-10 rounded-md py-2 flex-wrap`}>
               {feedbacks.map((feedback, idx) => (
                 <FeedbackCard
                 feedback={feedback}

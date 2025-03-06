@@ -6,7 +6,7 @@ import { prisma } from "./prisma";
 
 export async function fetchFeedbacks(spaceName: string) {
      const {user}= await fetchUserData()
-     console.log("user",user)
+    
             if(!user)
             return [];
     const reviews=await prisma.space.findUnique({
@@ -18,7 +18,7 @@ export async function fetchFeedbacks(spaceName: string) {
         wallOfLove:true
       }
     })
-    console.log("reviews",reviews)
+ 
     if(!reviews)
       return [];
 
@@ -27,8 +27,7 @@ export async function fetchFeedbacks(spaceName: string) {
 
   const wallOfLove: WallOfLoveProp[] =
   reviews.wallOfLove && Array.isArray(reviews.wallOfLove) ? reviews.wallOfLove as WallOfLoveProp[]: [];
-  console.log("feedbacks",feedbacks)
-  console.log("wallOfLove",wallOfLove)
+
   if (wallOfLove.length === 0 || feedbacks.length === 0) {
     return [];
   }

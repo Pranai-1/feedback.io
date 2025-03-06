@@ -2,6 +2,9 @@
 import { memo, useState } from "react";
 import { IoReorderThree } from "react-icons/io5";
 import BarMap from "./BarMap";
+import Link from "next/link";
+import { RiDashboardHorizontalFill } from "react-icons/ri";
+import React from "react";
 
 
  function SideBarSmallScreen(){
@@ -35,6 +38,13 @@ import BarMap from "./BarMap";
           </button>
                 <div className="mt-20 flex flex-col gap-6 px-2 text-black">
                <BarMap text={"black"} />
+               <Link key={4} className={`flex justify-start items-center gap-2 hover:bg-[#19191A] cursor-pointer w-[90%]
+         border border-zinc-700 font-medium px-4 py-2  rounded-lg text-base  text-black hover:text-white`}
+         href="/dashboard">
+             <span className="text-2xl text-white bg-black">{React.createElement(RiDashboardHorizontalFill)}</span>
+            <span className={`px-4 `}>Dashboard </span>
+           
+        </Link>
                </div>
                </div>
             </div>

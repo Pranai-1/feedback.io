@@ -2,21 +2,11 @@
 
 import Image from "next/image";
 import { MdArrowRightAlt } from "react-icons/md";
-import { AvatarCircles } from "@/components/avatar-circles";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import Features from "./Features";
 import { useRouter } from "next/navigation";
-import HomePageImages from "./HomePageImages";
-import Footer from "../Footer";
 
-// Import images
 import projectOfTheWeek from "@/app/Images/projectOfTheWeek.png";
-import avatarUrl from "../../Images/AvatarImages/avatarUrl.jpg";
-import avatarUrl1 from "../../Images/AvatarImages/avatarUrl1.png";
-import avatarUrl2 from "../../Images/AvatarImages/avatarUrl2.jpg";
-import avatarUrl3 from "../../Images/AvatarImages/avatarUrl3.png";
-import avatarUrl4 from "../../Images/AvatarImages/avatarUrl4.png";
-import avatarUrl5 from "../../Images/AvatarImages/avatarUrl5.jpg";
+
 
 export default function Header() {
   const router = useRouter();
@@ -25,7 +15,7 @@ export default function Header() {
 
 
   return (
-    <div className="flex flex-col justify-center items-center absolute top-0 right-0 left-0 bg-black">
+    <>
       <BlurFade delay={time} inView>
         <Image src={projectOfTheWeek.src} width={200} height={200} alt="Project" className={`mt-6`} />
       </BlurFade>
@@ -49,35 +39,6 @@ export default function Header() {
           Get Started for free <MdArrowRightAlt className="text-2xl text-black" />
         </button>
       </BlurFade>
-
-      <div className="flex flex-col justify-center items-center w-full">
-        <BlurFade delay={time * 5} inView>
-        
-            <AvatarCircles
-              className="mt-6 mb-2 w-full flex justify-center items-center"
-              avatarUrls={[
-                { imageUrl: avatarUrl.src, profileUrl: "https://github.com/Pranai-1" },
-                { imageUrl: avatarUrl1.src, profileUrl: "https://github.com/Pranai-1" },
-                { imageUrl: avatarUrl2.src, profileUrl: "https://github.com/Pranai-1" },
-                { imageUrl: avatarUrl3.src, profileUrl: "https://github.com/Pranai-1" },
-                { imageUrl: avatarUrl4.src, profileUrl: "https://github.com/Pranai-1" },
-                { imageUrl: avatarUrl5.src, profileUrl: "https://github.com/Pranai-1" },
-              ]}
-            />
-       
-
-          <p className="w-[70vw] mt-4 text-center sm:w-[25vw] font-medium text-[#92A0B5]">
-            More than 12 trusted partners using <span className="text-gray-50">Feedback.io</span>
-          </p>
-        </BlurFade>
-      </div>
-
-      <div className="w-[90vw] flex justify-center items-center my-12 bg-black">
-        <HomePageImages />
-      </div>
-
-      <Features />
-      <Footer />
-    </div>
+    </>
   );
 }
