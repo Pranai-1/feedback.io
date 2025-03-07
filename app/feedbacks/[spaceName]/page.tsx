@@ -14,7 +14,7 @@ export default async function SpaceFeedbacks({ params }:{ params:any} ) {
     
   const { spaceName }:{spaceName:string} =await params;
  
-   let decodedSpaceName=decodeURIComponent(spaceName)
+  const decodedSpaceName=decodeURIComponent(spaceName)
 
  const {feedbacks,likedFeedbacks,wallOfLove} =await fetchFeedbacks(decodedSpaceName) as FetchFeedbackDetails
 

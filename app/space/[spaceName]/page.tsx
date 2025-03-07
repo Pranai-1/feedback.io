@@ -102,7 +102,7 @@ export default async function SpaceReviewHome({ params }:{params: any}) {
 
   const { spaceName }:{spaceName:string} =await params;
  
-  let decodedSpaceName=decodeURIComponent(spaceName)
+  const decodedSpaceName=decodeURIComponent(spaceName)
 
 
   // Fetch space details
