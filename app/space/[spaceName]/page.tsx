@@ -91,6 +91,7 @@ import QuestionCard from "@/app/components/SpaceReviewInputs/QuestionCardCompone
 import SendInTextButton from "@/app/components/SpaceReviewInputs/SendInTextButton";
 import getSpace from "@/lib/getSpace";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Spaces",
@@ -98,19 +99,27 @@ export const metadata: Metadata = {
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SpaceReviewHome({ params }:{params: any}) {
-  const { spaceName } =await params;
+
+  const { spaceName }:{spaceName:string} =await params;
+ 
+  let decodedSpaceName=decodeURIComponent(spaceName)
+
 
   // Fetch space details
-  const spaceDetails = await getSpace(spaceName);
+  const spaceDetails = await getSpace(decodedSpaceName);
 
   // Validate using Zod schema
   const validatedResult = spaceSchemaBackend.safeParse(spaceDetails);
 
   if (!validatedResult.success) {
     return (
-      <p className="w-full h-screen flex justify-center items-center text-red-600 font-bold text-2xl">
+      <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
+       <p className="text-red-600 font-bold text-2xl">
         Space doesn&apos;t exist
       </p>
+      <Link href={"/"} className="text-orange-600 font-medium underline">Visit Home page</Link>
+      </div>
+    
     );
   }
 
@@ -130,7 +139,7 @@ export default async function SpaceReviewHome({ params }:{params: any}) {
         alt="Cheers Images"
         className="rounded-md mt-5"
       />
-      <p className="text-4xl text-center font-bold w-full">{spaceName}</p>
+      <p className="text-4xl text-center font-bold w-full">{space.spaceName}</p>
       <p className="text-gray-600  text-center w-full text-sm sm:text-md">{space.customMessage}</p>
       <div className="flex flex-col justify-start items-start gap-4">
         <QuestionCard

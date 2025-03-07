@@ -10,7 +10,21 @@
     background-position: 200% 200%;
   }
 }
+.custom-toast-success {
+  background-color: rgb(67, 164, 67) !important;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.custom-toast-error {
+  background-color: rgb(243, 23, 23) !important;
+  color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .animate-shimmer {
   animation: shimmer 2.5s infinite linear;
   background: linear-gradient(

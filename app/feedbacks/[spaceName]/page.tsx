@@ -3,6 +3,7 @@ import {  FetchFeedbackDetails } from "@/app/api/types";
 import FeedbackHome from "@/app/components/Feedback/FeedbackHome";
 import { fetchFeedbacks } from "@/lib/fetchFeedbackDetails";
 import { Metadata } from "next";
+import Link from "next/link";
 
 
 export const metadata: Metadata = {
@@ -11,12 +12,19 @@ export const metadata: Metadata = {
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SpaceFeedbacks({ params }:{ params:any} ) {
     
-  const { spaceName } =await params;
+  const { spaceName }:{spaceName:string} =await params;
+ 
+   let decodedSpaceName=decodeURIComponent(spaceName)
 
- const {feedbacks,likedFeedbacks,wallOfLove} =await fetchFeedbacks(spaceName) as FetchFeedbackDetails
+ const {feedbacks,likedFeedbacks,wallOfLove} =await fetchFeedbacks(decodedSpaceName) as FetchFeedbackDetails
 
- if(likedFeedbacks.length==0){
-    return <p className="text-2xl h-screen w-screen text-center text-black">No feedbacks to display</p>
+ if(feedbacks.length==0){
+    return(
+    <div className="h-[87vh] w-[97vw] flex flex-col justify-center items-center gap-4">
+    <p className="text-2xl  text-center text-white">No feedbacks to display</p>
+    <Link href={`https://feedback-io-xi.vercel.app/space/${decodedSpaceName}`} className="text-orange-600 underline font-medium">Click here to provide reviews</Link>
+    </div>
+    ) 
  }
 
 

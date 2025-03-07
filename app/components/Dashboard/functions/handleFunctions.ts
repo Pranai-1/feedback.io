@@ -16,7 +16,7 @@ export const handleCopy = async (path: string, toast: {
   error: (message: string) => void;
 }) => {
   try {
-    await navigator.clipboard.writeText(path);
+     navigator.clipboard.writeText(path);
     toast.success("✅ Link copied to clipboard!");
   } catch (error) {
     toast.error("Failed to copy link");

@@ -37,9 +37,11 @@ export default function SpaceNavigation(
                  Manage testimonials</p>
              <p className="flex justify-start items-center gap-4 text-black hover:bg-gray-300 cursor-pointer p-2 rounded-md"
 
-              onClick={()=>{
+              onClick={(e)=>{
+            
               handleCopy(`https://feedback-io-xi.vercel.app/space/${space.spaceName}`,toast)
               setOpenDetailsCard("")
+              e.stopPropagation()
              }}
              >
                  <FaLink className="text-2xl"

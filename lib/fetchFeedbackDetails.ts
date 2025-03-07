@@ -6,10 +6,10 @@ import { prisma } from "./prisma";
 
 export async function fetchFeedbacks(spaceName: string) {
      const {user}= await fetchUserData()
-    
+  
             if(!user)
-            return [];
-    const reviews=await prisma.space.findUnique({
+              return {feedbacks:[],likedFeedbacks:[],wallOfLove:[]};
+    const spaceDetails=await prisma.space.findUnique({
       where:{
         spaceName
       },
@@ -18,18 +18,19 @@ export async function fetchFeedbacks(spaceName: string) {
         wallOfLove:true
       }
     })
- 
-    if(!reviews)
-      return [];
+  
+
+    if(!spaceDetails)
+      return {feedbacks:[],likedFeedbacks:[],wallOfLove:[]};
 
   const feedbacks: FeedbackPropType[] =
-   reviews.reviews && Array.isArray(reviews.reviews) ? reviews.reviews as FeedbackPropType[] : [];
+  spaceDetails.reviews && Array.isArray(spaceDetails.reviews) ? spaceDetails.reviews as FeedbackPropType[] : [];
 
   const wallOfLove: WallOfLoveProp[] =
-  reviews.wallOfLove && Array.isArray(reviews.wallOfLove) ? reviews.wallOfLove as WallOfLoveProp[]: [];
+  spaceDetails.wallOfLove && Array.isArray(spaceDetails.wallOfLove) ? spaceDetails.wallOfLove as WallOfLoveProp[]: [];
 
   if (wallOfLove.length === 0 || feedbacks.length === 0) {
-    return [];
+    return {feedbacks,likedFeedbacks:[],wallOfLove};
   }
 
   const likedFeedbacks= feedbacks.filter((feedback) =>
